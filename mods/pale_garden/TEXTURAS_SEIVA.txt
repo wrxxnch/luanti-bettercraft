@@ -1,0 +1,70 @@
+TEXTURAS NECESSÁRIAS PARA O SISTEMA DE SEIVA
+=============================================
+
+Você precisa adicionar estas texturas na pasta pale_garden/textures/:
+
+SEIVA (RESIN):
+--------------
+❌ default_resin_clump.png (16x16)
+   - Grumo de seiva (item dropável)
+   - Cor: Laranja/âmbar (#FF8C00)
+
+❌ default_resin_block.png (16x16)
+   - Bloco de seiva sólido
+   - Textura: Laranja translúcido
+
+❌ default_resin_bricks.png (16x16)
+   - Tijolos de seiva
+   - Textura: Tijolos laranja/âmbar
+
+❌ default_chiseled_resin_bricks.png (16x16)
+   - Tijolos de seiva cinzelados
+   - Textura: Tijolos com padrão decorativo
+
+ONDE CONSEGUIR:
+--------------
+
+Opção 1: EXTRAIR DO MINECRAFT 1.21.4
+- Procure por arquivos "resin" no assets do Minecraft
+- Converta para PNG 16x16
+
+Opção 2: CRIAR TEXTURAS PLACEHOLDER
+Cores sugeridas:
+- Resin Clump: #FF8C00 (laranja escuro)
+- Resin Block: #FFA500 (laranja)
+- Resin Bricks: #D2691E (chocolate/tijolo)
+- Chiseled: #CD853F (peru/bege)
+
+Opção 3: USAR TEXTURAS EXISTENTES COMO BASE
+- Use texturas de mel (honey) e deixe mais escuras
+- Use texturas de tijolos normais e pinte de laranja
+
+COMO FUNCIONA NO JOGO:
+----------------------
+
+1. COLETAR SEIVA:
+   - Seiva aparece naturalmente nas árvores Pale Oak
+   - Quebra com a mão
+   - Drop: 1 grumo de seiva
+
+2. CRAFTING:
+   - 4 grumos → 1 bloco de seiva
+   - 4 blocos → 4 tijolos de seiva
+   - 2 tijolos → 2 tijolos cinzelados
+
+3. ONDE ENCONTRAR:
+   - Nas árvores Pale Oak (grudada no tronco)
+   - Drop raro das folhas (10% de chance)
+   - Aparece ao longo do tempo (a cada 5 minutos)
+
+ESTRUTURA FINAL:
+---------------
+
+pale_garden/textures/
+├── (texturas existentes...)
+├── default_resin_clump.png          ← NOVA
+├── default_resin_block.png          ← NOVA
+├── default_resin_bricks.png         ← NOVA
+└── default_chiseled_resin_bricks.png ← NOVA
+
+TOTAL: 4 novas texturas para o sistema de seiva!

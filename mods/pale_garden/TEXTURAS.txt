@@ -1,0 +1,87 @@
+GUIA DE TEXTURAS PARA O MOD PALE GARDEN
+========================================
+
+✅ PARABÉNS! VOCÊ TEM TODAS AS TEXTURAS NECESSÁRIAS!
+
+Copie TODOS os arquivos que você tem para a pasta: pale_garden/textures/
+
+TEXTURAS QUE VOCÊ TEM (copie TODAS para pale_garden/textures/):
+---------------------------------------------------------------
+
+✅ PALE OAK (Árvores e Blocos):
+   - default_pale_oak_wood.png
+   - default_pale_oak_wood_top.png
+   - default_stripped_pale_oak_wood.png
+   - default_stripped_pale_oak_wood_top.png
+   - default_pale_oak_planks.png
+   - default_pale_oak_leaves_simple.png
+   - default_pale_oak_sapling.png
+   - default_pale_oak_door_bottom.png
+   - default_pale_oak_door_top.png
+   - default_pale_oak_trapdoor.png
+
+✅ PALE MOSS (Musgo):
+   - default_pale_moss_block.png
+   - default_pale_moss_carpet.png
+   - default_pale_moss_carpet_side_small.png
+   - default_pale_moss_carpet_side_tall.png
+   - default_pale_hanging_moss.png
+   - default_pale_hanging_moss_tip.png
+
+✅ CREAKING (Mob):
+   - creaking.png
+
+✅ CREAKING HEART (Coração):
+   - default_creaking_heart.png
+   - default_creaking_heart_top.png
+   - default_creaking_heart_dormant.png
+   - default_creaking_heart_top_dormant.png
+   - default_creaking_heart_awake.png
+   - default_creaking_heart_top_awake.png
+
+TEXTURAS QUE AINDA FALTAM (opcional):
+-------------------------------------
+
+❌ spawn_egg_creaking.png (16x16) - Ovo de spawn do Creaking
+
+Esta textura é OPCIONAL. O mod funciona sem ela, mas você não terá o ovo de spawn no inventário criativo.
+
+Se quiser criar: Faça um quadrado 16x16 com cor marrom escuro (#5C4033).
+
+COMO INSTALAR:
+--------------
+
+1. Copie TODAS as 23 texturas que você tem para:
+   pale_garden/textures/
+
+2. Certifique-se que os nomes estão EXATAMENTE como listados acima
+
+3. Reinicie o Minetest
+
+4. Crie um NOVO mundo
+
+5. Ative o mod
+
+6. Entre e teste!
+
+VERIFICAÇÃO:
+-----------
+
+Após copiar as texturas, a pasta pale_garden/textures/ deve ter 23 arquivos PNG.
+
+Se alguma textura aparecer como quadrado roxo/preto no jogo:
+- Verifique se o nome do arquivo está correto
+- Certifique-se que está na pasta textures/
+- Reinicie o Minetest
+
+ESTÁ TUDO PRONTO! 🎉
+-------------------
+
+Você tem todas as texturas necessárias para o mod funcionar completamente:
+✅ Bioma Pale Garden
+✅ Árvores Pale Oak
+✅ Musgo Pálido
+✅ Creaking (mob)
+✅ Creaking Heart (bloco)
+
+Basta copiar as texturas e jogar!
