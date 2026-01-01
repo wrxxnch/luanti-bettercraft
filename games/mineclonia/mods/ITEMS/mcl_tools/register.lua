@@ -4,7 +4,7 @@ local S = core.get_translator("mcl_tools")
 mcl_tools.register_set("wood", {
     craftable = true,
     material = "group:wood",
-    uses = 60,
+    uses = 2 * 60,
     level = 1,
     speed = 2,
     max_drop_level = 1,
@@ -48,7 +48,7 @@ mcl_tools.register_set("wood", {
 mcl_tools.register_set("stone", {
     craftable = true,
     material = "group:cobble",
-    uses = 132,
+    uses = 2 * 132,
     level = 3,
     speed = 4,
     max_drop_level = 3,
@@ -92,7 +92,7 @@ mcl_tools.register_set("stone", {
 mcl_tools.register_set("iron", {
     craftable = true,
     material = "mcl_core:iron_ingot",
-    uses = 251,
+    uses = 2 * 251,
     level = 4,
     speed = 6,
     max_drop_level = 4,
@@ -136,7 +136,7 @@ mcl_tools.register_set("iron", {
 mcl_tools.register_set("gold", {
     craftable = true,
     material = "mcl_core:gold_ingot",
-    uses = 33,
+    uses = 2 * 33,
     level = 2,
     speed = 12,
     max_drop_level = 2,
@@ -180,7 +180,7 @@ mcl_tools.register_set("gold", {
 mcl_tools.register_set("diamond", {
     craftable = true,
     material = "mcl_core:diamond",
-    uses = 1562,
+    uses = 2 * 1562,
     level = 5,
     speed = 8,
     max_drop_level = 5,
@@ -232,7 +232,7 @@ mcl_tools.register_set("diamond", {
 mcl_tools.register_set("netherite", {
     craftable = false,
     material = "mcl_nether:netherite_ingot",
-    uses = 2031,
+    uses = 2 * 2031,
     level = 6,
     speed = 9.5,
     max_drop_level = 5,
