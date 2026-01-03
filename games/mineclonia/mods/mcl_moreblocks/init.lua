@@ -135,7 +135,7 @@ mcl_moreblocks.add_nodes = function()
 			-- wool
 			table.insert(other_nodes, "mcl_wool:"..color)
 			-- glass does not work that well (only the frame gets colored)
-			--table.insert(other_nodes, "mcl_core:glass_"..color)
+			table.insert(other_nodes, "mcl_core:glass_"..color)
 		end
 	end
 
