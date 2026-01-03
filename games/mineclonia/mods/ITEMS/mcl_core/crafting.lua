@@ -12,6 +12,12 @@ core.register_craft({
 
 core.register_craft({
 	type = "shapeless",
+	output = "mcl_mobitems:string 3",
+	recipe = { "mcl_core:vine" },
+})
+
+core.register_craft({
+	type = "shapeless",
 	output = "mcl_core:stonebrickmossy",
 	recipe = { "mcl_core:stonebrick", "mcl_core:vine" },
 })

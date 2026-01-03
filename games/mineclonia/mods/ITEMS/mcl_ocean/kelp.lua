@@ -661,6 +661,19 @@ core.register_abm({
 	action = detach_unsubmerged, --surface_unsubmerged_abm,
 })
 
+--crafting linha com kelp
+
+core.register_craft({
+	output = "mcl_mobitems:string 3",
+	--sem forma
+	shapeless = true,
+	recipe = {
+		{"mcl_ocean:kelp"},
+		{"mcl_ocean:kelp"},
+		{"mcl_ocean:kelp"}
+	}
+})
+
 
 -- 50% growth over a minute https://minecraft.wiki/w/Tutorials/Kelp_farming
 -- 14% chance every random tick
