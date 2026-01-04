@@ -105,7 +105,7 @@ local function setSprinting(playerName, sprinting) --Sets the state of a player 
 end
 
 -- Given the param2 and paramtype2 of a node, returns the tile that is facing upwards
-local function get_top_node_tile(param2, paramtype2)
+function mcl_sprint.get_top_node_tile(param2, paramtype2)
 	if paramtype2 == "colorwallmounted" then
 		paramtype2 = "wallmounted"
 		param2 = param2 % 8
@@ -113,6 +113,7 @@ local function get_top_node_tile(param2, paramtype2)
 		paramtype2 = "facedir"
 		param2 = param2 % 32
 	end
+
 	if paramtype2 == "wallmounted" then
 		if param2 == 0 then
 			return 2
@@ -141,6 +142,8 @@ local function get_top_node_tile(param2, paramtype2)
 		return 1
 	end
 end
+
+
 
 minetest.register_on_modchannel_message(function(channel_name, sender, message)
 	if channel_name == "mcl_sprint:" .. sender then
@@ -202,7 +205,7 @@ minetest.register_globalstep(function(dtime)
 						attached = player,
 						vertical = false,
 						node = playerNode,
-						node_tile = get_top_node_tile(playerNode.param2, def.paramtype2),
+						node_tile = mcl_sprint.get_top_node_tile(playerNode.param2, def.paramtype2),
 					})
 				end
 			end

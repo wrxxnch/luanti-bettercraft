@@ -63,18 +63,39 @@ minetest.register_chatcommand("setblock", {
     privs = {server = true},
     func = function(name, param)
         local player = minetest.get_player_by_name(name)
-        if not player then return false, "Jogador não encontrado" end
-        
+        if not player then
+            return false, "Jogador não encontrado"
+        end
+
         local args = param:split(" ")
         local pos, remaining_args = get_pos_from_args(args, player)
-        
+
+        if not pos then
+            return false, "Posição inválida"
+        end
+
         local block_name = remaining_args[1]
         if not block_name then
             return false, "Uso: /setblock <x> <y> <z> <block>"
         end
-        
-        minetest.set_node(pos, {name = block_name})
-        return true, "Bloco " .. block_name .. " colocado em " .. minetest.pos_to_string(pos)
+
+        -- 🔒 VERIFICA SE O BLOCO EXISTE
+        if not minetest.registered_nodes[block_name] then
+            return false, "Bloco inexistente: " .. block_name
+        end
+
+        -- 🔒 PROTEÇÃO CONTRA CRASH
+        local ok, err = pcall(function()
+            minetest.set_node(pos, { name = block_name })
+        end)
+
+        if not ok then
+            minetest.log("error", "[setblock] Erro ao colocar bloco: " .. tostring(err))
+            return false, "Erro interno ao colocar o bloco (ver log)"
+        end
+
+        return true, "Bloco " .. block_name ..
+            " colocado em " .. minetest.pos_to_string(pos)
     end,
 })
 

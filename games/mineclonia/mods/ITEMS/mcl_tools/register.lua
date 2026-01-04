@@ -147,7 +147,7 @@ mcl_tools.register_set("gold", {
         inventory_image = "default_tool_goldpick.png",
         tool_capabilities = {
             full_punch_interval = 0.83333333,
-            damage_groups = { fleshy = 2 }
+            damage_groups = { fleshy = 5 }
         }
     },
     ["shovel"] = {
