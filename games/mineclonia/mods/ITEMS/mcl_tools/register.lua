@@ -137,7 +137,7 @@ mcl_tools.register_set("gold", {
     craftable = true,
     material = "mcl_core:gold_ingot",
     uses = 2 * 33,
-    level = 2,
+    level = 4,
     speed = 12,
     max_drop_level = 2,
     groups = { dig_speed_class = 6, enchantability = 22 }
@@ -147,7 +147,7 @@ mcl_tools.register_set("gold", {
         inventory_image = "default_tool_goldpick.png",
         tool_capabilities = {
             full_punch_interval = 0.83333333,
-            damage_groups = { fleshy = 5 }
+            damage_groups = { fleshy = 2 }
         }
     },
     ["shovel"] = {
