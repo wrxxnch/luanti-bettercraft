@@ -48,7 +48,13 @@ local vindicator = table.merge (illager, table.merge (posing_humanoid, {
 		"mobs_mc:wandering_trader",
 		"player",
 	},
-	group_attack = true,
+	group_attack = {
+		"mobs_mc:evoker",
+		"mobs_mc:vindicator",
+		"mobs_mc:pillager",
+		"mobs_mc:illusioner",
+		"mobs_mc:witch",
+	},
 	drops = {
 		{
 			name = "mcl_core:emerald",
@@ -124,31 +130,15 @@ local vindicator_poses = {
 	},
 }
 
-mcl_mobs.define_composite_pose (vindicator_poses, "jockey", {
-	["leg.left"] = {
-		vector.zero (),
-		vector.new (90, -30, 0),
-		nil,
-	},
-	["leg.right"] = {
-		vector.zero (),
-		vector.new (90, 30, 0),
-		nil,
-	},
-})
-
 vindicator._arm_poses = vindicator_poses
 
 function vindicator:select_arm_pose ()
-	local pose
-	if self.attack
-		or self._aggressive
+	if self.attack or self._aggressive
 		or self._current_animation == "punch" then
-		pose = "attack"
+		return "attack"
 	else
-		pose = "default"
+		return "default"
 	end
-	return self.jockey_vehicle and "jockey_" .. pose or pose
 end
 
 ------------------------------------------------------------------------

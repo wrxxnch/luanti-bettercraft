@@ -356,11 +356,11 @@ function raid_mob:ai_step (dtime)
 	end
 end
 
-function raid_mob:retaliate_against (source, persistence)
+function raid_mob:retaliate_against (source)
 	local entity = source:get_luaentity ()
 
 	if not entity or not entity._is_raid_mob then
-		mob_class.retaliate_against (self, source, persistence)
+		mob_class.retaliate_against (self, source)
 	end
 end
 
