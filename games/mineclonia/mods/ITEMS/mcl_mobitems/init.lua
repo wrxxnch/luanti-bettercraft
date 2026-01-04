@@ -334,6 +334,85 @@ core.register_tool("mcl_mobitems:carrot_on_a_stick", {
 	_mcl_uses = 26
 })
 
+for _,color in pairs({"ochre","verdant","pearlescent"}) do
+	core.register_node("mcl_mobitems:froglight_"..color,{
+		description = S(color.." Frog Light"),
+		_doc_items_longdesc = S("Frog Lights are decorative light sources."),
+		paramtype2 = "facedir",
+		on_place = mcl_util.rotate_axis,
+		is_ground_content = false,
+		light_source = core.LIGHT_MAX,
+		tiles = {"mcl_mobitems_froglight_"..color.."_top.png","mcl_mobitems_froglight_"..color.."_top.png","mcl_mobitems_froglight_"..color.."_side.png"},
+		groups = {handy=1, },
+		--sounds = mcl_sounds.node_sound_glass_defaults(),
+		_mcl_blast_resistance = 0.3,
+		_mcl_hardness = 0.3,
+	})
+end
+
+core.register_node("mcl_mobitems:frogspawn", {
+	description = S("Frogspawn"),
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	tiles = {"mcl_mobitems_frogspawn.png", "mcl_mobitems_frogspawn.png^[transformFY"},
+	use_texture_alpha = core.features.use_texture_alpha_string_modes and "clip" or true,
+	inventory_image = "mcl_mobitems_frogspawn.png",
+	wield_image = "mcl_mobitems_frogspawn.png",
+	liquids_pointable = true,
+	sunlight_propagates = true,
+	groups ={
+		destroy_by_lava_flow = 1, dig_immediate = 3, dig_by_water = 1, dig_by_piston = 1,
+		supported_node = 1,
+	},
+	sounds = mcl_sounds.node_sound_leaves_defaults(),
+	walkable = false,
+	floodable = true,
+	drop = "",
+	node_placement_prediction = "",
+	node_box = {
+		type = "fixed",
+		fixed = {-0.5, -31/64, -0.5, 0.5, -15/32, 0.5}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16}
+	},
+	on_timer = function(pos)
+		for i = 1, math.random(2, 5) do
+			core.add_entity(vector.offset(pos, math.random()-0.5, -0.5, math.random()-0.5), "mobs_mc:tadpole")
+		end
+		core.remove_node(pos)
+	end,
+	on_place = function(itemstack, placer, pointed_thing)
+		if pointed_thing.type ~= "node" then return itemstack end
+
+		local rc = mcl_util.call_on_rightclick(itemstack, placer, pointed_thing)
+		if rc then return rc end
+
+		local pos = pointed_thing.above
+		if core.is_protected(pos, placer:get_player_name()) then return itemstack end
+
+		-- can only be placed on top of water source into air
+		local under = pointed_thing.under
+		if pos.y - 1 ~= under.y then return itemstack end
+		local under_name = core.get_node(under).name
+		if core.get_node(pos).name == "air"
+				and core.get_item_group(under_name, "water") ~= 0
+				and core.registered_nodes[under_name].liquidtype == "source" then
+			core.set_node(pos, {name = "mcl_mobitems:frogspawn"})
+			if not core.is_creative_enabled(placer:get_player_name()) then
+				itemstack:take_item()
+			end
+			return itemstack
+		end
+		return itemstack
+	end,
+	on_construct = function(pos)
+		core.get_node_timer(pos):start(math.random(180, 600))
+	end,
+})
+
 core.register_tool("mcl_mobitems:warped_fungus_on_a_stick", {
 	description = S("Warped Fungus on a Stick"),
 	_tt_help = S("Lets you ride a strider"),
