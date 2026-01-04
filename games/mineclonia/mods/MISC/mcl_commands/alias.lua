@@ -12,6 +12,7 @@ register_chatcommand_alias("tell", "msg")
 register_chatcommand_alias("w", "msg")
 register_chatcommand_alias("tp", "teleport")
 register_chatcommand_alias("clear", "clearinv")
+register_chatcommand_alias("spawn_mob", "summon")
 
 core.register_chatcommand("banlist", {
 	description = S("List bans"),
