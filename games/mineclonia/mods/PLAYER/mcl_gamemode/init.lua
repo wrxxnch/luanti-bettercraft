@@ -46,6 +46,55 @@ function mcl_gamemode.set_gamemode(p, gm)
 	return true
 end
 
+-- Script para ativar fly e fast automaticamente no modo criativo do Mineclonia
+-- Este script deve ser colocado em um mod (ex: mods/mcl_creative_fly_fast/init.lua)
+
+if minetest.get_modpath("mcl_gamemode") then
+    mcl_gamemode.register_on_gamemode_change(function(player, old_gamemode, new_gamemode)
+        local name = player:get_player_name()
+        local privs = minetest.get_player_privs(name)
+        
+        if new_gamemode == "creative" then
+            -- Ativa as permissões fly e fast
+            privs.fly = true
+            privs.fast = true
+			-- privs.teleport = true
+			-- privs.server = true
+			-- privs.settime = true
+			-- privs.noclip = true
+			-- privs.weather_manager = true
+			-- privs.debug = true
+            minetest.set_player_privs(name, privs)
+            
+            -- Opcional: Ativa o modo de voo e velocidade imediatamente
+            -- player:set_physics_override({speed=1, jump=1, gravity=1}) -- Exemplo se necessário
+            
+            minetest.chat_send_player(name, "Modo Criativo: Permissões 'fly' e 'fast' ativadas!")
+        elseif new_gamemode == "survival" then
+            -- Opcional: Remove as permissões ao voltar para o survival
+            -- privs.fly = nil
+            -- privs.fast = nil
+            -- minetest.set_player_privs(name, privs)
+            -- minetest.chat_send_player(name, "Modo Sobrevivência: Permissões 'fly' e 'fast' removidas.")
+        end
+    end)
+    
+    -- Também verifica ao entrar no jogo (on_joinplayer)
+    minetest.register_on_joinplayer(function(player)
+        local name = player:get_player_name()
+        local gamemode = mcl_gamemode.get_gamemode(player)
+        
+        if gamemode == "creative" then
+            local privs = minetest.get_player_privs(name)
+            privs.fly = true
+            privs.fast = true
+            minetest.set_player_privs(name, privs)
+        end
+    end)
+else
+    minetest.log("error", "[mcl_creative_fly_fast] O mod mcl_gamemode não foi encontrado!")
+end
+
 core.register_chatcommand("gamemode",{
 	params = S("[<gamemode>] [<player>]"),
 	description = S("Change gamemode (survival/creative/0/1/s/c) for yourself or player"),
