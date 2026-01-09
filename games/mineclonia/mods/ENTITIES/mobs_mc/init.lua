@@ -56,6 +56,7 @@ local files = {
 	"spider.lua",
 	"squid+glow_squid.lua",
 	"strider.lua",
+	"turtle.lua",
 	"tropical_fish.lua",
 	"vex.lua",
 	"villager_evoker.lua",

@@ -324,6 +324,7 @@ slime_tiny.sound_params.gain = slime_small.sound_params.gain / 3
 
 mcl_mobs.register_mob("mobs_mc:slime_tiny", slime_tiny)
 
+
 local water_level = mobs_mc.water_level
 
 local cave_biomes = {
@@ -515,12 +516,20 @@ magma_cube_tiny.armor = 50
 magma_cube_tiny.drops = {}
 magma_cube_tiny.spawn_small_alternative = nil
 magma_cube_tiny.on_die = function(self, pos, cause_or_reason)
-	local source = cause_or_reason and (cause_or_reason.puncher or cause_or_reason.direct)
-	local l = source and source:get_luaentity()
-	if l and l.name == "mobs_mc:frog" then
-		core.add_item(pos,frogdrop[l.frogtype or "medium"])
+	if not cause_or_reason then return end
+
+	local source = cause_or_reason.puncher or cause_or_reason.direct
+	if not source then return end
+
+	local l = source:get_luaentity()
+	if not l or l.name ~= "mobs_mc:frog" then return end
+
+	local drop = frogdrop[l.frogtype or "medium"]
+	if drop then
+		core.add_item(pos, drop)
 	end
 end
+
 magma_cube_tiny.sound_params.gain = magma_cube_small.sound_params.gain / 3
 
 mcl_mobs.register_mob("mobs_mc:magma_cube_tiny", magma_cube_tiny)
