@@ -417,6 +417,55 @@ core.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
 	end
 end)
 
+local function open_bag_from_item(stack, player, inventory_image)
+	if not player or not stack then return stack end
+
+	local meta = stack:get_meta()
+	local contents = deserializeContents(meta:get_string(""))
+
+	if not contents then
+		contents = {}
+		for i = 1, BAG_WIDTH * BAG_HEIGHT do
+			contents[i] = ItemStack(nil)
+		end
+	end
+
+	local fake_id = "invbag_" .. player:get_player_name()
+
+	local fake_self = {
+		id = fake_id,
+		contents = contents,
+		object = player,
+	}
+
+	idSet[fake_id] = fake_id
+	idToWeakEntityMap[fake_id] = fake_self
+
+	show_bag_fromspec(fake_self, player, inventory_image)
+
+	-- salva quando fechar
+	core.register_on_player_receive_fields(function(p, formname, fields)
+		if p ~= player or formname ~= "prestibags:bag" then return false end
+
+		local new_contents = {}
+		for i = 1, BAG_WIDTH * BAG_HEIGHT do
+			new_contents[i] = entityInv:get_stack(fake_id, i)
+		end
+
+		meta:set_string("", serializeContents(new_contents))
+
+		entityInv:set_size(fake_id, 0)
+		idSet[fake_id] = nil
+		idToWeakEntityMap[fake_id] = nil
+
+		return true
+	end)
+
+	return stack
+end
+
+
+
 for color, material in pairs(colors) do
 	-- DEFINIÇÕES NORMAIS
 local bag_ent_name = "prestibags:bag_entity_" .. color
@@ -516,6 +565,11 @@ end
 		inventory_image = inventory_image,
 		wield_image = wield_image,
 		stack_max = 1,
+        
+		on_use = function(stack, player, pointed_thing)
+	return open_bag_from_item(stack, player, inventory_image)
+end,
+
 
 		on_place = function(stack, player, pointedThing)
 			local pos = pointedThing and pointedThing.under
