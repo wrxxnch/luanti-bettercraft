@@ -1,12 +1,13 @@
 -- Custom Food Mod for Mineclonia
 -- Adds Fried Egg and Pumpkin Slices
 
-local S = minetest.get_translator("custom_food")
+local modname = minetest.get_current_modname()
+local S = minetest.get_translator(modname)
 
 -------------------------------------------------
 -- Pumpkin Slice (Raw)
 -------------------------------------------------
-minetest.register_craftitem("custom_food:pumpkin_slice", {
+minetest.register_craftitem(modname .. ":pumpkin_slice", {
 	description = "Pedaço de Abóbora",
 	inventory_image = "custom_food_pumpkin_slice.png",
 
@@ -16,14 +17,13 @@ minetest.register_craftitem("custom_food:pumpkin_slice", {
 	groups = { food = 2, eatable = 2 },
 	_mcl_saturation = 0.4,
 
-	-- Resultado ao cozinhar (fornalha / defumador / fogueira)
-	_mcl_cooking_output = "custom_food:pumpkin_slice_cooked",
+	_mcl_cooking_output = modname .. ":pumpkin_slice_cooked",
 })
 
 -------------------------------------------------
 -- Cooked Pumpkin Slice
 -------------------------------------------------
-minetest.register_craftitem("custom_food:pumpkin_slice_cooked", {
+minetest.register_craftitem(modname .. ":pumpkin_slice_cooked", {
 	description = "Pedaço de Abóbora Cozida",
 	inventory_image = "custom_food_cooked_pumpkin_slice.png",
 
@@ -37,7 +37,7 @@ minetest.register_craftitem("custom_food:pumpkin_slice_cooked", {
 -------------------------------------------------
 -- Fried Egg
 -------------------------------------------------
-minetest.register_craftitem("custom_food:fried_egg", {
+minetest.register_craftitem(modname .. ":fried_egg", {
 	description = "Ovo Frito",
 	inventory_image = "custom_food_fried_egg.png",
 
@@ -54,7 +54,7 @@ minetest.register_craftitem("custom_food:fried_egg", {
 minetest.register_craft({
 	type = "shapeless",
 	output = "mcl_farming:pumpkin_seeds",
-	recipe = {"custom_food:pumpkin_slice"},
+	recipe = {modname .. ":pumpkin_slice"},
 })
 
 -------------------------------------------------
@@ -70,7 +70,7 @@ minetest.register_on_mods_loaded(function()
 	if minetest.registered_items[egg_item] then
 		minetest.register_craft({
 			type = "cooking",
-			output = "custom_food:fried_egg",
+			output = modname .. ":fried_egg",
 			recipe = egg_item,
 		})
 	end
@@ -83,7 +83,7 @@ minetest.register_on_mods_loaded(function()
 
 	if minetest.registered_nodes[pumpkin_block] then
 		minetest.register_craft({
-			output = "custom_food:pumpkin_slice 9",
+			output = modname .. ":pumpkin_slice 9",
 			recipe = {{pumpkin_block}},
 		})
 	end
