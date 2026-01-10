@@ -73,6 +73,17 @@ leads.LeadEntity.initial_properties =
     selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5};
 };
 
+-- register crafting recipe
+minetest.register_craft({
+    output = 'leads:lead',
+    recipe = {
+        {'', 'mcl_mobitems:string', 'mcl_mobitems:string'},
+        {'', 'mcl_mobitems:string', 'mcl_mobitems:string'},
+        {'mcl_mobitems:string', '', ''}
+        shapeless = true,
+    }
+});
+
 --- Spawns or unloads a lead.
 function leads.LeadEntity:on_activate(staticdata, dtime_s)
     self.current_length = 0.24;
