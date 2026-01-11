@@ -71,7 +71,7 @@ leads.LeadEntity.initial_properties =
     textures     = {leads.DEFAULT_LEAD_TEXTURE};
     physical     = false;
     selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5};
-};
+}
 
 -- register crafting recipe
 minetest.register_craft({
@@ -79,10 +79,10 @@ minetest.register_craft({
     recipe = {
         {'', 'mcl_mobitems:string', 'mcl_mobitems:string'},
         {'', 'mcl_mobitems:string', 'mcl_mobitems:string'},
-        {'mcl_mobitems:string', '', ''}
-        shapeless = true,
+        {'mcl_mobitems:string', '', ''},
+
     }
-});
+})
 
 --- Spawns or unloads a lead.
 function leads.LeadEntity:on_activate(staticdata, dtime_s)

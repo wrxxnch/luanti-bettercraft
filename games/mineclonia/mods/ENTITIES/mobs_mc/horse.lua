@@ -193,6 +193,31 @@ function horse:breeding_possible ()
 		and self.tamed
 end
 
+local function horse_float_in_water(self)
+	local pos = self.object:get_pos()
+	if not pos then return end
+
+	local node = core.get_node_or_nil(pos)
+	if not node then return end
+
+	-- Detecta água
+	if core.get_item_group(node.name, "water") > 0 then
+		local v = self.object:get_velocity()
+
+		-- Mantém o cavalo boiando
+		if v.y < 0 then
+			v.y = 1.5
+			self.object:set_velocity(v)
+		end
+
+		-- Reduz gravidade na água
+		self.object:set_acceleration({x = 0, y = -2, z = 0})
+	else
+		-- Gravidade normal fora da água
+		self.object:set_acceleration({x = 0, y = -9.8, z = 0})
+	end
+end
+
 function horse:enrage ()
 	-- TODO: angry noises.
 end
@@ -730,6 +755,8 @@ function horse:init_attachment_position ()
 end
 
 function horse:do_custom (dtime)
+		horse_float_in_water(self)
+
 	if self.driver then
 		local ctrl = self.driver:get_player_control ()
 		if ctrl and ctrl.sneak then
