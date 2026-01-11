@@ -832,31 +832,69 @@ local function handle_give_command(cmd, giver, receiver, stackstring)
 	end
 end
 
+local function resolve_itemstring(itemstring)
+	-- separa nome e resto (count, wear, etc)
+	local name, rest = itemstring:match("^([^%s]+)%s*(.*)$")
+	if not name then
+		return itemstring
+	end
+
+	-- 1️⃣ Resolver alias (ex: dirt → mcl_core:dirt)
+	if core.registered_aliases[name] then
+		name = core.registered_aliases[name]
+	end
+
+	-- 2️⃣ Se ainda não tiver namespace, procurar automaticamente
+	if not name:find(":") then
+		for regname in pairs(core.registered_items) do
+			local short = regname:match(":(.+)$")
+			if short and short == name then
+				name = regname
+				break
+			end
+		end
+	end
+
+	if rest ~= "" then
+		return name .. " " .. rest
+	end
+	return name
+end
+
+
+
 core.register_chatcommand("give", {
 	params = S("<name> <ItemString> [<count> [<wear>]]"),
 	description = S("Give item to player"),
-	privs = {give=true},
+	privs = { give = true },
+
 	func = function(name, param)
 		local toname, itemstring = string.match(param, "^([^ ]+) +(.+)$")
 		if not toname or not itemstring then
 			return false, S("Name and ItemString required.")
 		end
+
+		itemstring = resolve_itemstring(itemstring)
 		return handle_give_command("/give", name, toname, itemstring)
 	end,
 })
 
+
 core.register_chatcommand("giveme", {
 	params = S("<ItemString> [<count> [<wear>]]"),
 	description = S("Give item to yourself"),
-	privs = {give=true},
+	privs = { give = true },
+
 	func = function(name, param)
-		local itemstring = string.match(param, "(.+)$")
-		if not itemstring then
+		if not param or param == "" then
 			return false, S("ItemString required.")
 		end
+
+		local itemstring = resolve_itemstring(param)
 		return handle_give_command("/giveme", name, name, itemstring)
 	end,
 })
+
 
 core.register_chatcommand("spawnentity", {
 	params = S("<EntityName> [<X>,<Y>,<Z>]"),
