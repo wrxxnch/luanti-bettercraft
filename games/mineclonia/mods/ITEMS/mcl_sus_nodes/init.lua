@@ -236,9 +236,78 @@ local sus_node_loot = {
 		},
 	},
 }
+local function get_pointed_node(player, range)
+	range = range or 5
+
+	local eye_pos = vector.add(
+		player:get_pos(),
+		vector.new(0, player:get_properties().eye_height or 1.47, 0)
+	)
+
+	local dir = player:get_look_dir()
+	local target = vector.add(eye_pos, vector.multiply(dir, range))
+
+	local ray = core.raycast(eye_pos, target, false, false)
+
+	for pointed in ray do
+		if pointed.type == "node" then
+			return pointed.under
+		end
+	end
+
+	return nil
+end
+
+
+core.register_chatcommand("sus_setitem", {
+	params = "<itemstring>",
+	description = S("Define o item escondido no node suspeito apontado"),
+	privs = { server = true },
+
+	func = function(name, param)
+		if param == "" then
+			return false, S("Use: /sus_setitem <itemstring>")
+		end
+
+		if not core.registered_items[param] then
+			return false, S("Item inválido: @1", param)
+		end
+
+		local player = core.get_player_by_name(name)
+		if not player then
+			return false
+		end
+
+		local pos = get_pointed_node(player, 5)
+		if not pos then
+			return false, S("Nenhum node apontado")
+		end
+
+		local node = core.get_node(pos)
+		if core.get_item_group(node.name, "suspicious_node") == 0 then
+			return false, S("Este node não é suspeito")
+		end
+
+		local meta = core.get_meta(pos)
+		meta:set_string("mcl_sus_nodes:forced_item", param)
+
+		return true, S("Item @1 definido com sucesso", param)
+	end
+})
+
+
 
 function mcl_sus_nodes.get_random_item(pos)
 	local meta = core.get_meta(pos)
+
+	local meta = core.get_meta(pos)
+
+	-- ITEM FORÇADO VIA CHATCOMMAND
+	local forced = meta:get_string("mcl_sus_nodes:forced_item")
+	if forced ~= "" then
+		return forced
+	end
+
 	local str = meta:get_string ("mcl_sus_nodes:desert_well_loot_seed")
 	if str ~= "" then
 		local seed = tonumber (str) or 0
