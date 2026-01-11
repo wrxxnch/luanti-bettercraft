@@ -115,8 +115,33 @@ mcl_moreblocks.add_nodes = function()
 		"mcl_blackstone:basalt_smooth",
 		"mcl_core:grass_path",
 
-	}
-	-- in the MineClonia world (but not in MCL2 world), tree trunks cannot be cut; add them:
+		-- vidros coloridos  
+		"mcl_core:glass_white",
+		"mcl_core:glass_orange",
+		"mcl_core:glass_magenta",
+		"mcl_core:glass_light_blue",
+		"mcl_core:glass_yellow",
+		"mcl_core:glass_lime",
+		"mcl_core:glass_pink",
+		"mcl_core:glass_gray",
+		"mcl_core:glass_light_gray",
+		"mcl_core:glass_cyan",
+		"mcl_core:glass_purple",
+		"mcl_core:glass_blue",
+		"mcl_core:glass_brown",
+		"mcl_core:glass_green",
+		"mcl_core:glass_red",
+		"mcl_core:glass_black",
+
+		--end blocks  
+		"mcl_end:purpur_pillar",
+
+		--nether blocks
+		"mcl_nether:quartz_pillar",
+
+		
+}
+-- in the MineClonia world (but not in MCL2 world), tree trunks cannot be cut; add them:
 	if(minetest.registered_nodes["mcl_trees:tree_oak"]) then
 		table.insert(other_nodes, "mcl_trees:tree_oak")
 		table.insert(other_nodes, "mcl_trees:tree_dark_oak")
