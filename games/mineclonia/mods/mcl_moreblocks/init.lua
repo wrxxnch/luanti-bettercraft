@@ -94,7 +94,26 @@ mcl_moreblocks.add_nodes = function()
 		"mcl_trees:bark_stripped_cherry_blossom",
 		"mcl_core:sand",
 		"mcl_amethyst:amethyst_block",
-		"mcl_nether:netherrack"
+		"mcl_nether:netherrack",
+		"mcl_deepslate:deepslate_brick",
+		"mcl_deepslate:deepslate",
+		"mcl_deepslate:deepslate_brick_chiseled",
+		"mcl_deepslate:deepslate_brick_cobbled",
+		"mcl_deepslate:deepslate_polished",
+		"mcl_deepslate:deepslate_reinforced",
+		"mcl_deepslate:deepslate_tiles",
+		"mcl_deepslate:deepslate_tiles_cracked",
+		"mcl_mud:mud",
+		"mcl_mud:packed_mud",
+		"mcl_blackstone:blackstone_polished",
+		"mcl_blackstone:blackstone_brick_polished",
+		"mcl_blackstone:blackstone_brick_polished_cracked",
+		"mcl_blackstone:blackstone_chiseled",
+		"mcl_blackstone:blackstone_chiseled_polished",
+		"mcl_blackstone:basalt",
+		"mcl_blackstone:basalt_polished",
+		"mcl_blackstone:basalt_smooth",
+
 	}
 	-- in the MineClonia world (but not in MCL2 world), tree trunks cannot be cut; add them:
 	if(minetest.registered_nodes["mcl_trees:tree_oak"]) then
