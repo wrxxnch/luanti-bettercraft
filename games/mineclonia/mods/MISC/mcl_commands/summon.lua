@@ -1,23 +1,27 @@
 local S = core.get_translator(core.get_current_modname())
 
--- Copia spawnentity
+-- =====================================================
+-- BASE
+-- =====================================================
 local base_cmd = core.registered_chatcommands["spawnentity"]
 assert(base_cmd, "[summon] spawnentity não encontrado")
 
 local cmd = table.copy(base_cmd)
-
 cmd.params = S("<entidade> [param=valor] ...")
 cmd.description = S("Invoca entidades com parâmetros avançados")
 
+-- =====================================================
+-- FUNÇÃO PRINCIPAL
+-- =====================================================
 cmd.func = function(name, param)
-	if not param or param == "" then
+	if param == "" or not param then
 		return false, S("Uso: /summon <entidade> [param=valor]...")
 	end
 
 	local args = param:split(" ")
 	local entname = table.remove(args, 1)
 
-	-- Nome curto
+	-- Resolve nome curto
 	if not entname:find(":") then
 		if core.registered_entities["mobs_mc:" .. entname] then
 			entname = "mobs_mc:" .. entname
@@ -40,8 +44,7 @@ cmd.func = function(name, param)
 		return false, S("Jogador não encontrado.")
 	end
 
-	local pos = player:get_pos()
-	pos.y = pos.y + 1.5
+	local pos = vector.add(player:get_pos(), {x=0, y=1.5, z=0})
 
 	local obj = core.add_entity(pos, entname)
 	if not obj then
@@ -55,87 +58,108 @@ cmd.func = function(name, param)
 	-- =====================================================
 	for _, arg in ipairs(args) do
 		local key, value = arg:match("([^=]+)=(.+)")
-		if key and value then
-			local final = value
+		if not key then
+			goto continue
+		end
 
-			if value == "true" then
-				final = true
-			elseif value == "false" then
-				final = false
-			elseif tonumber(value) then
-				final = tonumber(value)
+		local final = value
+		if value == "true" then final = true end
+		if value == "false" then final = false end
+		if tonumber(value) then final = tonumber(value) end
+
+		--------------------------------------------------
+		-- CHILD
+		--------------------------------------------------
+		if key == "child" and luaent then
+			luaent.child = final
+			if luaent.set_child then
+				luaent:set_child(final)
 			end
 
-			if key == "child" and luaent then
-				luaent.child = final
-				if luaent.set_child then
-					luaent:set_child(final)
+		--------------------------------------------------
+		-- PASSIVE
+		--------------------------------------------------
+		elseif key == "passive" and luaent then
+			luaent.passive = final
+
+		--------------------------------------------------
+		-- TAMED
+		--------------------------------------------------
+		elseif key == "tamed" and luaent then
+			luaent.tamed = final
+			luaent.owner = final and name or nil
+
+		--------------------------------------------------
+		-- NAMETAG
+		--------------------------------------------------
+		elseif key == "nametag" then
+			obj:set_nametag_attributes({ text = tostring(final) })
+
+		--------------------------------------------------
+		-- HP
+		--------------------------------------------------
+		elseif key == "hp" then
+			obj:set_hp(tonumber(final) or obj:get_hp())
+
+		--------------------------------------------------
+		-- YAW
+		--------------------------------------------------
+		elseif key == "yaw" then
+			obj:set_yaw(math.rad(tonumber(final) or 0))
+
+		--------------------------------------------------
+		-- HAND (FORÇADO – SEM EXCEÇÃO)
+		--------------------------------------------------
+		elseif key == "hand" and luaent then
+			-- Mineclonia usa APENAS este método
+			if mcl_mobs and mcl_mobs.set_wielded_item then
+				mcl_mobs.set_wielded_item(luaent, ItemStack(final))
+				luaent._summon_forced_item = final -- trava visual
+			end
+
+		--------------------------------------------------
+		-- ARMOR
+		--------------------------------------------------
+		elseif key == "armor" and luaent and luaent.set_armor_groups then
+			luaent:set_armor_groups({ fleshy = tonumber(final) or 100 })
+
+		--------------------------------------------------
+		-- RIDE
+		--------------------------------------------------
+		elseif key == "ride" then
+			local ride_name = value
+
+			if not ride_name:find(":") then
+				if core.registered_entities["mobs_mc:" .. ride_name] then
+					ride_name = "mobs_mc:" .. ride_name
 				end
-
-			elseif key == "passive" and luaent then
-				luaent.passive = final
-
-			elseif key == "tamed" and luaent then
-				luaent.tamed = final
-				luaent.owner = final and name or nil
-
-			elseif key == "nametag" then
-				obj:set_nametag_attributes({ text = tostring(final) })
-
-			elseif key == "hp" then
-				obj:set_hp(tonumber(final) or obj:get_hp())
-
-			elseif key == "yaw" then
-				obj:set_yaw(math.rad(tonumber(final) or 0))
-
-			elseif key == "hand" and luaent then
-	if luaent.set_wielded_item then
-		luaent:set_wielded_item(ItemStack(final))
-	elseif luaent.wield_item then
-		-- fallback para mods antigos
-		luaent:wield_item(final)
-	else
-		core.chat_send_player(name,
-			S("Esta entidade não pode segurar itens."))
-	end
-
-
-			elseif key == "armor" and luaent and luaent.set_armor_groups then
-				luaent:set_armor_groups({ fleshy = tonumber(final) or 100 })
-
-			elseif key == "ride" then
-	local ride_name = value
-
-	-- resolve nome curto
-	if not ride_name:find(":") then
-		if core.registered_entities["mobs_mc:" .. ride_name] then
-			ride_name = "mobs_mc:" .. ride_name
-		end
-	end
-
-	if not core.registered_entities[ride_name] then
-		core.chat_send_player(name,
-			S("Montaria desconhecida: @1", ride_name))
-	else
-		local mount = core.add_entity(pos, ride_name)
-		if mount then
-			obj:set_attach(mount, "", {x=0,y=0,z=0}, {x=0,y=0,z=0})
-		end
-	end
-
-
-			else
-				pcall(function()
-					obj:set_properties({ [key] = final })
-				end)
 			end
+
+			if core.registered_entities[ride_name] then
+				local mount = core.add_entity(pos, ride_name)
+				if mount then
+					obj:set_attach(mount, "", vector.zero(), vector.zero())
+				end
+			end
+
+		--------------------------------------------------
+		-- FALLBACK
+		--------------------------------------------------
+		else
+			pcall(function()
+				obj:set_properties({ [key] = final })
+			end)
 		end
+
+		::continue::
 	end
 
 	return true, S("Entidade invocada: @1", entname)
 end
 
--- Substitui spawnentity
+-- =====================================================
+-- REGISTRO
+-- =====================================================
 if core.registered_chatcommands["spawnentity"] then
 	core.unregister_chatcommand("spawnentity")
 end
@@ -157,15 +181,15 @@ tamed=true|false
 nametag=Texto
 hp=NUM
 yaw=GRAUS
-hand=itemstring
+hand=itemstring   (FORÇADO)
 armor=NUM
 ride=entidade
 
 EXEMPLOS:
-/summon zombie
-/summon zombie child=true
-/summon wolf tamed=true
-/summon villager nametag=Bob
+/summon zombie hand=mcl_core:dirt
+/summon skeleton hand=mcl_core:bow
+/summon zombie ride=spider
+/summon piglin hand=mcl_core:sword_gold
 ]])
 		return true
 	end

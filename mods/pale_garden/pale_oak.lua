@@ -166,9 +166,9 @@ if mcl_doors and mcl_doors.register_door then
         _mcl_hardness = 2,
         tiles_bottom = {"default_pale_oak_door_bottom.png", "default_stripped_pale_oak_wood.png"},
         tiles_top = {"default_pale_oak_door_top.png", "default_stripped_pale_oak_wood.png"},
-        sounds = mcl_sounds.node_sound_wood_defaults(),
-        sound_open = "doors_wood_door_open",
-        sound_close = "doors_wood_door_close",
+        -- sounds = mcl_sounds.node_sound_wood_defaults(),
+        -- sound_open = "doors_wood_door_open",
+        -- sound_close = "doors_wood_door_close",
 
         -- ✅ Craft embutido no padrão do MineClonia
         recipe = {
@@ -188,9 +188,9 @@ if mcl_doors and mcl_doors.register_trapdoor then
         inventory_image = "default_pale_oak_trapdoor.png",
         groups = {handy=1, axey=1, flammable=3, door_wood=1, material_wood=1},
         _mcl_hardness = 2,
-        sounds = mcl_sounds.node_sound_wood_defaults(),
-        sound_open = "doors_wood_door_open",
-        sound_close = "doors_wood_door_close",
+        -- sounds = mcl_sounds.node_sound_wood_defaults(),
+        -- sound_open = "doors_wood_door_open",
+        -- sound_close = "doors_wood_door_close",
 
         -- ✅ Craft embutido no padrão do MineClonia
         recipe = {

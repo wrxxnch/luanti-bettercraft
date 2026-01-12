@@ -81,7 +81,7 @@ function mob_class:replace_with (successor_type, propagate_equipment, mob_static
 				= table.copy (self.armor_drop_probability)
 		end
 	end
-
+--jockey
 	if self.jockey_vehicle then
 		local vehicle = self.jockey_vehicle
 		local bone = vehicle._jockey_bone

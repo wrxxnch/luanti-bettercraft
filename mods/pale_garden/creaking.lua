@@ -168,20 +168,23 @@ minetest.register_abm({
     end,
 })
 
--- Registra "ovo" de spawn para modo criativo
-minetest.register_craftitem("pale_garden:creaking_spawn_egg", {
-    description = "Ovo de Spawn do Rangedor",
-    inventory_image = "spawn_egg_creaking.png",
-    on_place = function(itemstack, placer, pointed_thing)
-        if pointed_thing.type == "node" then
-            local pos = pointed_thing.above
-            minetest.add_entity(pos, "pale_garden:creaking")
-            if not minetest.is_creative_enabled(placer:get_player_name()) then
-                itemstack:take_item()
-            end
-        end
-        return itemstack
-    end,
-})
+-- -- Registra "ovo" de spawn para modo criativo
+-- minetest.register_craftitem("pale_garden:creaking_spawn_egg", {
+--     description = "Ovo de Spawn do Rangedor",
+--     inventory_image = "spawn_egg_creaking.png",
+--     on_place = function(itemstack, placer, pointed_thing)
+--         if pointed_thing.type == "node" then
+--             local pos = pointed_thing.above
+--             minetest.add_entity(pos, "pale_garden:creaking")
+--             if not minetest.is_creative_enabled(placer:get_player_name()) then
+--                 itemstack:take_item()
+--             end
+--         end
+--         return itemstack
+--     end,
+-- })
+
+mcl_mobs.register_egg("pale_garden:creaking", "Creaking", "#a5a5a5ff", "#f58c02ff", 0)
+
 
 minetest.log("action", "[Pale Garden] Creaking registrado!")

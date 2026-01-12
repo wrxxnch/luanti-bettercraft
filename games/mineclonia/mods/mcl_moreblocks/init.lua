@@ -138,9 +138,15 @@ mcl_moreblocks.add_nodes = function()
 
 		--nether blocks
 		"mcl_nether:quartz_pillar",
-
 		
+	    "pale_garden:pale_oak",
+		"pale_garden:pale_oak_planks",
+		"pale_garden:pale_moss_block",
+		"pale_garden:pale_oak_wood",
+		"pale_garden:resin_block",
+		"pale_garden:resin_bricks",
 }
+
 -- in the MineClonia world (but not in MCL2 world), tree trunks cannot be cut; add them:
 	if(minetest.registered_nodes["mcl_trees:tree_oak"]) then
 		table.insert(other_nodes, "mcl_trees:tree_oak")
