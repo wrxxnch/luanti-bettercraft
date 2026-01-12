@@ -234,6 +234,17 @@ minetest.register_craft({
     }
 })
 
+-- mcl_fences.register_fence_and_fence_gate({
+--     fence_name = "pale_garden:pale_oak_fence",
+--     fence_description = S("Cerca de Carvalho Pálido"),
+--     fence_texture = "default_pale_oak_planks.png",
+--     gate_name = "pale_garden:pale_oak_fence_gate",
+--     gate_description = S("Portão de Cerca de Carvalho Pálido"),
+--     gate_texture = "default_pale_oak_planks.png",
+--     material = "pale_garden:pale_oak_planks",
+-- })
+
+
 -- Geração de árvore Pale Oak
 function pale_garden.generate_pale_oak_tree(pos)
     local height = math.random(5, 8)
