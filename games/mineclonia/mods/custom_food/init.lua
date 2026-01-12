@@ -11,14 +11,21 @@ minetest.register_craftitem(modname .. ":pumpkin_slice", {
 	description = "Pedaço de Abóbora",
 	inventory_image = "custom_food_pumpkin_slice.png",
 
-	on_place = core.item_eat(2),
-	on_secondary_use = core.item_eat(2),
+	groups = { food = 2 },
 
-	groups = { food = 2, eatable = 2 },
-	_mcl_saturation = 0.4,
-
-	_mcl_cooking_output = modname .. ":pumpkin_slice_cooked",
+	_mcl_food = {
+		eat = 2,
+		saturation = 0.4,
+	},
 })
+
+minetest.register_craft({
+	type = "cooking",
+	output = modname .. ":pumpkin_slice_cooked",
+	recipe = modname .. ":pumpkin_slice",
+	cooktime = 10,
+})
+
 
 -------------------------------------------------
 -- Cooked Pumpkin Slice
