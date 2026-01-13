@@ -40,11 +40,11 @@ local function get_crafter_formspec(pos)
     for i = 1, 9 do
         local p = positions[i]
         -- Use our normal itemslot background (if defined)
-        -- local background = ""
-        -- if mcl_formspec.get_itemslot_bg_v4 then
-        --     background = mcl_formspec.get_itemslot_bg_v4(p.x, p.y, 1, 1)
-        -- end
-        -- table.insert(fs_parts, background)
+        local background = ""
+        if mcl_formspec.get_itemslot_bg_v4 then
+            background = mcl_formspec.get_itemslot_bg_v4(p.x, p.y, 1, 1)
+        end
+        table.insert(fs_parts, background)
         local locked = meta:get_string("locked_" .. i)
         if locked == "true" then
             -- Even though a list is added here, its max size is 0 so the cell is inert.
@@ -70,30 +70,30 @@ local function get_crafter_formspec(pos)
     -- Arrow and output preview slot:
     table.insert(fs_parts, "image[6.125,2;1.5,1;crafter_arrow.png]")
 
-    -- local output_bg = ""
-    -- if mcl_formspec.get_itemslot_bg_v4 then
-    --     output_bg = mcl_formspec.get_itemslot_bg_v4(8.125, 2, 1, 1, 0.2)
-    -- end
-    -- table.insert(fs_parts, output_bg)
+    local output_bg = ""
+    if mcl_formspec.get_itemslot_bg_v4 then
+        output_bg = mcl_formspec.get_itemslot_bg_v4(8.125, 2, 1, 1, 0.2)
+    end
+    table.insert(fs_parts, output_bg)
     table.insert(fs_parts, "list[context;output;8.125,2;1,1;]")
 
     -- Player's Main Inventory:
     table.insert(fs_parts,
     "label[0.375,6.2;" .. F(S("Inventory")) .. "]"
 )
---  local inv_bg = ""
-    -- if mcl_formspec.get_itemslot_bg_v4 then
-    --     inv_bg = mcl_formspec.get_itemslot_bg_v4(0.375, 6.5, 9, 3)
-    -- end
-    -- table.insert(fs_parts, inv_bg)
+ local inv_bg = ""
+    if mcl_formspec.get_itemslot_bg_v4 then
+        inv_bg = mcl_formspec.get_itemslot_bg_v4(0.375, 6.5, 9, 3)
+    end
+    table.insert(fs_parts, inv_bg)
     table.insert(fs_parts, "list[current_player;main;0.375,6.5;9,3;9]")
 
     -- Player's Hotbar:
-    -- local hotbar_bg = ""
-    -- if mcl_formspec.get_itemslot_bg_v4 then
-    --     hotbar_bg = mcl_formspec.get_itemslot_bg_v4(0.375, 10.5, 9, 1)
-    -- end
-    -- table.insert(fs_parts, hotbar_bg)
+    local hotbar_bg = ""
+    if mcl_formspec.get_itemslot_bg_v4 then
+        hotbar_bg = mcl_formspec.get_itemslot_bg_v4(0.375, 10.5, 9, 1)
+    end
+    table.insert(fs_parts, hotbar_bg)
     table.insert(fs_parts, "list[current_player;main;0.375,10.5;9,1;]")
 
     table.insert(fs_parts, "listring[context;grid]")
@@ -448,9 +448,9 @@ local crafterdef = table.merge(commdef, {
     groups = table.merge(commdef.groups, { crafter = 1 }),
     description = "Crafter",
     _tt_help = "3×3 crafting machine\nAutomatically sets its recipe when ingredients are placed and then crafts when powered",
-    -- _doc_items_longdesc = S("This crafter automatically configures its recipe from the first ingredients placed into its 9 separate grid cells. When every recipe cell contains enough items and redstone power is applied, it consumes the ingredients and dispenses the crafted item.\n\nClick the small lock button in an empty grid cell to lock that cell (preventing further item insertion) – the slot will display a locked texture. Click again to unlock it."),
-    -- _doc_items_usagehelp = S("Place ingredients into the grid cells – each cell automatically records its ingredient type and required amount. If you want to disable a particular grid cell, click its lock button when it is empty; clicking again re-enables that cell. Supply sufficient items (possibly via hoppers), then power the crafter with redstone to craft and dispense the output."),
-     tiles = {
+    _doc_items_longdesc = "This crafter automatically configures its recipe from the first ingredients placed into its 9 separate grid cells. When every recipe cell contains enough items and redstone power is applied, it consumes the ingredients and dispenses the crafted item.\n\nClick the small lock button in an empty grid cell to lock that cell (preventing further item insertion) – the slot will display a locked texture. Click again to unlock it.",
+    _doc_items_usagehelp = "Place ingredients into the grid cells – each cell automatically records its ingredient type and required amount. If you want to disable a particular grid cell, click its lock button when it is empty; clicking again re-enables that cell. Supply sufficient items (possibly via hoppers), then power the crafter with redstone to craft and dispense the output.",
+    tiles = {
         "crafter_top.png", "crafter_bottom.png",
         "crafter_side.png", "crafter_side.png", "crafter_side.png", "crafter_front.png"
     },
