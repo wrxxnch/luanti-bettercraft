@@ -187,12 +187,17 @@ local function animatePlace()
       core.set_node(v.pos, { name = v.item, param2 = core.dir_to_fourdir(core.yaw_to_dir(v.rot)) })
       core.sound_play({ name = "i_have_hands_place_down_node" }, { pos = v.pos, pitch = math.random(0.7, 1.2), gain = 1 },
         true)
-      local node_sound = core.registered_nodes[v.item].sounds.place.name
-      if node_sound ~= nil then
-        core.sound_play({ name = node_sound }, { pos = v.pos, gain = 1 }, true)
-      end
-      core.get_node_timer(v.pos):start(1.0)
-      local meta = core.get_meta(v.pos)
+local def = core.registered_nodes[v.item]
+if def and def.sounds and def.sounds.place then
+    local sound = def.sounds.place.name or def.sounds.place
+    if sound then
+        core.sound_play(sound, { pos = v.pos, gain = 1 }, true)
+    end
+end
+
+core.get_node_timer(v.pos):start(1.0)
+local meta = core.get_meta(v.pos)
+
 
       local node_containers = {}
       for i, v in pairs(core.deserialize(found_meta)["data"]) do
