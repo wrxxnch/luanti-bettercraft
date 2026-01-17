@@ -17,8 +17,14 @@ local cid_blackstone
 local cid_gold_block
 local cid_gilded_blackstone
 local cid_air = core.CONTENT_AIR
+local cid_chain
+local cid_gold_chain
+
 
 local function init_cids ()
+	cid_chain = core.get_content_id("mcl_lanterns:chain")
+cid_gold_chain = core.get_content_id("mcl_lanterns:gold_chain")
+
 	cid_cracked_polished_blackstone_bricks
 		= core.get_content_id ("mcl_blackstone:blackstone_brick_polished_cracked")
 	cid_polished_blackstone_bricks
@@ -39,6 +45,12 @@ end
 
 local function bastion_generic_degredation (x, y, z, rng, cid_current,
 					    param2_current, cid, param2)
+
+	-- >>> SUBSTITUI CORRENTE NORMAL POR DE OURO <<<
+	if cid == cid_chain then
+		return cid_gold_chain, param2
+	end
+
 	if cid == cid_polished_blackstone_bricks
 		and rng:next_float () < 0.3 then
 		return cid_cracked_polished_blackstone_bricks, 0
@@ -54,6 +66,7 @@ local function bastion_generic_degredation (x, y, z, rng, cid_current,
 		return cid, param2
 	end
 end
+
 
 local bastion_remnant_processors = {
 	bastion_generic_degredation,
