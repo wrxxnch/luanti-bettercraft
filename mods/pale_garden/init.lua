@@ -4,6 +4,7 @@
 local modname = minetest.get_current_modname()
 local modpath = minetest.get_modpath(modname)
 
+
 -- IMPORTANTE: Inicializa o namespace ANTES de carregar os outros arquivos
 pale_garden = {}
 
@@ -13,6 +14,10 @@ dofile(modpath .. "/pale_biome.lua")    -- Bioma Pale Garden
 dofile(modpath .. "/resin.lua")         -- Sistema de seiva (resin)
 dofile(modpath .. "/creaking.lua")      -- Mob Creaking
 dofile(modpath .. "/creaking_heart.lua") -- Bloco Creaking Heart
+
+
+
+
 
 minetest.log("action", "[Pale Garden] Mod carregado com sucesso!")
 minetest.log("action", "[Pale Garden] Bioma Pale Garden, Pale Oak e Creaking adicionados!")

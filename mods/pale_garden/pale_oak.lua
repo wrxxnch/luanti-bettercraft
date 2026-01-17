@@ -200,6 +200,46 @@ if mcl_doors and mcl_doors.register_trapdoor then
     })
 end
 
+-- Registro de Fences (Cercas) e Signs (Placas)
+
+-- Registra a cerca
+if mcl_fences and mcl_fences.register_fence then
+    mcl_fences.register_fence(
+        "pale_garden:pale_oak_fence",
+        "Cerca de Carvalho Pálido",
+        "default_pale_oak_planks.png",
+        {handy=1, axey=1, flammable=3, wood=1, fence_wood=1},
+        2, -- Dureza
+        3, -- Resistência a explosão
+        "group:fence_wood", -- Conecta-se a
+        mcl_sounds.node_sound_wood_defaults()
+    )
+end
+
+-- Registra o portão da cerca
+if mcl_fences and mcl_fences.register_fence_gate then
+    mcl_fences.register_fence_gate(
+        "pale_garden:pale_oak_fence_gate",
+        "Portão de Carvalho Pálido",
+        "default_pale_oak_planks.png",
+        {handy=1, axey=1, flammable=3, wood=1, fence_gate_wood=1},
+        2, -- Dureza
+        3, -- Resistência a explosão
+        mcl_sounds.node_sound_wood_defaults()
+    )
+end
+
+-- Registra a placa
+if mcl_signs and mcl_signs.register_sign then
+    mcl_signs.register_sign(
+        "pale_garden:pale_oak",
+        "Carvalho Pálido",
+        "default_pale_oak_planks.png",
+        {handy=1, axey=1, flammable=3, wood=1, sign_wood=1}
+    )
+end
+
+-- Receitas de Crafting Adicionais
 
 minetest.register_craft({
     output = "pale_garden:pale_oak_door",
@@ -234,16 +274,33 @@ minetest.register_craft({
     }
 })
 
--- mcl_fences.register_fence_and_fence_gate({
---     fence_name = "pale_garden:pale_oak_fence",
---     fence_description = S("Cerca de Carvalho Pálido"),
---     fence_texture = "default_pale_oak_planks.png",
---     gate_name = "pale_garden:pale_oak_fence_gate",
---     gate_description = S("Portão de Cerca de Carvalho Pálido"),
---     gate_texture = "default_pale_oak_planks.png",
---     material = "pale_garden:pale_oak_planks",
--- })
+-- Craft: Cerca (4 Tábuas + 2 Gravetos)
+minetest.register_craft({
+    output = "pale_garden:pale_oak_fence 3",
+    recipe = {
+        {"pale_garden:pale_oak_planks", "mcl_core:stick", "pale_garden:pale_oak_planks"},
+        {"pale_garden:pale_oak_planks", "mcl_core:stick", "pale_garden:pale_oak_planks"},
+    }
+})
 
+-- Craft: Portão (4 Gravetos + 2 Tábuas)
+minetest.register_craft({
+    output = "pale_garden:pale_oak_fence_gate",
+    recipe = {
+        {"mcl_core:stick", "pale_garden:pale_oak_planks", "mcl_core:stick"},
+        {"mcl_core:stick", "pale_garden:pale_oak_planks", "mcl_core:stick"},
+    }
+})
+
+-- Craft: Placa (6 Tábuas + 1 Graveto)
+minetest.register_craft({
+    output = "pale_garden:pale_oak_sign_item 3",
+    recipe = {
+        {"pale_garden:pale_oak_planks", "pale_garden:pale_oak_planks", "pale_garden:pale_oak_planks"},
+        {"pale_garden:pale_oak_planks", "pale_garden:pale_oak_planks", "pale_garden:pale_oak_planks"},
+        {"", "mcl_core:stick", ""},
+    }
+})
 
 -- Geração de árvore Pale Oak
 function pale_garden.generate_pale_oak_tree(pos)
