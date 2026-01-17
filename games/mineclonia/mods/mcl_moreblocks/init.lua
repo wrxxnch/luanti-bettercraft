@@ -145,6 +145,19 @@ mcl_moreblocks.add_nodes = function()
 		"pale_garden:pale_oak_wood",
 		"pale_garden:resin_block",
 		"pale_garden:resin_bricks",
+
+		--stripped logs
+		"mcl_trees:bark_stripped_oak",
+		"mcl_trees:bark_stripped_dark_oak",
+		"mcl_trees:bark_stripped_jungle",
+		"mcl_trees:bark_stripped_spruce",
+		"mcl_trees:bark_stripped_acacia",
+		"mcl_trees:bark_stripped_birch",
+		"mcl_trees:bark_stripped_willow",
+		"mcl_trees:bark_stripped_crimson",
+		"mcl_trees:bark_stripped_warped",
+		"mcl_trees:bark_stripped_bamboo",
+		"mcl_trees:bark_stripped_mangrove",
 }
 
 -- in the MineClonia world (but not in MCL2 world), tree trunks cannot be cut; add them:
