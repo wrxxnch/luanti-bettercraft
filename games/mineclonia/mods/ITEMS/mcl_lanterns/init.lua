@@ -303,3 +303,5 @@ core.register_craft({
 })
 
 dofile(modpath.."/register.lua")
+dofile(modpath.."/gold_chain.lua")
+
