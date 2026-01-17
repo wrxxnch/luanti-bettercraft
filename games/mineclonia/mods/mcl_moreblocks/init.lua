@@ -114,6 +114,7 @@ mcl_moreblocks.add_nodes = function()
 		"mcl_blackstone:basalt_polished",
 		"mcl_blackstone:basalt_smooth",
 		"mcl_core:grass_path",
+		"mcl_core:podzol",
 
 		-- vidros coloridos  
 		"mcl_core:glass_white",
@@ -158,6 +159,13 @@ mcl_moreblocks.add_nodes = function()
 		"mcl_trees:bark_stripped_warped",
 		"mcl_trees:bark_stripped_bamboo",
 		"mcl_trees:bark_stripped_mangrove",
+
+		--mcl pale oak
+		"mcl_pale_oak:pale_oak",
+		"mcl_pale_oak:stripped_pale_oak",
+		"mcl_pale_oak:resin_block",
+		"mcl_pale_oak:pale_moss_block",
+
 }
 
 -- in the MineClonia world (but not in MCL2 world), tree trunks cannot be cut; add them:
