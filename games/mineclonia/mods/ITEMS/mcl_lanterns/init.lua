@@ -233,15 +233,20 @@ end
 core.register_node("mcl_lanterns:chain", {
 	description = S("Chain"),
 	_doc_items_longdesc = S("Chains are metallic decoration blocks."),
+
 	inventory_image = "mcl_lanterns_chain_inv.png",
 	tiles = {"mcl_lanterns_chain.png"},
+
 	drawtype = "mesh",
+	mesh = "mcl_lanterns_chain.obj",
+
 	paramtype = "light",
 	paramtype2 = "facedir",
 	use_texture_alpha = "clip",
-	mesh = "mcl_lanterns_chain.obj",
+
 	is_ground_content = false,
 	sunlight_propagates = true,
+
 	collision_box = {
 		type = "fixed",
 		fixed = {
@@ -254,10 +259,34 @@ core.register_node("mcl_lanterns:chain", {
 			{-0.0625, -0.5, -0.0625, 0.0625, 0.5, 0.0625},
 		}
 	},
+
 	groups = {pickaxey = 1, deco_block = 1},
 	sounds = mcl_sounds.node_sound_metal_defaults(),
+
+	-- >>> LÓGICA DE ITEM FRAME (ADICIONADA) <<<
+	_mcl_item_frame_item = true,
+	_mcl_item_frame_entity_texture = "mcl_lanterns_chain.png",
+
 	on_place = function(itemstack, placer, pointed_thing)
-		if pointed_thing.type ~= "node" or not placer or not placer:is_player() then
+		-- Permite colocar no Item Frame (respeita on_rightclick)
+		if pointed_thing.type == "node" then
+			local node = core.get_node(pointed_thing.under)
+			local def = core.registered_nodes[node.name]
+			if def and def.on_rightclick
+			and not (placer and placer:get_player_control().sneak) then
+				return def.on_rightclick(
+					pointed_thing.under,
+					node,
+					placer,
+					itemstack,
+					pointed_thing
+				)
+			end
+		end
+
+		if pointed_thing.type ~= "node"
+		or not placer
+		or not placer:is_player() then
 			return itemstack
 		end
 
@@ -289,9 +318,11 @@ core.register_node("mcl_lanterns:chain", {
 
 		return core.item_place_node(itemstack, placer, pointed_thing, param2)
 	end,
+
 	_mcl_blast_resistance = 6,
 	_mcl_hardness = 5,
 })
+
 
 core.register_craft({
 	output = "mcl_lanterns:chain",

@@ -1,6 +1,6 @@
 core.register_node("mcl_lanterns:gold_chain", {
-	description = "Gold Chain",
-	_doc_items_longdesc = "Gold chains are decorative metallic blocks made of gold.",
+	description = "Metallic Gold Chain",
+	_doc_items_longdesc = "A highly reflective and metallic golden chain, crafted for a premium look.",
 	inventory_image = "mcl_lanterns_gold_chain_inv.png",
 	tiles = {"mcl_lanterns_gold_chain.png"},
 	drawtype = "mesh",
@@ -25,6 +25,15 @@ core.register_node("mcl_lanterns:gold_chain", {
 	groups = {pickaxey = 1, deco_block = 1},
 	sounds = mcl_sounds.node_sound_metal_defaults(),
 	on_place = function(itemstack, placer, pointed_thing)
+		-- Check if we are pointing at a node that has its own on_rightclick (like item frames)
+		if pointed_thing.type == "node" then
+			local node = core.get_node(pointed_thing.under)
+			local def = core.registered_nodes[node.name]
+			if def and def.on_rightclick and not (placer and placer:get_player_control().sneak) then
+				return def.on_rightclick(pointed_thing.under, node, placer, itemstack, pointed_thing)
+			end
+		end
+
 		if pointed_thing.type ~= "node" or not placer or not placer:is_player() then
 			return itemstack
 		end
