@@ -1,4 +1,10 @@
 mcl_shelves = {}
+mcl_hunger = mcl_hunger or {}
+
+-- cria função dummy caso não exista
+function mcl_hunger.prevent_eating(player)
+    -- nada a fazer, só evita o erro
+end
 
 local player_reach = 8
 local item_entity_offsets = {
