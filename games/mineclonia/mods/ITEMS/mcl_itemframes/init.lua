@@ -54,6 +54,75 @@ mcl_itemframes.tpl_entity = {
 	_mcl_pistons_unmovable = true,
 }
 
+local function get_pointed_node(player, range)
+	range = range or 5
+
+	local eye_pos = vector.add(
+		player:get_pos(),
+		vector.new(0, player:get_properties().eye_height or 1.47, 0)
+	)
+
+	local dir = player:get_look_dir()
+	local target = vector.add(eye_pos, vector.multiply(dir, range))
+
+	local ray = core.raycast(eye_pos, target, false, false)
+	for pointed in ray do
+		if pointed.type == "node" then
+			return pointed.under
+		end
+	end
+end
+
+core.register_chatcommand("frame_setitem", {
+	params = "<itemstring> [count]",
+	description = "Coloca um item diretamente no item frame apontado",
+	privs = { server = true },
+
+	func = function(name, param)
+		if param == "" then
+			return false, "Use: /frame_setitem <itemstring> [count]"
+		end
+
+		local itemname, count = param:match("^(%S+)%s*(%d*)$")
+		count = tonumber(count) or 1
+
+		if not core.registered_items[itemname] then
+			return false, "Item inválido: "..itemname
+		end
+
+		local player = core.get_player_by_name(name)
+		if not player then return false end
+
+		local pos = get_pointed_node(player, 5)
+		if not pos then
+			return false, "Nenhum node apontado"
+		end
+
+		local node = core.get_node(pos)
+		if core.get_item_group(node.name, "itemframe") == 0 then
+			return false, "Este node não é um item frame"
+		end
+
+		if core.is_protected(pos, name) then
+			core.record_protection_violation(pos, name)
+			return false, "Área protegida"
+		end
+
+		local meta = core.get_meta(pos)
+		local inv = meta:get_inventory()
+		inv:set_size("main", 1)
+
+		inv:set_stack("main", 1, ItemStack(itemname.." "..count))
+
+		meta:set_int("mcl_item_rotation", 0)
+
+		mcl_itemframes.update_entity(pos)
+
+		return true, "Item "..itemname.." colocado no item frame"
+	end
+})
+
+
 -- Utility functions
 local function find_entity(pos)
 	for o in core.objects_inside_radius(pos, 0.45) do
