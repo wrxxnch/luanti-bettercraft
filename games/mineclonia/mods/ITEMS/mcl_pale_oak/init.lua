@@ -15,6 +15,9 @@ mcl_trees.register_wood("pale_oak",{
 		tiles = { "mcl_pale_oak_leaves.png" },
 		paramtype2 = "none"
 	},
+	shelf = {
+		tiles = mcl_shelves.sliced_shelf_texture("mcl_pale_shelf.png")
+	},
 	wood = { tiles = {"mcl_pale_oak_planks.png"}},
 	stripped = {
 		tiles = {"mcl_stripped_pale_oak_log_top.png", "mcl_stripped_pale_oak_log_top.png","mcl_stripped_pale_oak_log_side.png"}
