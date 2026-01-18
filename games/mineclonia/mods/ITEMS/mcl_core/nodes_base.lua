@@ -98,7 +98,7 @@ core.register_node("mcl_core:stone_with_redstone", {
 	},
 	sounds = mcl_sounds.node_sound_stone_defaults(),
 	on_punch = redstone_ore_activate,
-	on_walk_over = redstone_ore_activate, -- Uses walkover mod
+	_on_object_over = redstone_ore_activate,
 	_mcl_hardness = 3,
 	_mcl_silk_touch_drop = true,
 	_mcl_fortune_drop = {
@@ -141,7 +141,7 @@ core.register_node("mcl_core:stone_with_redstone_lit", {
 	sounds = mcl_sounds.node_sound_stone_defaults(),
 	-- Reset timer after re-punching or stepping on
 	on_punch = redstone_ore_reactivate,
-	on_walk_over = redstone_ore_reactivate, -- Uses walkover mod
+	_on_object_over = redstone_ore_reactivate,
 	-- Turn back to normal node after some time has passed
 	on_timer = function(pos)
 		local nodedef = core.registered_nodes[core.get_node(pos).name]
@@ -340,7 +340,7 @@ core.register_node("mcl_core:dirt_with_grass", {
 	_doc_items_longdesc = S("A grass block is dirt with a grass cover. Grass blocks are resourceful blocks which allow the growth of all sorts of plants. They can be turned into farmland with a hoe and turned into grass paths with a shovel. In light, the grass slowly spreads onto dirt nearby. Under an opaque block or a liquid, a grass block may turn back to dirt."),
 	_doc_items_hidden = false,
 	paramtype2 = "color",
-	tiles = {"mcl_core_grass_block_top.png", { name="default_dirt.png", color="white" }, { name="default_dirt.png", color="white" }},
+	tiles = {"mcl_core_grass_block_top.png", { name="default_dirt.png", color="white" }, { name="default_dirt.png^mcl_dirt_grass_shadow.png", color="white" }},
 	overlay_tiles = {"", "", {name="mcl_core_grass_block_side_overlay.png", tileable_vertical=false}},
 	palette = "mcl_core_palette_grass.png",
 	palette_index = 0,
@@ -480,7 +480,7 @@ core.register_node("mcl_core:dirt", {
 	_doc_items_longdesc = S("Dirt acts as a soil for a few plants. When in light, this block may grow a grass or mycelium cover if such blocks are nearby."),
 	_doc_items_hidden = false,
 	tiles = {"default_dirt.png"},
-	groups = {handy=1, shovely=1, dirt=1, soil=1, soil_sapling=2, soil_sugarcane=1, soil_bamboo=1, soil_fungus=1, cultivatable=2, enderman_takable=1, building_block=1, converts_to_moss=1},
+	groups = {handy=1, shovely=1, dirt=1, soil=1, soil_sapling=2, soil_sugarcane=1, soil_bamboo=1, soil_fungus=1, cultivatable=2, enderman_takable=1, building_block=1, converts_to_moss=1, converts_to_mud=1},
 	sounds = mcl_sounds.node_sound_dirt_defaults(),
 	_on_shovel_place = mcl_core.make_dirtpath,
 	_on_bottle_place = 	mcl_core.bottle_dirt,
@@ -491,7 +491,7 @@ core.register_node("mcl_core:coarse_dirt", {
 	description = S("Coarse Dirt"),
 	_doc_items_longdesc = S("Coarse dirt acts as a soil for some plants and is similar to dirt, but it will never grow a cover."),
 	tiles = {"mcl_core_coarse_dirt.png"},
-	groups = { handy=1, shovely=1, dirt=3, soil=1, soil_sugarcane=1, soil_bamboo=1, soil_fungus=1, cultivatable=1, enderman_takable=1, building_block=1, soil_sapling=2, converts_to_moss=1},
+	groups = { handy=1, shovely=1, dirt=3, soil=1, soil_sugarcane=1, soil_bamboo=1, soil_fungus=1, cultivatable=1, enderman_takable=1, building_block=1, soil_sapling=2, converts_to_moss=1, converts_to_mud=1},
 	sounds = mcl_sounds.node_sound_dirt_defaults(),
 	_on_shovel_place = mcl_core.make_dirtpath,
 	_on_bottle_place = 	mcl_core.bottle_dirt,
@@ -957,9 +957,7 @@ for i=0,3 do
 	})
 
 	-- Add entry aliases for the Help
-	if core.get_modpath("doc") and i > 0 then
-		doc.add_entry_alias("nodes", "mcl_core:frosted_ice_0", "nodes", "mcl_core:frosted_ice_"..i)
-	end
+	doc.add_entry_alias("nodes", "mcl_core:frosted_ice_0", "nodes", "mcl_core:frosted_ice_"..i)
 end
 
 local function on_place(itemstack, placer, pointed_thing)
@@ -1030,9 +1028,7 @@ for i=1,8 do
 	else
 		id = "mcl_core:snow_"..i
 		help = false
-		if core.get_modpath("doc") then
-			doc.add_entry_alias("nodes", "mcl_core:snow", "nodes", id)
-		end
+		doc.add_entry_alias("nodes", "mcl_core:snow", "nodes", id)
 		walkable = true
 	end
 	if i ~= 8 then
@@ -1092,8 +1088,6 @@ core.register_node("mcl_core:snowblock", {
 })
 
 -- Add entry aliases for the Help
-if core.get_modpath("doc") then
-	doc.add_entry_alias("nodes", "mcl_core:stone_with_redstone", "nodes", "mcl_core:stone_with_redstone_lit")
-	doc.add_entry_alias("nodes", "mcl_core:water_source", "nodes", "mcl_core:water_flowing")
-	doc.add_entry_alias("nodes", "mcl_core:lava_source", "nodes", "mcl_core:lava_flowing")
-end
+doc.add_entry_alias("nodes", "mcl_core:stone_with_redstone", "nodes", "mcl_core:stone_with_redstone_lit")
+doc.add_entry_alias("nodes", "mcl_core:water_source", "nodes", "mcl_core:water_flowing")
+doc.add_entry_alias("nodes", "mcl_core:lava_source", "nodes", "mcl_core:lava_flowing")
