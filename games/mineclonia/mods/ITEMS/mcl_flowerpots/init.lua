@@ -24,7 +24,6 @@ local tpl_pots = {
 	sounds = mcl_sounds.node_sound_stone_defaults()
 }
 
-
 local function check_player_protection(pos, player)
 	if not (player and player:is_player()) then
 		return

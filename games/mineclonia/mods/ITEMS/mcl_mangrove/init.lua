@@ -32,9 +32,6 @@ mcl_trees.register_wood("mangrove",{
 	stripped_bark = {
 		tiles = {"mcl_stripped_mangrove_log_side.png"}
 	},
-	shelf = {
-		tiles = mcl_shelves.sliced_shelf_texture("mcl_mangrove_shelf.png")
-	},
 	fence = {
 		tiles = { "mcl_mangrove_fence.png" },
 	},

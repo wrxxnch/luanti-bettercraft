@@ -126,10 +126,6 @@ mcl_trees.register_wood("crimson",{
 		_mcl_burntime = 0,
 		_mcl_cooking_output = ""
 	},
-	shelf = {
-		tiles = mcl_shelves.sliced_shelf_texture("mcl_crimson_crimson_shelf.png"),
-		groups = {fire_flammability = 0, fire_encouragement = 0}
-	},
 	wood = {
 		tiles = {"crimson_hyphae_wood.png"},
 		groups = table.merge(nether_wood_groups,{wood = 1}),
@@ -193,10 +189,6 @@ mcl_trees.register_wood("warped",{
 		groups = table.merge(nether_wood_groups,{tree = 1, bark = 1}),
 		_mcl_burntime = 0,
 		_mcl_cooking_output = ""
-	},
-	shelf = {
-		tiles = mcl_shelves.sliced_shelf_texture("mcl_crimson_warped_shelf.png"),
-		groups = {fire_flammability = 0, fire_encouragement = 0}
 	},
 	wood = {
 		tiles = {"warped_hyphae_wood.png"},
@@ -342,21 +334,20 @@ local function register_vines(name, def, extra_groups)
 		_on_bone_meal = function(_, _, _, pos)
 			mcl_crimson.grow_vines(pos, math.random(1, 3), name, nil, max_vines_age)
 		end,
-
-		_on_shears_place = function(itemstack, placer, pointed_thing)
-			local pos = pointed_thing.under
+		_mcl_on_rightclick_optional = function (pos, node, clicker, itemstack)
+			local item_name = clicker:get_wielded_item():get_name()
+			local shears = core.get_item_group(item_name, "shears") > 0
 			local dir = grow_vines_direction[core.get_item_group(
-				name, "vinelike_node")] or 1
+				node.name, "vinelike_node")] or 1
 			local tip = mcl_util.traverse_tower(pos, dir)
 
-			if vector.equals(pos, tip) then
+			if shears and vector.equals(pos, tip) then
 				core.sound_play("mcl_tools_shears_cut", {pos = pos}, true)
-				local node = core.get_node(pos)
+				local wear = mcl_autogroup.get_wear(item_name, "shearsy")
+				itemstack:add_wear(wear)
 				node.param2 = 25
 				core.swap_node(pos,node)
-				return itemstack
 			end
-			return itemstack, true
 		end
 	}, def or {}))
 end
@@ -588,6 +579,76 @@ core.register_abm({
 			mcl_crimson.grow_vines(pos, 1, node.name, nil, max_vines_age)
 		end
 	end
+})
+
+-- Door, Trapdoor, and Fence/Gate Crafting
+local crimson_wood = "mcl_crimson:crimson_hyphae_wood"
+local warped_wood = "mcl_crimson:warped_hyphae_wood"
+
+core.register_craft({
+	output = "mcl_crimson:crimson_door 3",
+	recipe = {
+		{crimson_wood, crimson_wood},
+		{crimson_wood, crimson_wood},
+		{crimson_wood, crimson_wood}
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:warped_door 3",
+	recipe = {
+		{warped_wood, warped_wood},
+		{warped_wood, warped_wood},
+		{warped_wood, warped_wood}
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:crimson_trapdoor 2",
+	recipe = {
+		{crimson_wood, crimson_wood, crimson_wood},
+		{crimson_wood, crimson_wood, crimson_wood},
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:warped_trapdoor 2",
+	recipe = {
+		{warped_wood, warped_wood, warped_wood},
+		{warped_wood, warped_wood, warped_wood},
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:crimson_fence 3",
+	recipe = {
+		{crimson_wood, "mcl_core:stick", crimson_wood},
+		{crimson_wood, "mcl_core:stick", crimson_wood},
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:warped_fence 3",
+	recipe = {
+		{warped_wood, "mcl_core:stick", warped_wood},
+		{warped_wood, "mcl_core:stick", warped_wood},
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:crimson_fence_gate",
+	recipe = {
+		{"mcl_core:stick", crimson_wood, "mcl_core:stick"},
+		{"mcl_core:stick", crimson_wood, "mcl_core:stick"},
+	}
+})
+
+core.register_craft({
+	output = "mcl_crimson:warped_fence_gate",
+	recipe = {
+		{"mcl_core:stick", warped_wood, "mcl_core:stick"},
+		{"mcl_core:stick", warped_wood, "mcl_core:stick"},
+	}
 })
 
 mcl_levelgen.register_levelgen_script (modpath .. "/lg_register.lua")
