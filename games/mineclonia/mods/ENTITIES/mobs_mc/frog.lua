@@ -13,22 +13,33 @@ local textures = {
 mcl_mobs.register_mob("mobs_mc:frog", {
 	description = S("Frog"),
 	type = "animal",
-	passive = false,
+	passive = true, -- Sapos são passivos, mas atacam slimes
+	group_attack = true,
 
 	-------------------------------------------------
-	-- MOVIMENTO CONTROLADO
+	-- MOVIMENTO (Ajustado para o estilo do Minecraft)
 	-------------------------------------------------
-	walk_velocity = 0,
-	run_velocity  = 0,
-	acceleration  = {x=0, y=-9.8, z=0}, -- gravidade normal
+	walk_velocity = 1.5,
+	run_velocity  = 3.0,
+	pace_bonus = 0.3,
+	jump = true,
+	jump_height = 1.5, -- Altura do pulo para obstáculos
+	stepheight = 1.1,
+	fly = false,
+	water_damage = 0,
+	lava_damage = 4,
+	fall_damage = 0,
+	fear_height = 4,
+	
 
 	-------------------------------------------------
 	-- COMBATE
 	-------------------------------------------------
 	attack_type = "melee",
 	damage = 1,
-	reach = 1,
-	attacks_monsters = true,
+	reach = 2,
+	attack_monsters = true,
+	attack_animals = false,
 	specific_attack = {
 		"mobs_mc:slime_tiny",
 		"mobs_mc:magma_cube_tiny",
@@ -37,14 +48,14 @@ mcl_mobs.register_mob("mobs_mc:frog", {
 	-------------------------------------------------
 	-- VIDA
 	-------------------------------------------------
-	hp_min = 5,
-	hp_max = 25,
+	hp_min = 10,
+	hp_max = 10,
 	armor = 100,
 
 	-------------------------------------------------
 	-- VISUAL
 	-------------------------------------------------
-	collisionbox = {-0.268, -0.01, -0.268, 0.268, 0.35, 0.268},
+	collisionbox = {-0.3, 0, -0.3, 0.3, 0.4, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_frog.b3d",
 	visual_size = {x = 10, y = 10},
@@ -59,9 +70,10 @@ mcl_mobs.register_mob("mobs_mc:frog", {
 	-- ANIMAÇÕES
 	-------------------------------------------------
 	animation = {
-		speed_normal = 3,
+		speed_normal = 15,
 		stand_start = 1, stand_end = 80,
 		walk_start  = 90, walk_end  = 105,
+		jump_start = 90, jump_end = 105,
 	},
 
 	-------------------------------------------------
@@ -87,82 +99,70 @@ mcl_mobs.register_mob("mobs_mc:frog", {
 	end,
 
 	-------------------------------------------------
-	-- IA CUSTOM: MOVIMENTO NORMAL + ENGOLIR
+	-- IA CUSTOM: ENGOLIR E PULO ESTILO SAPO
 	-------------------------------------------------
 	do_custom = function(self, dtime)
 		if not self.object then return end
-
 		local pos = self.object:get_pos()
 		if not pos then return end
 
-		-- pausa mínima entre passos
-		self._timer = (self._timer or 0) - dtime
-		if self._timer > 0 then
-			self.state = "stand"
-			return
-		end
-		self._timer = 0.2
-
-		-- procurar alvo
-		local target
-		for _, obj in ipairs(core.get_objects_inside_radius(pos, 6)) do
-			local ent = obj:get_luaentity()
-			if ent and (
-				ent.name == "mobs_mc:slime_tiny" or
-				ent.name == "mobs_mc:magma_cube_tiny"
-			) then
-				target = obj
-				break
-			end
-		end
-
-		if not target then
-			self.state = "stand"
-			return
-		end
-
-		local tpos = target:get_pos()
-		if not tpos then return end
-
-		-- direção horizontal para o alvo
-		local dir = vector.direction(pos, tpos)
-		local speed = 0.15 -- velocidade normal
-
-		-- virar suavemente
-		local current_yaw = self.object:get_yaw() or 0
-		local target_yaw = math.atan2(dir.x, dir.z)
-		self.object:set_yaw(current_yaw + (target_yaw - current_yaw) * 0.2)
-
-		-- mover horizontalmente, preservando gravidade
-		local vel = self.object:get_velocity()
-		self.object:set_velocity({
-			x = dir.x * speed,
-			y = vel.y,
-			z = dir.z * speed
-		})
-
-		self.state = "walk"
-
-		-- engolir alvo se perto
-		if vector.distance(pos, tpos) <= 1.2 then
-			local ent = target:get_luaentity()
-			target:remove()
-
-			if ent and ent.name == "mobs_mc:magma_cube_tiny" then
-				local drops = {
-					[textures.cold]   = "mcl_mobitems:froglight_verdant",
-					[textures.medium] = "mcl_mobitems:froglight_pearlescent",
-					[textures.hot]    = "mcl_mobitems:froglight_ochre",
-				}
-				local drop = drops[self.texture_selected]
-				if drop then
-					core.add_item(pos, drop)
+		-- Timer para o comportamento de pulo
+		self._frog_timer = (self._frog_timer or 0) - dtime
+		
+		-- Se estiver no chão e o timer acabou, dá um pulo para frente
+		if self._frog_timer <= 0 then
+			local vel = self.object:get_velocity()
+			if vel and math.abs(vel.y) < 0.1 then
+				-- Define o próximo intervalo de pulo (aleatório entre 1 e 3 segundos)
+				self._frog_timer = 1 + math.random() * 2
+				
+				-- Se estiver parado ou andando, aplica um impulso
+				if self.state == "walk" or self.state == "attack" then
+					local yaw = self.object:get_yaw()
+					if yaw then
+						local dir = {
+							x = -math.sin(yaw),
+							y = 0,
+							z = math.cos(yaw)
+						}
+						-- Aplica velocidade de pulo
+						self.object:set_velocity({
+							x = dir.x * 3,
+							y = 4,
+							z = dir.z * 3
+						})
+						self:set_animation("walk")
+					end
 				end
 			end
+		end
 
-			core.sound_play("frog_eat", {pos = pos, gain = 1.0})
-			self._target = nil
-			self.state = "stand"
+		-- Lógica de engolir (apenas se estiver em estado de ataque)
+		if self.state == "attack" and self.attack then
+			local tpos = self.attack:get_pos()
+			if tpos and vector.distance(pos, tpos) <= 1.5 then
+				local ent = self.attack:get_luaentity()
+				if ent and (ent.name == "mobs_mc:slime_tiny" or ent.name == "mobs_mc:magma_cube_tiny") then
+					self.attack:remove()
+					self.attack = nil
+					self.state = "stand"
+
+					if ent.name == "mobs_mc:magma_cube_tiny" then
+						local drops = {
+							[textures.cold]   = "mcl_mobitems:froglight_verdant",
+							[textures.medium] = "mcl_mobitems:froglight_pearlescent",
+							[textures.hot]    = "mcl_mobitems:froglight_ochre",
+						}
+						local drop = drops[self.texture_selected or 2]
+						if drop then
+							core.add_item(pos, drop)
+						end
+					end
+
+					core.sound_play("frog_eat", {pos = pos})
+					self:set_animation("stand")
+				end
+			end
 		end
 	end,
 })

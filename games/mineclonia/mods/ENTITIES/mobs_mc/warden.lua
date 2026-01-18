@@ -20,13 +20,19 @@ mcl_mobs.register_mob("mobs_mc:the_warden", {
 	hp_max = 500,
 
 	-- ===== COMBATE =====
+	
 	damage = 45,
 	armor = 10,
 	reach = 3,
-
-	attack_animals = true,
+    attack_player = true,
+    specific_attack = {
+	"mobs_mc:iron_golem","mobs_mc:pig","mobs_mc:snow_golem","mobs_mc:cow","mobs_mc:sheep","mobs_mc:chicken"
+	},
 	attack_npcs = true,
-	attack_type = "dogfight",
+	attack_type = "melee",
+	-- ===== FUGA DE MOBS =====
+	runaway_from = {"mobs_mc:frog", "mobs_mc:axolotl"},
+
 
 	-- ===== IA (CRÍTICO) =====
 	pathfinding = 1,
@@ -34,7 +40,8 @@ mcl_mobs.register_mob("mobs_mc:the_warden", {
 	fear_height = 4,
 
 	-- ===== MOVIMENTO =====
-	walk_velocity = 1,
+	movement_speed = 5.0,
+	pace_bonus = 0.6,
 	run_velocity = 2,
 	stepheight = 1.1,
 	view_range = 16,
@@ -85,22 +92,22 @@ mcl_mobs.register_mob("mobs_mc:the_warden", {
 
 	-- ===== CUSTOM (SEM QUEBRAR IA) =====
 	do_custom = function(self, dtime)
-		self.timer = (self.timer or 0) + dtime
-		if self.timer < 1 then return end
-		self.timer = 0
+	self.timer = (self.timer or 0) + dtime
+	if self.timer < 0.3 then return end
+	self.timer = 0
 
-		-- Só altera se houver alvo
-		if self.attack then
-			local obj = self.attack
-			if obj:is_player() then
-				if obj:get_player_control().sneak then
-					self.view_range = 4
-				else
-					self.view_range = 16
-				end
-			end
+	if self.attack and self.attack:get_pos() then
+		local self_pos = self.object:get_pos()
+		local target_pos = self.attack:get_pos()
+		local dist = vector.distance(self_pos, target_pos)
+
+		-- Se estiver perseguindo, força velocidade tipo Iron Golem
+		if dist > 3 then
+			self:gopath(target_pos, 0.9) -- 🔥 mesma velocidade do golem
 		end
-	end,
+	end
+end,
+
 
 	-- ===== AO NASCER =====
 	on_spawn = function(self)

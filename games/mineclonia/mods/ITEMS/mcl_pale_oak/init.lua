@@ -39,7 +39,43 @@ mcl_trees.register_wood("pale_oak",{
 		wield_image = "mcl_pale_oak_trapdoor.png",
 	},
 	hanging_sign = true,
+
+    -- 🔥 AQUI ESTÁ O PONTO CHAVE 🔥
+	_after_grow = function(pos, schematic_def, is_2by2)
+	local trunk_nodes = {}
+
+	local radius = is_2by2 and 8 or 6
+	local minp = vector.subtract(pos, radius)
+	local maxp = vector.add(pos, radius)
+
+	for x = minp.x, maxp.x do
+	for y = minp.y, maxp.y do
+	for z = minp.z, maxp.z do
+		local p = {x=x,y=y,z=z}
+		local node = minetest.get_node(p)
+
+		if node.name == "mcl_trees:tree_pale_oak" then
+			table.insert(trunk_nodes, {pos=p, param2=node.param2})
+		end
+	end
+	end
+	end
+
+	-- Coloca apenas UM coração
+	if #trunk_nodes > 0 then
+		local pick = trunk_nodes[math.random(#trunk_nodes)]
+		minetest.set_node(pick.pos, {
+			name = "mcl_pale_oak:creaking_heart",
+			param2 = pick.param2
+		})
+	end
+end,
 })
+
 
 dofile(modpath .. "/resin_blocks.lua")
 dofile(modpath .. "/plants.lua")
+dofile(modpath .. "/creaking_heart.lua")
+dofile(modpath .. "/creaking.lua")
+
+

@@ -140,12 +140,22 @@ mcl_moreblocks.add_nodes = function()
 		--nether blocks
 		"mcl_nether:quartz_pillar",
 		
-	    "pale_garden:pale_oak",
-		"pale_garden:pale_oak_planks",
-		"pale_garden:pale_moss_block",
-		"pale_garden:pale_oak_wood",
-		"pale_garden:resin_block",
-		"pale_garden:resin_bricks",
+	    "mcl_pale_oak:pale_oak",
+		"mcl_pale_oak:pale_oak_planks",
+		"mcl_pale_oak:pale_moss_block",
+		"mcl_pale_oak:pale_oak_wood",
+		"mcl_pale_oak:resin_block",
+		"mcl_pale_oak:resin_bricks",
+
+		--mcl pale oak
+		"mcl_pale_oak:creaking_heart",
+		"mcl_pale_oak:resin_brick_block",
+		"mcl_pale_oak:block_of_resin",
+		"mcl_pale_oak:resin_brick_block",
+		"mcl_pale_oak:chiseled_resin_brick",
+		"mcl_pale_oak:pale_moss",
+		"mcl_pale:stripped_pale_oak",
+
 
 		--stripped logs
 		"mcl_trees:bark_stripped_oak",
