@@ -626,7 +626,7 @@ baby_zoglin.get_staticdata_table = mob_class.get_staticdata_table
 
 mcl_mobs.register_mob ("mobs_mc:baby_zoglin", baby_zoglin)
 
-mcl_mobs.register_egg("mobs_mc:zoglin", S("Zoglin"), "#5b3a2a", "#8a6a4f", 0)
+mcl_mobs.register_egg("mobs_mc:zoglin", S("Zoglin"), "#d8a382", "#1d5c29", 0)
 
 -- -- (Opcional) Spawn egg do Baby Zoglin
 -- mcl_mobs.register_egg("mobs_mc:baby_zoglin", S("Baby Zoglin"), "#5b3a2a", "#c3a287", 0)

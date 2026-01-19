@@ -122,6 +122,94 @@ core.register_chatcommand("frame_setitem", {
 	end
 })
 
+-- /frame_clear: limpa o item do frame
+core.register_chatcommand("frame_clear", {
+	description = "Limpa o item do item frame apontado",
+	privs = { server = true },
+	func = function(name)
+		local player = core.get_player_by_name(name)
+		if not player then return false end
+		local pos = get_pointed_node(player, 5)
+		if not pos then return false, "Nenhum node apontado" end
+
+		local node = core.get_node(pos)
+		if core.get_item_group(node.name, "itemframe") == 0 then
+			return false, "Este node não é um item frame"
+		end
+
+		if core.is_protected(pos, name) then
+			core.record_protection_violation(pos, name)
+			return false, "Área protegida"
+		end
+
+		local meta = core.get_meta(pos)
+		local inv = meta:get_inventory()
+		inv:set_size("main", 1)
+		inv:set_stack("main", 1, ItemStack(""))
+		meta:set_int("mcl_item_rotation", 0)
+
+		mcl_itemframes.update_entity(pos)
+
+		return true, "Item frame limpo"
+	end
+})
+
+-- /frame_rotate: rotaciona o item no frame
+core.register_chatcommand("frame_rotate", {
+	description = "Rotaciona o item no item frame apontado",
+	privs = { server = true },
+	func = function(name)
+		local player = core.get_player_by_name(name)
+		if not player then return false end
+		local pos = get_pointed_node(player, 5)
+		if not pos then return false, "Nenhum node apontado" end
+
+		local node = core.get_node(pos)
+		if core.get_item_group(node.name, "itemframe") == 0 then
+			return false, "Este node não é um item frame"
+		end
+
+		if core.is_protected(pos, name) then
+			core.record_protection_violation(pos, name)
+			return false, "Área protegida"
+		end
+
+		local meta = core.get_meta(pos)
+		local rotation = (meta:get_int("mcl_item_rotation") + 1) % 8
+		meta:set_int("mcl_item_rotation", rotation)
+
+		mcl_itemframes.update_entity(pos)
+
+		return true, "Item frame rotacionado para posição " .. rotation
+	end
+})
+
+-- /frame_getitem: retorna o item atual do frame
+core.register_chatcommand("frame_getitem", {
+	description = "Mostra o item atual no item frame apontado",
+	privs = { server = true },
+	func = function(name)
+		local player = core.get_player_by_name(name)
+		if not player then return false end
+		local pos = get_pointed_node(player, 5)
+		if not pos then return false, "Nenhum node apontado" end
+
+		local node = core.get_node(pos)
+		if core.get_item_group(node.name, "itemframe") == 0 then
+			return false, "Este node não é um item frame"
+		end
+
+		local meta = core.get_meta(pos)
+		local inv = meta:get_inventory()
+		local stack = inv:get_stack("main", 1)
+		if stack:is_empty() then
+			return true, "O item frame está vazio"
+		else
+			return true, "Item no frame: " .. stack:get_name() .. " x" .. stack:get_count()
+		end
+	end
+})
+
 
 -- Utility functions
 local function find_entity(pos)
