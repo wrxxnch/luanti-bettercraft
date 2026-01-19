@@ -1150,14 +1150,22 @@ function mob_class:motion_step (dtime, moveresult, self_pos)
 		local speed = self.water_velocity
 
 		-- Apply depth strider.
-		local level = math.min (3, mcl_enchanting.depth_strider_level (self))
-		level = touching_ground and level or level / 2
-		if level > 0 then
-			local delta = BASE_FRICTION * AIR_FRICTION - friction
-			friction = friction + delta * level / 3
-			delta = acc_speed - speed
-			speed = speed + delta * level / 3
-		end
+-- Apply depth strider.
+local level = 0
+if mcl_enchanting and mcl_enchanting.depth_strider_level then
+	level = mcl_enchanting.depth_strider_level(self.object) or 0
+end
+
+level = math.min(3, level)
+level = touching_ground and level or level / 2
+
+if level > 0 then
+	local delta = BASE_FRICTION * AIR_FRICTION - friction
+	friction = friction + delta * level / 3
+	delta = acc_speed - speed
+	speed = speed + delta * level / 3
+end
+
 
 		-- Adjust speed by friction.  Minecraft applies
 		-- friction to acceleration (speed), not just the

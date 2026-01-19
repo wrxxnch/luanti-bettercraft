@@ -4,7 +4,7 @@ local S = core.get_translator("mcl_tools")
 mcl_tools.register_set("wood", {
     craftable = true,
     material = "group:wood",
-    uses = 2 * 60,
+    uses = 60,
     level = 1,
     speed = 2,
     max_drop_level = 1,
@@ -41,6 +41,24 @@ mcl_tools.register_set("wood", {
             full_punch_interval = 1.25,
             damage_groups = { fleshy = 2 }
         }
+    },
+    ["spear"] = {
+        description = S("Wooden Spear"),
+        inventory_image = "wooden_spear.png",
+        wield_image = "wooden_spear_in_hand.png",
+
+		jab_cooldown = 0.65,
+		jab_damage = 1,
+		enchantability = 15,
+		repair_material = "group:wood",
+
+		uses = 59,
+		charge_delay = 0.75,
+		charge_minimum_dismount_speed = 14,
+		engaged_phase_duration = 5,
+		tired_phase_duration = 5,
+		disengaged_phase_duration = 5,
+		charge_damage_multiplier = 0.7
     }
 }, { _doc_items_hidden = false, _mcl_burntime = 10 })
 
@@ -48,7 +66,7 @@ mcl_tools.register_set("wood", {
 mcl_tools.register_set("stone", {
     craftable = true,
     material = "group:cobble",
-    uses = 2 * 132,
+    uses = 132,
     level = 3,
     speed = 4,
     max_drop_level = 3,
@@ -85,6 +103,24 @@ mcl_tools.register_set("stone", {
             full_punch_interval = 1.25,
             damage_groups = { fleshy = 9 }
         }
+    },
+    ["spear"] = {
+        description = S("Stone Spear"),
+        inventory_image = "stone_spear.png",
+        wield_image = "stone_spear_in_hand.png",
+
+		jab_cooldown = 0.75,
+		jab_damage = 2,
+		enchantability = 5,
+		repair_material = "group:stone",
+
+		uses = 131,
+		charge_delay = 0.7,
+		charge_minimum_dismount_speed = 10,
+		engaged_phase_duration = 4.5,
+		tired_phase_duration = 4.5,
+		disengaged_phase_duration = 4.75,
+		charge_damage_multiplier = 0.82
     }
 })
 
@@ -92,7 +128,7 @@ mcl_tools.register_set("stone", {
 mcl_tools.register_set("iron", {
     craftable = true,
     material = "mcl_core:iron_ingot",
-    uses = 2 * 251,
+    uses = 251,
     level = 4,
     speed = 6,
     max_drop_level = 4,
@@ -129,6 +165,24 @@ mcl_tools.register_set("iron", {
             full_punch_interval = 1.11111111,
             damage_groups = { fleshy = 9 }
         }
+    },
+    ["spear"] = {
+        description = S("Iron Spear"),
+        inventory_image = "iron_spear.png",
+        wield_image = "iron_spear_in_hand.png",
+
+		jab_cooldown = 0.95,
+		jab_damage = 3,
+		enchantability = 14,
+		repair_material = "mcl_core:iron_ingot",
+
+		uses = 250,
+		charge_delay = 0.6,
+		charge_minimum_dismount_speed = 8,
+		engaged_phase_duration = 2.5,
+		tired_phase_duration = 4.25,
+		disengaged_phase_duration = 4.5,
+		charge_damage_multiplier = 0.95
     }
 }, { _mcl_cooking_output = "mcl_core:iron_nugget" })
 
@@ -136,7 +190,7 @@ mcl_tools.register_set("iron", {
 mcl_tools.register_set("gold", {
     craftable = true,
     material = "mcl_core:gold_ingot",
-    uses = 2 * 33,
+    uses = 33,
     level = 4,
     speed = 12,
     max_drop_level = 2,
@@ -173,6 +227,24 @@ mcl_tools.register_set("gold", {
             full_punch_interval = 1,
             damage_groups = { fleshy = 7 }
         }
+    },
+    ["spear"] = {
+        description = S("Golden Spear"),
+        inventory_image = "golden_spear.png",
+        wield_image = "golden_spear_in_hand.png",
+
+		jab_cooldown = 0.95,
+		jab_damage = 1,
+		enchantability = 22,
+		repair_material = "mcl_core:gold_ingot",
+
+		uses = 32,
+		charge_delay = 0.7,
+		charge_minimum_dismount_speed = 10,
+		engaged_phase_duration = 3.5,
+		tired_phase_duration = 5,
+		disengaged_phase_duration = 5.25,
+		charge_damage_multiplier = 0.7
     }
 }, { _mcl_cooking_output = "mcl_core:gold_nugget" })
 
@@ -180,7 +252,7 @@ mcl_tools.register_set("gold", {
 mcl_tools.register_set("diamond", {
     craftable = true,
     material = "mcl_core:diamond",
-    uses = 2 * 1562,
+    uses = 1562,
     level = 5,
     speed = 8,
     max_drop_level = 5,
@@ -225,6 +297,24 @@ mcl_tools.register_set("diamond", {
         },
         _mcl_upgradable = true,
         _mcl_upgrade_item = "mcl_tools:axe_netherite"
+    },
+    ["spear"] = {
+        description = S("Diamond Spear"),
+        inventory_image = "diamond_spear.png",
+        wield_image = "diamond_spear_in_hand.png",
+
+		jab_cooldown = 1.05,
+		jab_damage = 4,
+		enchantability = 10,
+		repair_material = "mcl_core:diamond",
+
+		uses = 1561,
+		charge_delay = 0.5,
+		charge_minimum_dismount_speed = 7.5,
+		engaged_phase_duration = 3,
+		tired_phase_duration = 3.25,
+		disengaged_phase_duration = 3.5,
+		charge_damage_multiplier = 1.075
     }
 })
 
@@ -232,7 +322,7 @@ mcl_tools.register_set("diamond", {
 mcl_tools.register_set("netherite", {
     craftable = false,
     material = "mcl_nether:netherite_ingot",
-    uses = 2 * 2031,
+    uses = 2031,
     level = 6,
     speed = 9.5,
     max_drop_level = 5,
@@ -269,5 +359,23 @@ mcl_tools.register_set("netherite", {
             full_punch_interval = 1,
             damage_groups = { fleshy = 10 }
         }
+    },
+    ["spear"] = {
+        description = S("Netherite Spear"),
+        inventory_image = "netherite_spear.png",
+        wield_image = "netherite_spear_in_hand.png",
+
+		jab_cooldown = 1.15,
+		jab_damage = 5,
+		enchantability = 15,
+		repair_material = "mcl_nether:netherite_ingot",
+
+		uses = 2031,
+		charge_delay = 0.4,
+		charge_minimum_dismount_speed = 7,
+		engaged_phase_duration = 2.5,
+		tired_phase_duration = 3,
+		disengaged_phase_duration = 3.25,
+		charge_damage_multiplier = 1.2
     }
 })

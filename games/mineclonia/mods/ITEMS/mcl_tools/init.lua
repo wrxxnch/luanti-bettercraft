@@ -54,8 +54,8 @@ mcl_tools.commondefs = {
 		groups = { sword = 1, weapon = 1 },
 		diggroups = { swordy = {}, swordy_cobweb = {}, swordy_bamboo = {} },
 		_mcl_diggroups = {
-			swordy_cobweb = { speed = 15, level = 1, uses = 2 * 238 },
-			swordy_bamboo = { speed = 45, level = 1, uses = 2 * 238 },
+			swordy_cobweb = { speed = 15, level = 1, uses = 238 },
+			swordy_bamboo = { speed = 45, level = 1, uses = 238 },
 		},
 		craft_shapes = {
 			{
@@ -242,6 +242,8 @@ function mcl_tools.register_set(setname, materialdefs, tools, overrides)
 	for tool, defs in pairs(tools) do
 		if mcl_tools.commondefs[tool] then
 			register_tool(setname, materialdefs, tool, defs, overrides)
+		elseif tool == "spear" then
+			mcl_tools.register_spear("mcl_tools:spear_" .. setname, defs)
 		else
 			local msg = "[mcl_tools] mod '%s' trying to register unknown tool '%s' for set '%s'"
 			if tool == "hoe" then
@@ -271,9 +273,9 @@ core.register_tool("mcl_tools:shears", {
 	sound = { breaks = "default_tool_breaks" },
 	_mcl_toollike_wield = true,
 	_mcl_diggroups = {
-		shearsy = { speed = 15, level = 1, uses = 2 * 238 },
-		shearsy_wool = { speed = 5, level = 1, uses = 2 * 238 },
-		shearsy_cobweb = { speed = 15, level = 1, uses = 2 * 238 }
+		shearsy = { speed = 15, level = 1, uses = 238 },
+		shearsy_wool = { speed = 5, level = 1, uses = 238 },
+		shearsy_cobweb = { speed = 15, level = 1, uses = 238 }
 	},
 	_on_dispense = function(stack, _, droppos, dropnode, dropdir)
 		if core.get_item_group(dropnode.name, "honey_level") == 5 then
@@ -303,5 +305,7 @@ core.register_craft({
 	}
 })
 
+dofile(modpath.."/spears.lua")
 dofile(modpath.."/mace.lua")
 dofile(modpath.."/register.lua")
+

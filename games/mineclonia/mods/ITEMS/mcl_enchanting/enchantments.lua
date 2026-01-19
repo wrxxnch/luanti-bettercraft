@@ -14,7 +14,7 @@ end
 mcl_enchanting.enchantments.bane_of_arthropods = {
 	name = S("Bane of Arthropods"),
 	max_level = 5,
-	primary = {sword = true},
+	primary = {sword = true, spear = true},
 	secondary = {axe = true},
 	disallow = {},
 	incompatible = {smite = true, sharpness = true, density = true, breach = true},
@@ -56,7 +56,7 @@ mcl_enchanting.enchantments.curse_of_vanishing = {
 	name = S("Curse of Vanishing"),
 	max_level = 1,
 	primary = {},
-	secondary = {armor_head = true, armor_torso = true, armor_legs = true, armor_feet = true, tool = true, weapon = true, trident = true, },
+	secondary = {armor_head = true, armor_torso = true, armor_legs = true, armor_feet = true, tool = true, weapon = true, trident = true, spear = true},
 	disallow = {},
 	incompatible = {},
 	weight = 1,
@@ -106,14 +106,20 @@ mcl_player.register_globalstep_slow(function(player)
 	end
 end)
 
-function mcl_enchanting.depth_strider_level (mob)
+function mcl_enchanting.mob_physics_enchantment_levels (mob)
 	if not mob.armor_list or mob.armor_list.feet == "" then
 		return 0
 	end
 
 	local stack = ItemStack (mob.armor_list.feet)
-	return stack:is_empty () and 0
-		or mcl_enchanting.get_enchantment (stack, "depth_strider")
+	if stack:is_empty () then
+		return 0, 0
+	end
+	local depth_strider
+		= mcl_enchanting.get_enchantment (stack, "depth_strider")
+	local soul_speed
+		= mcl_enchanting.get_enchantment (stack, "soul_speed")
+	return depth_strider, soul_speed
 end
 
 -- implemented via on_enchant
@@ -144,7 +150,7 @@ mcl_enchanting.enchantments.efficiency = {
 mcl_enchanting.enchantments.fire_aspect = {
 	name = S("Fire Aspect"),
 	max_level = 2,
-	primary = {sword = true},
+	primary = {sword = true, spear = true},
 	secondary = {},
 	disallow = {},
 	incompatible = {},
@@ -212,7 +218,7 @@ mcl_enchanting.enchantments.fortune = {
 	anvil_book_factor = 2,
 }
 
--- implemented via walkover.register_global
+-- implemented via mcl_walkover.register_global
 mcl_enchanting.enchantments.frost_walker = {
 	name = S("Frost Walker"),
 	max_level = 2,
@@ -233,22 +239,27 @@ mcl_enchanting.enchantments.frost_walker = {
 	anvil_book_factor = 2,
 }
 
-walkover.register_global(function(pos, _, player)
-	local boots = player:get_inventory():get_stack("armor", 5)
-	local frost_walker = mcl_enchanting.get_enchantment(boots, "frost_walker")
-	if frost_walker <= 0 then
-		return
-	end
-	local radius = frost_walker + 2
-	local minp = {x = pos.x - radius, y = pos.y, z = pos.z - radius}
-	local maxp = {x = pos.x + radius, y = pos.y, z = pos.z + radius}
-	local positions = core.find_nodes_in_area_under_air(minp, maxp, "mcl_core:water_source")
-	for _, p in ipairs(positions) do
-		if vector.distance(pos, p) <= radius then
-			core.set_node(p, {name = "mcl_core:frosted_ice_0"})
+if mcl_walkover and mcl_walkover.register_global then
+	mcl_walkover.register_global(function(pos, _, player)
+		local boots = player:get_inventory():get_stack("armor", 5)
+		local frost_walker = mcl_enchanting.get_enchantment(boots, "frost_walker")
+		if frost_walker <= 0 then
+			return
 		end
-	end
-end)
+		local radius = frost_walker + 2
+		local minp = {x = pos.x - radius, y = pos.y, z = pos.z - radius}
+		local maxp = {x = pos.x + radius, y = pos.y, z = pos.z + radius}
+		local positions = core.find_nodes_in_area_under_air(minp, maxp, "mcl_core:water_source")
+		for _, p in ipairs(positions) do
+			if vector.distance(pos, p) <= radius then
+				core.set_node(p, {name = "mcl_core:frosted_ice_0"})
+			end
+		end
+	end)
+else
+	core.log("warning", "[mcl_enchanting] mcl_walkover not found, Frost Walker disabled")
+end
+
 
 -- requires missing MineClone2 feature
 mcl_enchanting.enchantments.impaling = {
@@ -270,6 +281,26 @@ mcl_enchanting.enchantments.impaling = {
 	anvil_item_factor = 4,
 	anvil_book_factor = 2,
 }
+
+
+-- Compatibilidade com mcl_mobs (Depth Strider em entidades)
+function mcl_enchanting.depth_strider_level(entity)
+	-- Jogadores já são tratados via mcl_player
+	if entity:is_player() then
+		return 0
+	end
+
+	-- Mobs: tenta ler armadura se existir
+	if entity.armor_list and entity.armor_list.feet then
+		local stack = ItemStack(entity.armor_list.feet)
+		if not stack:is_empty() then
+			return mcl_enchanting.get_enchantment(stack, "depth_strider") or 0
+		end
+	end
+
+	return 0
+end
+
 
 -- implemented in mcl_bows
 mcl_enchanting.enchantments.infinity = {
@@ -296,7 +327,7 @@ mcl_enchanting.enchantments.infinity = {
 mcl_enchanting.enchantments.knockback = {
 	name = S("Knockback"),
 	max_level = 2,
-	primary = {sword = true},
+	primary = {sword = true, spear = true},
 	secondary = {},
 	disallow = {},
 	incompatible = {},
@@ -322,7 +353,7 @@ end
 mcl_enchanting.enchantments.looting = {
 	name = S("Looting"),
 	max_level = 3,
-	primary = {sword = true},
+	primary = {sword = true, spear = true},
 	secondary = {},
 	disallow = {},
 	incompatible = {},
@@ -406,7 +437,7 @@ mcl_enchanting.enchantments.mending = {
 	name = S("Mending"),
 	max_level = 1,
 	primary = {},
-	secondary = {armor_head = true, armor_torso = true, armor_legs = true, armor_feet = true, tool = true, weapon = true, trident = true, },
+	secondary = {armor_head = true, armor_torso = true, armor_legs = true, armor_feet = true, tool = true, weapon = true, trident = true, spear = true},
 	disallow = {},
 	incompatible = {infinity = true},
 	weight = 2,
@@ -620,7 +651,7 @@ mcl_enchanting.enchantments.riptide = {
 mcl_enchanting.enchantments.sharpness = {
 	name = S("Sharpness"),
 	max_level = 5,
-	primary = {sword = true},
+	primary = {sword = true, spear = true},
 	secondary = {axe = true},
 	disallow = {},
 	incompatible = {bane_of_arthropods = true, smite = true},
@@ -662,7 +693,7 @@ mcl_enchanting.enchantments.silk_touch = {
 mcl_enchanting.enchantments.smite = {
 	name = S("Smite"),
 	max_level = 5,
-	primary = {sword = true},
+	primary = {sword = true, spear = true},
 	secondary = {axe = true},
 	disallow = {},
 	incompatible = {bane_of_arthropods = true, sharpness = true, density = true, breach = true},
@@ -752,6 +783,27 @@ mcl_enchanting.enchantments.unbreaking = {
 	inv_tool_tab = true,
 	anvil_item_factor = 2,
 	anvil_book_factor = 1,
+}
+
+-- implemented in mcl_tools
+mcl_enchanting.enchantments.lunge = {
+	name = S("Lunge"),
+	max_level = 3,
+	primary = { spear = true },
+	secondary = {},
+	disallow = {},
+	incompatible = {},
+	weight = 5,
+	description = S("Launches the player horizontally when using a jab attack"),
+	curse = false,
+	on_enchant = function() end,
+	requires_tool = false,
+	treasure = true,
+	power_range_table = {{10, 25}, {20, 35}, {30, 45}, {40, 55}, {50, 65}},
+	inv_combat_tab = true,
+	inv_tool_tab = false,
+	anvil_item_factor = 8,
+	anvil_book_factor = 4,
 }
 
 -- implemented in mcl_tools
