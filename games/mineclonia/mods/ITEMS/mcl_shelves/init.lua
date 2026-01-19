@@ -1,9 +1,6 @@
 mcl_shelves = {}
 mcl_hunger = mcl_hunger or {}
 
-local shelf_being_moved = {}
-
-
 -- cria função dummy caso não exista
 function mcl_hunger.prevent_eating(player)
     -- nada a fazer, só evita o erro
@@ -22,13 +19,10 @@ local function escape_texture (text)
 end
 
 function mcl_shelves.sliced_shelf_texture(texture)
-
 	local function sheet_at(x, y)
 		return texture .. "^[sheet:2x4:" .. x .. "," .. y
 	end
-
 	local base_tex = texture .. "^[sheet:2x2:1,0"
-
 	return {
 		normal =         {base_tex, base_tex, base_tex, base_tex, base_tex, "[combine:16x16:0,0=" .. texture},
 		powered =        {base_tex, base_tex, base_tex, base_tex, base_tex, base_tex .. "^[combine:16x16:0,4=" .. escape_texture(sheet_at(1, 3))},
@@ -40,14 +34,8 @@ end
 
 local function rotate_dir_90_deg_clockwise(dir)
 	local rotated_dir = vector.copy(dir)
-
-	-- inlined linear transformation to rotate 90 degrees clockwise
-	--     i  j
-	-- x [-1, 0]
-	-- z [ 0, 1]
 	rotated_dir.x = -dir.z
 	rotated_dir.z = dir.x
-
 	return rotated_dir
 end
 
@@ -59,11 +47,10 @@ end
 local function clear_shelf_entities(pos)
 	local hash = core.hash_node_position(pos)
 	local objects = shelf_item_entities[hash] or {}
-
 	for _, obj in pairs(objects) do
 		if obj:is_valid() then
 			local l = obj:get_luaentity()
-			l.about_to_be_removed = true
+			if l then l.about_to_be_removed = true end
 			obj:remove()
 		end
 	end
@@ -73,16 +60,10 @@ end
 local function initalize_shelf(pos, inv)
 	local node = core.get_node(pos)
 	local rotation
-
-	if node.param2 == 0 then
-		rotation = 0
-	elseif node.param2 == 1 then
-		rotation = math.pi / 2
-	elseif node.param2 == 2 then
-		rotation = math.pi
-	else
-		rotation = math.pi * 3/2
-	end
+	if node.param2 == 0 then rotation = 0
+	elseif node.param2 == 1 then rotation = math.pi / 2
+	elseif node.param2 == 2 then rotation = math.pi
+	else rotation = math.pi * 3/2 end
 
 	local objects = {}
 	for i = 1, 3 do
@@ -92,39 +73,32 @@ local function initalize_shelf(pos, inv)
 		)
 		if obj then
 			obj:set_yaw(rotation)
-			local stack_name = inv:get_stack("main", i):get_name()
-
+			local stack = inv:get_stack("main", i)
+			local stack_name = stack:get_name()
 			if stack_name == "" then
 				obj:set_properties({visual = "sprite", textures = {"blank.png"}})
 			else
 				obj:set_properties({visual = "wielditem", textures = {stack_name}})
 			end
-
 			table.insert(objects, obj)
 		end
 	end
-
-	local hash = core.hash_node_position(pos)
-	shelf_item_entities[hash] = objects
+	shelf_item_entities[core.hash_node_position(pos)] = objects
 end
 
 local function set_shelf_entities(pos, inv)
 	local hash = core.hash_node_position(pos)
-
 	if not shelf_item_entities[hash] then
 		initalize_shelf(pos, inv)
 		return
 	end
-
 	local objects = shelf_item_entities[hash]
-
 	for i = 1, 3 do
 		local obj = objects[i]
 		if obj and obj:is_valid() then
 			local stack_name = inv:get_stack("main", i):get_name()
-			local obj_item = obj:get_properties().textures[1]
-
-			if obj_item ~= stack_name then
+			local props = obj:get_properties()
+			if props.textures[1] ~= stack_name then
 				if stack_name == "" then
 					obj:set_properties({visual = "sprite", textures = {"blank.png"}})
 				else
@@ -135,115 +109,52 @@ local function set_shelf_entities(pos, inv)
 	end
 end
 
-
 local function normal_on_rightclick(pos, node, player, stack, pointed_thing)
 	if not core.is_player(player) then return end
-
 	local dir = pointed_thing.under - pointed_thing.above
 	local perpendicular_dir = rotate_dir_90_deg_clockwise(dir)
 	local player_pos = vector.offset(player:get_pos(), 0, 1.5, 0)
 	local look_dir = player:get_look_dir()
-	local ray_end = player_pos + vector.multiply(look_dir, player_reach)
-
-	local ray = core.raycast(player_pos, ray_end, false, false)
-
-	local ray_pointed_thing = ray:next()
-	if not ray_pointed_thing or ray_pointed_thing.type ~= "node" or not vector.equals(ray_pointed_thing.under, pos) then
-		return
-	end
-
-	local pos_diff = vector.multiply(ray_pointed_thing.intersection_point - pos, perpendicular_dir)
-	local from_left =
-		(pos_diff.x ~= 0 and pos_diff.x)
-		or (pos_diff.y ~= 0 and pos_diff.y)
-		or (pos_diff.z ~= 0 and pos_diff.z)
-
+	local ray = core.raycast(player_pos, player_pos + vector.multiply(look_dir, player_reach), false, false)
+	local ray_pt = ray:next()
+	if not ray_pt or ray_pt.type ~= "node" or not vector.equals(ray_pt.under, pos) then return end
+	local pos_diff = vector.multiply(ray_pt.intersection_point - pos, perpendicular_dir)
+	local from_left = (pos_diff.x ~= 0 and pos_diff.x) or (pos_diff.y ~= 0 and pos_diff.y) or (pos_diff.z ~= 0 and pos_diff.z)
 	local slot = (from_left >= 0.15 and 1) or (from_left <= -0.15 and 3) or 2
-
-	local meta = core.get_meta(pos)
-	local inv = meta:get_inventory()
-
+	local inv = core.get_meta(pos):get_inventory()
 	local shelf_stack = inv:get_stack("main", slot)
-
 	inv:set_stack("main", slot, stack)
-
 	set_shelf_entities(pos, inv)
 	mcl_redstone.update_comparators(pos)
 	mcl_hunger.prevent_eating(player)
-
 	return shelf_stack
 end
 
 local function powered_on_rightclick(pos, node, player, stack, pointed_thing)
 	if not core.is_player(player) then return end
-
 	local dir = pointed_thing.under - pointed_thing.above
 	local perpendicular_dir = rotate_dir_90_deg_clockwise(dir)
-
 	local left_pos = pos + perpendicular_dir
 	local right_pos = pos - perpendicular_dir
-
 	local variant = get_shelf_variant(node.name)
-
-	-- order is significant in this table
 	local shelf_positions
-
 	if variant == "_powered_left" then
-		local right_node = core.get_node(right_pos)
-		local right_variant = get_shelf_variant(right_node.name)
-
-		if right_variant == "_powered_right" then
-			shelf_positions = {
-				right_pos,
-				pos
-			}
-		elseif right_variant == "_powered_center" then
-			shelf_positions = {
-				right_pos - perpendicular_dir,
-				right_pos,
-				pos,
-			}
-		else
-			core.log("error", "Invalid shelf configuration")
-			return
-		end
+		local rv = get_shelf_variant(core.get_node(right_pos).name)
+		if rv == "_powered_right" then shelf_positions = {right_pos, pos}
+		elseif rv == "_powered_center" then shelf_positions = {right_pos - perpendicular_dir, right_pos, pos}
+		else return end
 	elseif variant == "_powered_right" then
-		local left_node = core.get_node(left_pos)
-		local left_variant = get_shelf_variant(left_node.name)
-
-		if left_variant == "_powered_left" then
-			shelf_positions = {
-				pos,
-				left_pos,
-			}
-		elseif left_variant == "_powered_center" then
-			shelf_positions = {
-				pos,
-				left_pos,
-				left_pos + perpendicular_dir,
-			}
-		else
-			core.log("error", "Invalid shelf configuration")
-			return
-		end
-	elseif variant == "_powered_center" then
-		shelf_positions = {
-			right_pos,
-			pos,
-			left_pos
-		}
-	else
-		shelf_positions = {pos}
-	end
+		local lv = get_shelf_variant(core.get_node(left_pos).name)
+		if lv == "_powered_left" then shelf_positions = {pos, left_pos}
+		elseif lv == "_powered_center" then shelf_positions = {pos, left_pos, left_pos + perpendicular_dir}
+		else return end
+	elseif variant == "_powered_center" then shelf_positions = {right_pos, pos, left_pos}
+	else shelf_positions = {pos} end
 
 	local player_inv = player:get_inventory()
 	local shelf_inv
-
-	-- workaround the fact that if we set the wieleded item in this function, it will get
-	-- overwritten by the return value
 	local leftover_index = player:get_wield_index()
 	local leftover = stack
-
 	for i = 0, #shelf_positions * 3 - 1 do
 		if i % 3 == 0 then
 			if shelf_inv then
@@ -252,141 +163,148 @@ local function powered_on_rightclick(pos, node, player, stack, pointed_thing)
 			end
 			shelf_inv = core.get_inventory({type = "node", pos = shelf_positions[(i / 3) + 1]})
 		end
-
-		local shelf_inv_slot = 3 - (i % 3)
-		local shelf_stack = shelf_inv:get_stack("main", shelf_inv_slot)
-		local player_stack = player_inv:get_stack("main", 9 - i)
-
-		if 9 - i == leftover_index then
-			leftover = shelf_stack
-		else
-			player_inv:set_stack("main", 9 - i, shelf_stack)
-		end
-
-		shelf_inv:set_stack("main", shelf_inv_slot, player_stack)
+		local slot = 3 - (i % 3)
+		local s_stack = shelf_inv:get_stack("main", slot)
+		local p_stack = player_inv:get_stack("main", 9 - i)
+		if 9 - i == leftover_index then leftover = s_stack
+		else player_inv:set_stack("main", 9 - i, s_stack) end
+		shelf_inv:set_stack("main", slot, p_stack)
 	end
-
 	mcl_redstone.update_comparators(shelf_positions[#shelf_positions])
 	mcl_hunger.prevent_eating(player)
 	set_shelf_entities(shelf_positions[#shelf_positions], shelf_inv)
-
 	return leftover
 end
 
--- I don't like this function...
 local function propagate_redstone_update(pos)
 	local node = core.get_node(pos)
 	local root_name = string.gsub(node.name, "_powered.*", "")
-
-	if core.get_item_group(root_name, "mcl_shelf") <= 0 then
-		return
-	end
-
-	local connect_left = false
-	local connect_right = false
-
+	if core.get_item_group(root_name, "mcl_shelf") <= 0 then return end
 	local dir = core.facedir_to_dir(node.param2)
-	local perpendicular_dir = rotate_dir_90_deg_clockwise(dir)
-
-	local pos_left_1 = pos + perpendicular_dir
-	local node_left_1 = core.get_node(pos_left_1)
-	local node_left_1_variant = get_shelf_variant(node_left_1.name)
-
-	if (node_left_1_variant == "_powered" or node_left_1_variant == "_powered_left")
-			and node.param2 == node_left_1.param2 then
-		connect_left = true
-	elseif node_left_1_variant == "_powered_right" and node.param2 == node_left_1.param2 then
-		local pos_left_2 = pos_left_1 + perpendicular_dir
-		local node_left_2 = core.get_node(pos_left_2)
-		local node_left_2_variant = get_shelf_variant(node_left_2.name)
-
-		if node_left_2_variant == "_powered_left" and node.param2 == node_left_2.param2 then
-			core.swap_node(pos_left_2, {name = root_name .. "_powered_left", param2 = node.param2})
-			core.swap_node(pos_left_1, {name = root_name .. "_powered_center", param2 = node.param2})
-			core.swap_node(pos,        {name = root_name .. "_powered_right", param2 = node.param2})
+	local p_dir = rotate_dir_90_deg_clockwise(dir)
+	local pos_l1 = pos + p_dir
+	local node_l1 = core.get_node(pos_l1)
+	local var_l1 = get_shelf_variant(node_l1.name)
+	local connect_left = (var_l1 == "_powered" or var_l1 == "_powered_left") and node.param2 == node_l1.param2
+	if not connect_left and var_l1 == "_powered_right" and node.param2 == node_l1.param2 then
+		local node_l2 = core.get_node(pos_l1 + p_dir)
+		if get_shelf_variant(node_l2.name) == "_powered_left" and node.param2 == node_l2.param2 then
+			core.swap_node(pos_l1 + p_dir, {name = root_name .. "_powered_left", param2 = node.param2})
+			core.swap_node(pos_l1, {name = root_name .. "_powered_center", param2 = node.param2})
+			core.swap_node(pos, {name = root_name .. "_powered_right", param2 = node.param2})
 			return
 		end
 	end
-
-	local pos_right_1 = pos - perpendicular_dir
-	local node_right_1 = core.get_node(pos_right_1)
-	local node_right_1_variant = get_shelf_variant(node_right_1.name)
-
-	if (node_right_1_variant == "_powered" or node_right_1_variant == "_powered_right")
-			and node.param2 == node_right_1.param2 then
-		if connect_left then
-			core.swap_node(pos_left_1,  {name = root_name .. "_powered_left", param2 = node.param2})
-			core.swap_node(pos,         {name = root_name .. "_powered_center", param2 = node.param2})
-			core.swap_node(pos_right_1, {name = root_name .. "_powered_right", param2 = node.param2})
-			return
-		end
-
-		connect_right = true
-	elseif node_right_1_variant == "_powered_left" and not connect_left and node.param2 == node_right_1.param2 then
-		local pos_right_2 = pos_right_1 - perpendicular_dir
-		local node_right_2 = core.get_node(pos_right_2)
-		local node_right_2_variant = get_shelf_variant(node_right_2.name)
-
-		if node_right_2_variant == "_powered_right" and node.param2 == node_right_2.param2 then
-			core.swap_node(pos,         {name = root_name .. "_powered_left", param2 = node.param2})
-			core.swap_node(pos_right_1, {name = root_name .. "_powered_center", param2 = node.param2})
-			core.swap_node(pos_right_2, {name = root_name .. "_powered_right", param2 = node.param2})
+	local pos_r1 = pos - p_dir
+	local node_r1 = core.get_node(pos_r1)
+	local var_r1 = get_shelf_variant(node_r1.name)
+	local connect_right = (var_r1 == "_powered" or var_r1 == "_powered_right") and node.param2 == node_r1.param2
+	if connect_left and connect_right then
+		core.swap_node(pos_l1, {name = root_name .. "_powered_left", param2 = node.param2})
+		core.swap_node(pos, {name = root_name .. "_powered_center", param2 = node.param2})
+		core.swap_node(pos_r1, {name = root_name .. "_powered_right", param2 = node.param2})
+		return
+	end
+	if not connect_right and var_r1 == "_powered_left" and node.param2 == node_r1.param2 then
+		local node_r2 = core.get_node(pos_r1 - p_dir)
+		if get_shelf_variant(node_r2.name) == "_powered_right" and node.param2 == node_r2.param2 then
+			core.swap_node(pos, {name = root_name .. "_powered_left", param2 = node.param2})
+			core.swap_node(pos_r1, {name = root_name .. "_powered_center", param2 = node.param2})
+			core.swap_node(pos_r2, {name = root_name .. "_powered_right", param2 = node.param2})
 			return
 		end
 	end
-
 	if connect_left then
-		core.swap_node(pos,        {name = root_name .. "_powered_right", param2 = node.param2})
-		core.swap_node(pos_left_1, {name = root_name .. "_powered_left",  param2 = node.param2})
-		return
+		core.swap_node(pos, {name = root_name .. "_powered_right", param2 = node.param2})
+		core.swap_node(pos_l1, {name = root_name .. "_powered_left", param2 = node.param2})
 	elseif connect_right then
-		core.swap_node(pos,        {name = root_name .. "_powered_left",  param2 = node.param2})
-		core.swap_node(pos_right_1, {name = root_name .. "_powered_right", param2 = node.param2})
-		return
+		core.swap_node(pos, {name = root_name .. "_powered_left", param2 = node.param2})
+		core.swap_node(pos_r1, {name = root_name .. "_powered_right", param2 = node.param2})
 	else
 		core.swap_node(pos, {name = root_name .. "_powered", param2 = node.param2})
-		return
 	end
 end
+
+local function empty_shelf(pos)
+	local inv = core.get_inventory({ type = "node", pos = pos })
+	if inv then
+		for i = 1, 3 do
+			inv:set_stack("main", i, "")
+		end
+	end
+	clear_shelf_entities(pos)
+end
+
 
 local function propagate_redsone_removal(pos)
 	local node = core.get_node(pos)
 	local root_name = string.gsub(node.name, "_powered.*", "")
-	local node_variant = get_shelf_variant(node.name)
-
+	local variant = get_shelf_variant(node.name)
 	core.swap_node(pos, {name = root_name, param2 = node.param2})
-
-	local dir = core.facedir_to_dir(node.param2)
-	local perpendicular_dir = rotate_dir_90_deg_clockwise(dir)
-
-	if node_variant == "_powered_left" then
-		propagate_redstone_update(pos - perpendicular_dir)
-	elseif node_variant == "_powered_right" then
-		propagate_redstone_update(pos + perpendicular_dir)
-	elseif node_variant == "_powered_center" then
-		propagate_redstone_update(pos + perpendicular_dir)
-		propagate_redstone_update(pos - perpendicular_dir)
+	local p_dir = rotate_dir_90_deg_clockwise(core.facedir_to_dir(node.param2))
+	if variant == "_powered_left" then propagate_redstone_update(pos - p_dir)
+	elseif variant == "_powered_right" then propagate_redstone_update(pos + p_dir)
+	elseif variant == "_powered_center" then
+		propagate_redstone_update(pos + p_dir)
+		propagate_redstone_update(pos - p_dir)
 	end
 end
 
 local function comparator_measure(pos)
 	local inv = core.get_inventory({type = "node", pos = pos})
-	local powerlevel = 0
+	local power = 0
 	for i = 1, 3 do
-		local stack = inv:get_stack("main", i)
+		if not inv:get_stack("main", i):is_empty() then power = bit.bor(power, bit.lshift(1, i - 1)) end
+	end
+	return power
+end
 
-		if not stack:is_empty() then
-			powerlevel = bit.bor(powerlevel, bit.lshift(1, i - 1))
+local function is_shelf_empty(pos)
+	local inv = core.get_inventory({type = "node", pos = pos})
+	if not inv then return true end
+	for i = 1, 3 do
+		if not inv:get_stack("main", i):is_empty() then
+			return false
 		end
 	end
-
-	return powerlevel
+	return true
 end
+
+if mcl_pistons and mcl_pistons.register_on_move then
+	mcl_pistons.register_on_move(function(moved_nodes)
+		for _, moved in ipairs(moved_nodes) do
+			local name = moved.node.name
+
+			-- qualquer variante da shelf
+			if core.get_item_group(name, "mcl_shelf") > 0 then
+				-- esvazia ANTES e DEPOIS por segurança
+				empty_shelf(moved.old_pos)
+				empty_shelf(moved.pos)
+			end
+		end
+	end)
+end
+
 
 local shelf_tpl = {
 	drawtype = "nodebox",
 	paramtype2 = "4dir",
 	paramtype = "light",
+	on_neighbor_changed = function(pos)
+	for _, dir in ipairs({
+		{x=1,y=0,z=0}, {x=-1,y=0,z=0},
+		{x=0,y=1,z=0}, {x=0,y=-1,z=0},
+		{x=0,y=0,z=1}, {x=0,y=0,z=-1},
+	}) do
+		local n = core.get_node(pos + dir).name
+		if n == "mcl_pistons:piston_pusher"
+		or n == "mcl_pistons:piston_pusher_sticky" then
+			empty_shelf(pos)
+			return
+		end
+	end
+end,
+
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -397,36 +315,27 @@ local shelf_tpl = {
 	},
 	groups = {mcl_shelf = 1, deco_block = 1, container = 3},
 
-	-- Permite mover a shelf com pistão mesmo se tiver itens, mas evita duplicação
+	-- Bloqueia o movimento se houver itens
 	_mcl_pistons_move = function(pos, node, dir)
-		return true
+		return is_shelf_empty(pos)
 	end,
 
-	on_construct = function(pos)
-		local meta = core.get_meta(pos)
-		local inv = meta:get_inventory()
-		inv:set_size("main", 3)
-		inv:set_list("main", {"", "", ""})
+	
 
+	on_construct = function(pos)
+		local inv = core.get_meta(pos):get_inventory()
+		inv:set_size("main", 3)
 		initalize_shelf(pos, inv)
 	end,
 
 	on_destruct = function(pos)
-		local hash = core.hash_node_position(pos)
-		
-		-- Se estiver sendo movido por pistão, NÃO dropa os itens (evita duplicação)
-		if not shelf_being_moved[hash] then
-			local inv = core.get_inventory({type = "node", pos = pos})
-			if inv then
-				for i = 1, 3 do
-					local stack = inv:get_stack("main", i)
-					if not stack:is_empty() then
-						core.add_item(pos, stack)
-					end
-				end
+		local inv = core.get_inventory({type = "node", pos = pos})
+		if inv then
+			for i = 1, 3 do
+				local stack = inv:get_stack("main", i)
+				if not stack:is_empty() then core.add_item(pos, stack) end
 			end
 		end
-
 		clear_shelf_entities(pos)
 		propagate_redsone_removal(pos)
 	end,
@@ -434,55 +343,13 @@ local shelf_tpl = {
 	on_rightclick = normal_on_rightclick,
 	_mcl_redstone = {
 		update = function(pos, node)
-			local power = mcl_redstone.get_power(pos)
-			if power > 0 then
-				propagate_redstone_update(pos)
-			end
+			if mcl_redstone.get_power(pos) > 0 then propagate_redstone_update(pos) end
 		end
 	},
-	_after_hopper_out = function(pos)
-		set_shelf_entities(pos, core.get_inventory({type = "node", pos = pos}))
-	end,
-	_after_hopper_in = function(pos)
-		set_shelf_entities(pos, core.get_inventory({type = "node", pos = pos}))
-	end,
-
-	-- Callback chamado quando o nó é movido por um pistão
-	on_movenode = function(from_pos, to_pos)
-		local from_hash = core.hash_node_position(from_pos)
-		local to_hash = core.hash_node_position(to_pos)
-		
-		-- Marca que está movendo para o on_destruct não dropar itens
-		shelf_being_moved[from_hash] = true
-		
-		-- Limpa entidades na posição antiga
-		clear_shelf_entities(from_pos)
-		
-		-- Remove a marcação após um pequeno delay ou no próximo passo
-		core.after(0.1, function()
-			shelf_being_moved[from_hash] = nil
-			
-			-- Inicializa entidades na nova posição
-			local inv = core.get_inventory({type = "node", pos = to_pos})
-			if inv then
-				initalize_shelf(to_pos, inv)
-			end
-		end)
-	end,
+	_after_hopper_out = function(pos) set_shelf_entities(pos, core.get_inventory({type = "node", pos = pos})) end,
+	_after_hopper_in = function(pos) set_shelf_entities(pos, core.get_inventory({type = "node", pos = pos})) end,
 }
 
--- def takes members:
--- tiles = {
---	normal = tile_def
---	powered = tile_def
---	powered_left = tile_def
---	powered_center = tile_def
---	powered_right = tile_def
--- } -- you should consider using mcl_shelves.sliced_shelf_texture()
--- overrides - table that overrides the nodedef of the shelves
--- sounds - the `sounds` part of the node def
--- description - the `description` of the node def
--- description - the `groups` of the node def
 function mcl_shelves.register_shelf(name, def)
 	local root_name = "mcl_shelves:" .. name
 	local base_def = table.merge(shelf_tpl, {
@@ -500,37 +367,19 @@ function mcl_shelves.register_shelf(name, def)
 		groups = table.merge(base_def.groups, {not_in_creative_inventory = 1}),
 		_mcl_redstone = {
 			update = function(pos, node)
-				local power = mcl_redstone.get_power(pos)
-				if power == 0 then
-					propagate_redsone_removal(pos)
-				end
+				if mcl_redstone.get_power(pos) == 0 then propagate_redsone_removal(pos) end
 			end
 		}
 	})
 
 	core.register_node(":" .. root_name, base_def)
+	core.register_node(":" .. root_name .. "_powered", table.merge(powered_def, {tiles = def.tiles.powered}))
+	core.register_node(":" .. root_name .. "_powered_left", table.merge(powered_def, {tiles = def.tiles.powered_left}))
+	core.register_node(":" .. root_name .. "_powered_center", table.merge(powered_def, {tiles = def.tiles.powered_center}))
+	core.register_node(":" .. root_name .. "_powered_right", table.merge(powered_def, {tiles = def.tiles.powered_right}))
 
-	core.register_node(":" .. root_name .. "_powered", table.merge(powered_def, {
-		tiles = def.tiles.powered,
-	}))
-
-	core.register_node(":" .. root_name .. "_powered_left", table.merge(powered_def, {
-		tiles = def.tiles.powered_left,
-	}))
-
-	core.register_node(":" .. root_name .. "_powered_center", table.merge(powered_def, {
-		tiles = def.tiles.powered_center,
-	}))
-
-	core.register_node(":" .. root_name .. "_powered_right", table.merge(powered_def, {
-		tiles = def.tiles.powered_right,
-	}))
-
-	mcl_redstone.register_comparator_measure_func(root_name, comparator_measure)
-	mcl_redstone.register_comparator_measure_func(root_name .. "_powered", comparator_measure)
-	mcl_redstone.register_comparator_measure_func(root_name .. "_powered_left", comparator_measure)
-	mcl_redstone.register_comparator_measure_func(root_name .. "_powered_center", comparator_measure)
-	mcl_redstone.register_comparator_measure_func(root_name .. "_powered_right", comparator_measure)
+	local names = {root_name, root_name.."_powered", root_name.."_powered_left", root_name.."_powered_center", root_name.."_powered_right"}
+	for _, n in ipairs(names) do mcl_redstone.register_comparator_measure_func(n, comparator_measure) end
 end
 
 core.register_entity("mcl_shelves:item_entity", {
@@ -558,7 +407,8 @@ core.register_lbm({
 	bulk_action = function(pos_list)
 		for _, pos in pairs(pos_list) do
 			clear_shelf_entities(pos)
-			initalize_shelf(pos, core.get_inventory({type = "node", pos = pos}))
+			local inv = core.get_inventory({type = "node", pos = pos})
+			if inv then initalize_shelf(pos, inv) end
 		end
 	end
 })
