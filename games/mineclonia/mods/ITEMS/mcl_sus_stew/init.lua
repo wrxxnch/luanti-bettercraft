@@ -19,12 +19,19 @@ local flower_effect = {
 	[ "mcl_flowers:tulip_pink" ] = "weakness",
 	[ "mcl_flowers:tulip_red" ] = "weakness",
 	[ "mcl_flowers:tulip_white" ] = "weakness",
+	[ "mcl_pale_oak:eyeblossom" ] = "nausea",
+	[ "mcl_pale_oak:eyeblossom_open" ] = "blindness",
 }
 
 local effects = {
 	[ "fire_resistance" ] = function(itemstack, placer, pointed_thing)
 		mcl_potions.give_effect("fire_resistance", placer, 1, 4)
 		return eat(itemstack, placer, pointed_thing)
+	end,
+
+	
+	["nausea"] = function(itemstack, placer, pointed_thing)
+		mcl_potions.give_effect("nausea", placer, 1, 8)
 	end,
 
 	[ "blindness" ] = function(itemstack, placer, pointed_thing)
@@ -128,6 +135,19 @@ core.register_craft({
 	output = "mcl_sus_stew:stew",
 	recipe = {"mcl_mushrooms:mushroom_red", "mcl_mushrooms:mushroom_brown", "mcl_core:bowl", "mcl_flowers:allium"},
 })
+
+	core.register_craft({
+	type = "shapeless",
+	output = "mcl_sus_stew:stew",
+	recipe = {"mcl_mushrooms:mushroom_red", "mcl_mushrooms:mushroom_brown", "mcl_core:bowl", "mcl_pale_oak:eyeblossom"},
+})
+
+core.register_craft({
+	type = "shapeless",
+	output = "mcl_sus_stew:stew",
+	recipe = {"mcl_mushrooms:mushroom_red", "mcl_mushrooms:mushroom_brown", "mcl_core:bowl", "mcl_pale_oak:eyeblossom_open"},
+})
+
 
 core.register_craft({
 	type = "shapeless",
