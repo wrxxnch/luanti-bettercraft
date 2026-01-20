@@ -78,12 +78,20 @@ core.register_node("mcl_armor_stand:armor_stand", {
 	on_destruct = function(pos)
 		drop_inventory(pos)
 	end,
-	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
-		local protname = clicker:get_player_name()
-		if core.is_protected(pos, protname) then
-			core.record_protection_violation(pos, protname)
-			return itemstack
-		end
+on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+	local protname = clicker:get_player_name()
+	if core.is_protected(pos, protname) then
+		core.record_protection_violation(pos, protname)
+		return itemstack
+	end
+
+	-- 🔒 FIX: poções e outros itens chamam on_rightclick sem pointed_thing
+	if not pointed_thing
+	or pointed_thing.type ~= "node"
+	or not pointed_thing.above then
+		return itemstack
+	end
+
 
 		local stand_entity = get_stand_entity(pos, node).object
 		local px, py, pz, ax, az = pos.x, pos.y, pos.z, pointed_thing.above.x, pointed_thing.above.z
