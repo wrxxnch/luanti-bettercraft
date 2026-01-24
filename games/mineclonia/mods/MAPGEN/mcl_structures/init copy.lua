@@ -1,8 +1,6 @@
 local modname = core.get_current_modname()
 local S = core.get_translator(modname)
 local modpath = core.get_modpath(modname)
-local gamepath = core.get_game_info().path
-
 local SCHEM_PATH = modpath .. "/schematics/"
 
 mcl_structures = {}
@@ -124,42 +122,6 @@ local function dir_to_rotation(dir)
 	return "0"
 end
 
-local function place_mts_anywhere(pos, name, rot)
-	local path = mts_index[name]
-	if not path then
-		return false, "Nenhum .mts encontrado com o nome: "..name
-	end
-
-	core.place_schematic(
-		pos,
-		path,
-		rot or "0",
-		nil,
-		true
-	)
-
-	return true, "Structure colocada: "..name
-end
-
-
-local mts_index = {}
-
-local function scan_for_mts(path)
-	local files = core.get_dir_list(path, false)
-	for _, file in ipairs(files) do
-		if file:sub(-4) == ".mts" then
-			local name = file:sub(1, -5)
-			mts_index[name] = path .. "/" .. file
-		end
-	end
-
-	local dirs = core.get_dir_list(path, true)
-	for _, dir in ipairs(dirs) do
-		scan_for_mts(path .. "/" .. dir)
-	end
-end
-
-
 local function place_mts_by_name(pos, name, rot)
 	local mts_path = SCHEM_PATH .. name .. ".mts"
 
@@ -206,10 +168,8 @@ core.register_chatcommand("spawnstruct", {
 		mts = modpath .. "/" .. mts
 	end
 
--- 🔥 busca GLOBAL por qualquer .mts do jogo
-local ok, msg = place_mts_anywhere(pos, param, rot)
-return ok, msg
-
+	local ok, msg = place_mts_direct(pos, mts, rot)
+	return ok, msg
 end
 
 
@@ -239,8 +199,9 @@ end,
 })
 
 core.register_on_mods_loaded(function()
-	core.log("action", "[spawnstruct] Escaneando .mts em "..gamepath)
-	scan_for_mts(gamepath)
-	core.log("action", "[spawnstruct] "..table.count(mts_index).." schematics encontrados")
+	local p = ""
+	for n,_ in pairs(mcl_structures.registered_structures) do
+		p = p .. " | "..n
+	end
+	core.registered_chatcommands["spawnstruct"].params = core.registered_chatcommands["spawnstruct"].params .. p
 end)
-
