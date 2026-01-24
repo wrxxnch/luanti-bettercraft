@@ -5,6 +5,11 @@ local gamepath = core.get_game_info().path
 
 local SCHEM_PATH = modpath .. "/schematics/"
 
+
+local mts_index = {}     -- nome -> path
+local mts_mod = {}       -- nome -> mod
+
+
 mcl_structures = {}
 
 dofile(modpath.."/api.lua")
@@ -127,7 +132,7 @@ end
 local function place_mts_anywhere(pos, name, rot)
 	local path = mts_index[name]
 	if not path then
-		return false, "Nenhum .mts encontrado com o nome: "..name
+		return false, "Nenhuma structure .mts encontrada: "..name
 	end
 
 	core.place_schematic(
@@ -142,7 +147,7 @@ local function place_mts_anywhere(pos, name, rot)
 end
 
 
-local mts_index = {}
+
 
 local function scan_for_mts(path)
 	local files = core.get_dir_list(path, false)
@@ -150,6 +155,9 @@ local function scan_for_mts(path)
 		if file:sub(-4) == ".mts" then
 			local name = file:sub(1, -5)
 			mts_index[name] = path .. "/" .. file
+
+			local mod = path:match("/mods/([^/]+)")
+			mts_mod[name] = mod or "unknown"
 		end
 	end
 
@@ -158,6 +166,7 @@ local function scan_for_mts(path)
 		scan_for_mts(path .. "/" .. dir)
 	end
 end
+
 
 
 local function place_mts_by_name(pos, name, rot)
@@ -180,6 +189,51 @@ local function place_mts_by_name(pos, name, rot)
 	return true, "Structure colocada: "..name
 end
 
+core.register_chatcommand("spawnstruct_list", {
+	description = "Lista todas as estruturas .mts disponíveis",
+	privs = {debug = true},
+	func = function(name)
+		local list = {}
+		for n,_ in pairs(mts_index) do
+			table.insert(list, n)
+		end
+		table.sort(list)
+
+		core.chat_send_player(name,
+			"Estruturas (.mts):\n" .. table.concat(list, ", ")
+		)
+	end
+})
+
+
+core.register_chatcommand("spawnstruct_search", {
+	params = "<texto>",
+	description = "Busca structures .mts por nome",
+	privs = {debug = true},
+	func = function(name, param)
+		if param == "" then
+			return false, "Use: /spawnstruct_search <texto>"
+		end
+
+		local q = param:lower()
+		local results = {}
+
+		for n,_ in pairs(mts_index) do
+			if n:lower():find(q, 1, true) then
+				table.insert(results, n)
+			end
+		end
+
+		if #results == 0 then
+			return false, "Nenhuma structure encontrada para: "..param
+		end
+
+		table.sort(results)
+		core.chat_send_player(name,
+			"Resultados:\n" .. table.concat(results, ", ")
+		)
+	end
+})
 
 
 core.register_chatcommand("spawnstruct", {
@@ -200,15 +254,10 @@ core.register_chatcommand("spawnstruct", {
 
 	-- 🔥 NOVO: spawnar qualquer .mts
 	if param:sub(1,5) == "file:" then
-	local mts = param:sub(6)
-
-	if not mts:match("^/") then
-		mts = modpath .. "/" .. mts
-	end
-
--- 🔥 busca GLOBAL por qualquer .mts do jogo
-local ok, msg = place_mts_anywhere(pos, param, rot)
+	local name = param:sub(6)
+local ok, msg = place_mts_anywhere(pos, name, rot)
 return ok, msg
+
 
 end
 
@@ -232,15 +281,25 @@ if mcl_structures.registered_structures[param] then
 end
 
 -- 🔥 NOVO: qualquer .mts pelo nome
-local ok, msg = place_mts_by_name(pos, param, rot)
+local ok, msg = place_mts_anywhere(pos, param, rot)
 return ok, msg
-end,	
+end
 
 })
 
 core.register_on_mods_loaded(function()
 	core.log("action", "[spawnstruct] Escaneando .mts em "..gamepath)
 	scan_for_mts(gamepath)
-	core.log("action", "[spawnstruct] "..table.count(mts_index).." schematics encontrados")
+
+	local p = ""
+	for n,_ in pairs(mts_index) do
+		p = p .. " | " .. n
+	end
+
+	if core.registered_chatcommands["spawnstruct"] then
+		core.registered_chatcommands["spawnstruct"].params = "<nome>" .. p
+	end
 end)
+
+
 
