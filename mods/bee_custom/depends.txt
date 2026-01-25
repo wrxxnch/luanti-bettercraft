@@ -1,3 +1,0 @@
-mcl_mobs
-mcl_beehives
-mcl_flowers
