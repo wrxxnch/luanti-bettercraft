@@ -8,6 +8,10 @@ mcl_trees.register_wood("pale_oak",{
 		{file = modpath.."/schematics/mcl_pale_oak_1.mts", offset = vector.new(1,0,1)},
 		{file = modpath.."/schematics/mcl_pale_oak_2.mts", offset = vector.new(1,0,1)},
 		{file = modpath.."/schematics/mcl_pale_oak_3.mts", offset = vector.new(1,0,1)},
+		--hearted
+		{file = modpath.."/schematics/pale_oak1_hearted.mts", offset = vector.new(1,0,1)},
+		{file = modpath.."/schematics/pale_oak2_hearted.mts", offset = vector.new(1,0,1)},
+		{file = modpath.."/schematics/pale_oak3_hearted.mts", offset = vector.new(1,0,1)},
 	},
 	tree = { tiles = {"mcl_pale_oak_log_top.png", "mcl_pale_oak_log_top.png","mcl_pale_oak_log.png" }},
 	bark = { tiles = {"mcl_pale_oak_log.png"}},
