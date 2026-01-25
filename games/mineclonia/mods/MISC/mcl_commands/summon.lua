@@ -75,6 +75,67 @@ minetest.register_chatcommand("summon", {
 		if args.glow then
 			obj:set_properties({ glow = args.glow })
 		end
+
+		-- =========================
+-- ITEM NA MÃO (hand)
+-- =========================
+if args.hand then
+	local item = args.hand
+	if not item:find(":") then
+		item = "mcl_core:" .. item
+	end
+
+	-- Mineclonia usa wield_item
+	mob.wield_item = item
+
+	obj:set_properties({
+		wield_item = item
+	})
+end
+
+if args.helmet then
+	mob.armor_head = args.helmet
+end
+if args.chestplate then
+	mob.armor_torso = args.chestplate
+end
+if args.leggings then
+	mob.armor_legs = args.leggings
+end
+if args.boots then
+	mob.armor_feet = args.boots
+end
+
+
+
+		-- =========================
+-- FORÇAR MONTARIA (ride)
+-- =========================
+if args.ride then
+	-- normaliza nome
+	local ridename = args.ride
+	if not ridename:find(":") then
+		ridename = "mobs_mc:" .. ridename
+	end
+
+	-- procura entidade próxima
+	local radius = 3
+	local objs = minetest.get_objects_inside_radius(pos, radius)
+
+	for _, o in ipairs(objs) do
+		if o ~= obj then
+			local ent = o:get_luaentity()
+			if ent and ent.name == ridename then
+				-- força attach
+				obj:set_attach(o, "", {x=0,y=10,z=0}, {x=0,y=0,z=0})
+				mob.riding = true
+				mob.rider = o
+				break
+			end
+		end
+	end
+end
+
 		
 		-- Tamanho e Child
 		if args.child ~= nil then

@@ -11,7 +11,7 @@ minetest.register_craftitem(modname .. ":pumpkin_slice", {
 	description = "Pedaço de Abóbora",
 	inventory_image = "custom_food_pumpkin_slice.png",
 
-	groups = { food = 2 },
+	groups = { food = 2 ,smoker_cookable = 1},
 
 	_mcl_food = {
 		eat = 2,
@@ -51,7 +51,7 @@ minetest.register_craftitem(modname .. ":fried_egg", {
 	on_place = core.item_eat(6),
 	on_secondary_use = core.item_eat(6),
 
-	groups = { food = 2, eatable = 6 },
+	groups = { food = 2, eatable = 6,smoker_cookable = 1},
 	_mcl_saturation = 0.8,
 })
 
