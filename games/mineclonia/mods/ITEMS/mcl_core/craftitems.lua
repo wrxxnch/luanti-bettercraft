@@ -154,11 +154,16 @@ core.register_craftitem("mcl_core:bowl",{
 core.register_craftitem("mcl_core:apple", {
 	description = S("Apple"),
 	_doc_items_longdesc = S("Apples are food items which can be eaten."),
-	wield_image = "default_apple.png",
 	inventory_image = "default_apple.png",
-	groups = { food = 2, eatable = 4, compostability = 65 },
+	wield_image = "default_apple.png",
+	on_place = core.item_eat(6),
+	on_secondary_use = core.item_eat(6),
+
+	groups = { food = 2, eatable = 4, can_eat_when_full = 1 ,compostability = 65},
+
 	_mcl_saturation = 2.4,
 })
+
 
 core.register_craftitem("mcl_core:apple_gold", {
 	-- TODO: Add special highlight color
