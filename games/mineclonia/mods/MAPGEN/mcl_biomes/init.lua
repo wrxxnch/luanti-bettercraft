@@ -5146,60 +5146,78 @@ local function register_decorations()
 		spawn_by = "group:flower",
 	})
 
-	-- Dark Oak
-	core.register_decoration({
-		deco_type = "schematic",
-		place_on = {"group:grass_block_no_snow"},
-		sidelen = 16,
-		noise_params = {
-			offset = 0.05,
-			scale = 0.0015,
-			spread = {x = 125, y = 125, z = 125},
-			seed = 223,
-			octaves = 3,
-			persist = 0.66
-		},
-		biomes = {"PaleGarde"},
-		y_min = 4,
-		y_max = mcl_vars.mg_overworld_max,
-		schematic = mod_mcl_core.."/schematics/mcl_core_dark_oak.mts",
-		flags = "place_center_x, place_center_z",
-		rotation = "random",
-	})
-
-    core.register_decoration({
+        -- Pale Oak Hearted 1
+core.register_decoration({
 	deco_type = "schematic",
-	place_on = {
-		"group:grass_block_no_snow",
-		"mcl_pale_oak:pale_moss"
-	},
-
+	place_on = {"group:grass_block_no_snow", "mcl_pale_oak:pale_moss"},
 	sidelen = 16,
 
 	noise_params = {
-		offset = 0.01,
-		scale = 0.0015,
-		spread = {x = 125, y = 125, z = 125},
-		seed = 394,
+		offset = 0.003,   -- 🔥 menor = mais raro
+		scale = 0.0005,
+		spread = {x = 200, y = 200, z = 200},
+		seed = 9401,
 		octaves = 3,
-		persist = 0.66
+		persist = 0.6
 	},
 
 	biomes = {"PaleGarden"},
 	y_min = 4,
 	y_max = mcl_vars.mg_overworld_max,
 
-	-- pale oak hearted
-	schematic = {
-		-- hearted
-		mod_pale_oak.."/schematics/pale_oak1_hearted.mts",
-		mod_pale_oak.."/schematics/pale_oak2_hearted.mts",
-		mod_pale_oak.."/schematics/pale_oak3_hearted.mts",
-	},
-
+	schematic = mod_pale_oak.."/schematics/pale_oak1_hearted.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
 })
+
+-- Pale Oak Hearted 2
+core.register_decoration({
+	deco_type = "schematic",
+	place_on = {"group:grass_block_no_snow", "mcl_pale_oak:pale_moss"},
+	sidelen = 16,
+
+	noise_params = {
+		offset = 0.003,
+		scale = 0.0005,
+		spread = {x = 200, y = 200, z = 200},
+		seed = 9402,
+		octaves = 3,
+		persist = 0.6
+	},
+
+	biomes = {"PaleGarden"},
+	y_min = 4,
+	y_max = mcl_vars.mg_overworld_max,
+
+	schematic = mod_pale_oak.."/schematics/pale_oak2_hearted.mts",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
+-- Pale Oak Hearted 3
+core.register_decoration({
+	deco_type = "schematic",
+	place_on = {"group:grass_block_no_snow", "mcl_pale_oak:pale_moss"},
+	sidelen = 16,
+
+	noise_params = {
+		offset = 0.003,
+		scale = 0.0005,
+		spread = {x = 200, y = 200, z = 200},
+		seed = 9403,
+		octaves = 3,
+		persist = 0.6
+	},
+
+	biomes = {"PaleGarden"},
+	y_min = 4,
+	y_max = mcl_vars.mg_overworld_max,
+
+	schematic = mod_pale_oak.."/schematics/pale_oak3_hearted.mts",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
 
 
 	core.register_decoration({
