@@ -5159,13 +5159,48 @@ local function register_decorations()
 			octaves = 3,
 			persist = 0.66
 		},
-		biomes = {"RoofedForest"},
+		biomes = {"PaleGarde"},
 		y_min = 4,
 		y_max = mcl_vars.mg_overworld_max,
 		schematic = mod_mcl_core.."/schematics/mcl_core_dark_oak.mts",
 		flags = "place_center_x, place_center_z",
 		rotation = "random",
 	})
+
+    core.register_decoration({
+	deco_type = "schematic",
+	place_on = {
+		"group:grass_block_no_snow",
+		"mcl_pale_oak:pale_moss"
+	},
+
+	sidelen = 16,
+
+	noise_params = {
+		offset = 0.01,
+		scale = 0.0015,
+		spread = {x = 125, y = 125, z = 125},
+		seed = 394,
+		octaves = 3,
+		persist = 0.66
+	},
+
+	biomes = {"PaleGarden"},
+	y_min = 4,
+	y_max = mcl_vars.mg_overworld_max,
+
+	-- pale oak hearted
+	schematic = {
+		-- hearted
+		mod_pale_oak.."/schematics/pale_oak1_hearted.mts",
+		mod_pale_oak.."/schematics/pale_oak2_hearted.mts",
+		mod_pale_oak.."/schematics/pale_oak3_hearted.mts",
+	},
+
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
+})
+
 
 	core.register_decoration({
 		deco_type = "schematic",
