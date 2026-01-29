@@ -14,5 +14,7 @@ prompt.txt
 __pycache__
 *.~*~
 *~
+debug*
+cache*
 
 -- <<<<<<<<<< FIM MERGE
