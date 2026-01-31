@@ -44,3 +44,5 @@ mcl_trees.register_wood("pale_oak",{
 
 dofile(modpath .. "/resin_blocks.lua")
 dofile(modpath .. "/plants.lua")
+-dofile(modpath .. "/creaking_heart.lua")
+-dofile(modpath .. "/creaking.lua")
