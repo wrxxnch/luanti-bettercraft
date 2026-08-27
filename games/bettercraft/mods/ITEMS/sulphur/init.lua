@@ -3,6 +3,13 @@ local core = minetest
 local S = core.get_translator("sulphur_update")
 local modname = "sulphur_update"
 
+local mapgen_path = core.get_modpath(modname) .. "/mapgen.lua"
+local f = io.open(mapgen_path, "r")
+if f then
+	f:close()
+	dofile(mapgen_path)
+end
+
 -- Escalas visuais
 local SLIME_VISUAL_SIZE = { x = 9, y = 9 }
 local SULFUR_BLOCK_VISUAL_SIZE = { x = 0.08, y = 0.08 }
