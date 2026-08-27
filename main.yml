@@ -1,0 +1,71 @@
+name: Build Bettercraft APK
+
+on:
+  workflow_dispatch: # Permite rodar clicando em um botão
+  push:
+    tags:
+      - 'v*' # Roda quando você criar uma tag, ex: v1.0.0
+
+jobs:
+  repackage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Instalar Dependências
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full curl jq
+
+      - name: Baixar APK Base (Luanti)
+        run: |
+          # Busca a URL do APK mais recente do Luanti via API do GitHub
+          DOWNLOAD_URL=$(curl -s https://api.github.com/repos/luanti-org/luanti/releases/latest \
+            | jq -r '.assets[] | select(.name | contains("android-arm64-v8a")) | .browser_download_url' | head -n 1)
+          
+          echo "Baixando de: $DOWNLOAD_URL"
+          curl -L "$DOWNLOAD_URL" -o base_game.apk
+
+      - name: Injetar Bettercraft no APK
+        run: |
+          # 1. Extrair o assets.zip de dentro do APK original
+          7z e base_game.apk assets/assets.zip
+          
+          # 2. Criar a estrutura de pastas correta para o Bettercraft
+          mkdir -p games/bettercraft
+          cp -r games/bettercraft/* games/bettercraft/
+          
+          # 3. Adicionar a pasta games/bettercraft dentro do assets.zip
+          # O Luanti lê os jogos dentro de /games/ dentro do assets.zip
+          7z a assets.zip games/bettercraft/
+          
+          # 4. Colocar o assets.zip modificado de volta no APK
+          7z a base_game.apk assets/assets.zip
+          
+          mv base_game.apk Bettercraft-unsigned.apk
+
+      - name: Assinar APK
+        id: sign_apk
+        uses: r0adkll/sign-android-release@v1
+        with:
+          releaseDirectory: .
+          signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
+          alias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "34.0.0"
+
+      - name: Renomear APK Final
+        run: mv Bettercraft-unsigned-signed.apk Bettercraft-Release.apk
+
+      - name: Criar Release no GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Bettercraft-Release.apk
+          tag_name: ${{ github.ref_name }}
+          name: "Bettercraft ${{ github.ref_name }}"
+          body: "APK do Bettercraft gerado automaticamente com base na última versão do Luanti."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
