@@ -1,17 +1,22 @@
-name: Build Bettercraft APK
+name: Build Bettercraft APK (Every Commit)
 
 on:
-  workflow_dispatch: # Permite rodar clicando em um botão
   push:
-    tags:
-      - 'v*' # Roda quando você criar uma tag, ex: v1.0.0
+    branches:
+      - main  # Ou 'master', dependendo do nome da sua branch principal
 
 jobs:
   repackage:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Necessário para criar a release
     steps:
       - name: Checkout Código
         uses: actions/checkout@v4
+
+      - name: Gerar ID do Commit
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Instalar Dependências
         run: |
@@ -20,29 +25,25 @@ jobs:
 
       - name: Baixar APK Base (Luanti)
         run: |
-          # Busca a URL do APK mais recente do Luanti via API do GitHub
+          # Busca o APK mais recente do Luanti (v8a para celulares modernos)
           DOWNLOAD_URL=$(curl -s https://api.github.com/repos/luanti-org/luanti/releases/latest \
             | jq -r '.assets[] | select(.name | contains("android-arm64-v8a")) | .browser_download_url' | head -n 1)
-          
-          echo "Baixando de: $DOWNLOAD_URL"
           curl -L "$DOWNLOAD_URL" -o base_game.apk
 
       - name: Injetar Bettercraft no APK
         run: |
-          # 1. Extrair o assets.zip de dentro do APK original
+          # 1. Extrair o assets.zip do APK original
           7z e base_game.apk assets/assets.zip
           
-          # 2. Criar a estrutura de pastas correta para o Bettercraft
+          # 2. Criar a estrutura: games/bettercraft
           mkdir -p games/bettercraft
           cp -r games/bettercraft/* games/bettercraft/
           
-          # 3. Adicionar a pasta games/bettercraft dentro do assets.zip
-          # O Luanti lê os jogos dentro de /games/ dentro do assets.zip
+          # 3. Adicionar a pasta no assets.zip
           7z a assets.zip games/bettercraft/
           
-          # 4. Colocar o assets.zip modificado de volta no APK
+          # 4. Atualizar o APK com o novo assets.zip
           7z a base_game.apk assets/assets.zip
-          
           mv base_game.apk Bettercraft-unsigned.apk
 
       - name: Assinar APK
@@ -57,15 +58,17 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "34.0.0"
 
-      - name: Renomear APK Final
-        run: mv Bettercraft-unsigned-signed.apk Bettercraft-Release.apk
+      - name: Preparar Arquivo Final
+        run: mv Bettercraft-unsigned-signed.apk Bettercraft-Build-${{ steps.vars.outputs.sha_short }}.apk
 
-      - name: Criar Release no GitHub
+      - name: Criar Release Automática
         uses: softprops/action-gh-release@v1
         with:
-          files: Bettercraft-Release.apk
-          tag_name: ${{ github.ref_name }}
-          name: "Bettercraft ${{ github.ref_name }}"
-          body: "APK do Bettercraft gerado automaticamente com base na última versão do Luanti."
+          files: Bettercraft-Build-${{ steps.vars.outputs.sha_short }}.apk
+          tag_name: build-${{ steps.vars.outputs.sha_short }}
+          name: "Bettercraft Build: ${{ steps.vars.outputs.sha_short }}"
+          body: "Build gerada automaticamente a partir do commit ${{ github.sha }}"
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
