@@ -3,6 +3,8 @@ local core = minetest
 local S = core.get_translator("sulphur_update")
 local modname = "sulphur_update"
 
+dofile(core.get_modpath(modname) .. "/mapgen.lua")
+
 -- Escalas visuais
 local SLIME_VISUAL_SIZE = { x = 9, y = 9 }
 local SULFUR_BLOCK_VISUAL_SIZE = { x = 0.08, y = 0.08 }
@@ -182,7 +184,7 @@ core.register_craftitem(modname .. ":sulphur_stalactite", {
 })
 
 -------------------------------------------------------
--- GEYSER, SLIME E EFEITOS (O RESTANTE DO SEU CÓDIGO)
+-- GEYSER, SLIME AND EFFECTS
 -------------------------------------------------------
 
 
