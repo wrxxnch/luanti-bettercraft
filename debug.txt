@@ -94508,3 +94508,821 @@
 2026-09-09 16:11:42: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/respawn_anchor_bottom.png: bKGD: invalid index
 2026-09-09 16:11:44: ACTION[Server]: singleplayer [127.0.0.1] joins game. List of players: singleplayer
 2026-09-09 16:11:44: WARNING[ConnectionSend]: con(1820/1) Packet quota used up for peer_id=13458, was 1024 pkts
+2026-09-09 17:29:04: WARNING[Server]: Global pathfinding quota exceeded...
+2026-09-09 17:30:10: ACTION[Server]: singleplayer leaves game. List of players: 
+2026-09-09 17:30:11: ACTION[ServerStop]: Server: Shutting down
+2026-09-09 17:30:12: WARNING[Main]: Irrlicht: SDL_PollEvent took too long: 55ms
+2026-09-09 17:31:46: WARNING[ServerStart]: Mod underwater_node at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\underwater_node:
+2026-09-09 17:31:46: WARNING[ServerStart]: 	Mods not having a mod.conf file with the name is deprecated.
+2026-09-09 17:31:46: ACTION[ServerStart]: [schemedit] Mod SchemEdit carregado em games/bettercraft/mods/schemedit (Padrao: DESATIVADO, Priv: server).
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_spruce
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_oak
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_pale_oak
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_warped
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_cherry_blossom
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_mangrove
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_crimson
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_bamboo
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_acacia
+2026-09-09 17:31:46: ACTION[ServerStart]: [keep_inventory] Mod Keep Inventory carregado em games/bettercraft/mods/keep_inventory (Padrao: DESATIVADO, Priv: server).
+2026-09-09 17:31:46: ACTION[ServerStart]: [death_coords] Mod Death Coords carregado em games/bettercraft/mods/death_coords (Padrao: DESATIVADO, Priv: server).
+2026-09-09 17:31:46: ACTION[ServerStart]: [cozy] Mod Cozy carregado em games/bettercraft/mods/cozy (Padrao: DESATIVADO).
+2026-09-09 17:31:46: WARNING[ServerStart]: Undeclared global variable "mcl_walkover" accessed at ...s\bettercraft\mods\ITEMS\mcl_enchanting/enchantments.lua:242
+2026-09-09 17:31:46: WARNING[ServerStart]: [mcl_enchanting] mcl_walkover not found, Frost Walker disabled
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_spruce
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_oak
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_pale_oak
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_warped
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_cherry_blossom
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_mangrove
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_crimson
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_bamboo
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_acacia
+2026-09-09 17:31:46: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_dark_oak
+2026-09-09 17:31:47: ACTION[ServerStart]: [Mineclonia] testfor carregado
+2026-09-09 17:31:47: ACTION[ServerStart]: [Mineclonia Commands] Mod carregado com sucesso!
+2026-09-09 17:31:47: WARNING[Main]: Irrlicht: SDL_PollEvent took too long: 69ms
+2026-09-09 17:31:49: ACTION[ServerStart]: [mcl_cblocks] Colored blocks loaded with prefix mcl_cblocks
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:oak_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:birch_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:spruce_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:jungle_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:acacia_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:dark_oak_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:acacia_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_pale_oak:pale_oak_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_blossom:blossom_planks not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_pale_oak not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_mangrove not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_azalea not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_azalea_flowering not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_pale_oak not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_mangrove not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_crimson not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_warped not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_pale_oak not found, skipping.
+2026-09-09 17:31:49: WARNING[ServerStart]: Undeclared global variable "mcl_sculk" accessed at ...tercraft\games\bettercraft\mods\ITEMS\mcl_sculk\init.lua:4
+2026-09-09 17:31:49: ACTION[ServerStart]: [armor_stand_arms] loaded (Mineclonia)
+2026-09-09 17:31:49: WARNING[ServerStart]: Calling get_connected_players() at mod load time is deprecated (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\mcl_util/compat.lua:69)
+2026-09-09 17:31:49: WARNING[ServerStart]: Undeclared global variable "horse_armor_use" accessed at ...craft\games\bettercraft\mods\ITEMS\mcl_mobitems\init.lua:19
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: register_ore: ore type requires 'noise_params' but it is not specified, falling back to defaults (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur/mapgen.lua:43)
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: register_ore: ore type requires 'noise_params' but it is not specified, falling back to defaults (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur/mapgen.lua:55)
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: `mcl_mobs.spawn' is obsolete.  Use `core.add_entity' or `mcl_mobs.spawn_abnormally' instead.
+2026-09-09 17:31:49: WARNING[ServerStart]: Calling this function during script init is disallowed. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\bee_custom\init.lua:403)
+2026-09-09 17:31:49: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:31:49: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:31:49: ACTION[ServerStart]: [Pale Garden] Creaking Heart registrado!
+2026-09-09 17:31:49: ACTION[ServerStart]: [Pale Garden] Creaking registrado com gravidade!
+2026-09-09 17:31:49: WARNING[ServerStart]: Undeclared global variable "composter_description" accessed at ...aft\games\bettercraft\mods\ITEMS\mcl_composters\init.lua:254
+2026-09-09 17:31:49: WARNING[ServerStart]: Undeclared global variable "composter_longdesc" accessed at ...aft\games\bettercraft\mods\ITEMS\mcl_composters\init.lua:256
+2026-09-09 17:31:49: WARNING[ServerStart]: Undeclared global variable "composter_usagehelp" accessed at ...aft\games\bettercraft\mods\ITEMS\mcl_composters\init.lua:257
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:camel registered without description field. This is needed for proper death messages.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:frog'.  `mobs_mc:frog' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:panda registered without description field. This is needed for proper death messages.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_small'.  `mobs_mc:slime_small' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_small'.  `mobs_mc:slime_small' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_tiny'.  `mobs_mc:slime_tiny' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_tiny'.  `mobs_mc:slime_tiny' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_big'.  `mobs_mc:slime_big' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_big'.  `mobs_mc:slime_big' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:magma_cube_big'.  `mobs_mc:magma_cube_big' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:magma_cube_small'.  `mobs_mc:magma_cube_small' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:magma_cube_tiny'.  `mobs_mc:magma_cube_tiny' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:sniffer registered without description field. This is needed for proper death messages.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:turtle'.  `mobs_mc:turtle' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:turtle'.  `mobs_mc:turtle' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'ColdTaiga_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Taiga_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Forest_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'FlowerForest_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Savanna_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Jungle_shore'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'JungleM_shore'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'MangroveSwamp_shore'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_beach'
+2026-09-09 17:31:49: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_hills'
+2026-09-09 17:31:49: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:the_warden registered without description field. This is needed for proper death messages.
+2026-09-09 17:31:49: ACTION[ServerStart]: [copper_golem] loaded
+2026-09-09 17:31:50: WARNING[ServerStart]: Undeclared global variable "cushions" accessed at ...rcraft\games\bettercraft\mods\ITEMS\bc_cushions\init.lua:36
+2026-09-09 17:31:50: ACTION[ServerStart]: [mcl_villages]: Loaded 23 points of interest in 0 ms
+2026-09-09 17:31:54: ERROR[ServerStart]: read_schematic_def: incorrect number of nodes provided in raw schematic data (got 4, expected 3).
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_beach'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_hills'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'coniferous_forest_under'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'deciduous_forest_under'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'sandstone_desert'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'sandstone_desert'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'sandstone_desert'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'grassland'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'coniferous_forest'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'deciduous_forest'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'rainforest'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'snowy_grassland'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'Underground'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'PaleGraden'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'Beach'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'Beach'
+2026-09-09 17:31:54: WARNING[ServerStart]: get_biome_list: failed to get biome 'Beach'
+2026-09-09 17:31:54: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:54: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:54: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:54: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:55: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:31:55: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:55: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:55: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:55: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:56: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:56: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:31:56: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:31:56: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:57: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:59: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:31:59: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:00: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:32:00: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:00: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:00: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:00: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:01: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:01: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:01: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:01: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:01: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:03: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:03: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:04: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:32:05: ACTION[ServerStart]: [PlaySound] Loaded sounds: 458
+2026-09-09 17:32:06: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:07: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:07: ACTION[ServerStart]: [Mineclonia Commands] Cache gerado com 18322 nodes.
+2026-09-09 17:32:07: ACTION[ServerStart]: [spawnstruct] Escaneando .mts em C:\Users\usuario\Downloads\luanti-bettercraft\bin\..\games\bettercraft
+2026-09-09 17:32:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:09: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:09: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:09: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:11: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:32:12: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:32:16: ACTION[ServerStart]: World at [C:\Users\usuario\Downloads\luanti-bettercraft\bin\..\worlds\beach]
+2026-09-09 17:32:16: ACTION[ServerStart]: Server for gameid="bettercraft" listening on 127.0.0.1:54807.
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stone_bottom -> mcl_core:panel_stone
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stone_bottom -> mcl_core:micro_stone
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stone_smooth_bottom -> mcl_core:panel_stone_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stone_smooth_bottom -> mcl_core:micro_stone_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_andesite_bottom -> mcl_core:panel_andesite
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_andesite_bottom -> mcl_core:micro_andesite
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_granite_bottom -> mcl_core:panel_granite
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_granite_bottom -> mcl_core:micro_granite
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_diorite_bottom -> mcl_core:panel_diorite
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_diorite_bottom -> mcl_core:micro_diorite
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_cobble_bottom -> mcl_core:panel_cobble
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_cobble_bottom -> mcl_core:micro_cobble
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_mossycobble_bottom -> mcl_core:panel_mossycobble
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_mossycobble_bottom -> mcl_core:micro_mossycobble
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_brick_block_bottom -> mcl_core:panel_brick_block
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_brick_block_bottom -> mcl_core:micro_brick_block
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_sandstone_bottom -> mcl_core:panel_sandstone
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_sandstone_bottom -> mcl_core:micro_sandstone
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_sandstonesmooth2_bottom -> mcl_core:panel_sandstonesmooth2
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_sandstonesmooth2_bottom -> mcl_core:micro_sandstonesmooth2
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_redsandstone_bottom -> mcl_core:panel_redsandstone
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_redsandstone_bottom -> mcl_core:micro_redsandstone
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_redsandstonesmooth2_bottom -> mcl_core:panel_redsandstonesmooth2
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_redsandstonesmooth2_bottom -> mcl_core:micro_redsandstonesmooth2
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stonebrick_bottom -> mcl_core:panel_stonebrick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stonebrick_bottom -> mcl_core:micro_stonebrick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:panel_quartz_smooth_bottom -> mcl_nether:panel_quartz_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:micro_quartz_smooth_bottom -> mcl_nether:micro_quartz_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:panel_nether_brick_bottom -> mcl_nether:panel_nether_brick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:micro_nether_brick_bottom -> mcl_nether:micro_nether_brick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:panel_nether_brick_bottom -> mcl_nether:panel_nether_brick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:micro_nether_brick_bottom -> mcl_nether:micro_nether_brick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_end:panel_end_bricks_bottom -> mcl_end:panel_end_bricks
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_end:micro_end_bricks_bottom -> mcl_end:micro_end_bricks
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:panel_prismarine_bottom -> mcl_ocean:panel_prismarine
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:micro_prismarine_bottom -> mcl_ocean:micro_prismarine
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:panel_prismarine_brick_bottom -> mcl_ocean:panel_prismarine_brick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:micro_prismarine_brick_bottom -> mcl_ocean:micro_prismarine_brick
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:panel_prismarine_dark_bottom -> mcl_ocean:panel_prismarine_dark
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:micro_prismarine_dark_bottom -> mcl_ocean:micro_prismarine_dark
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_mud:panel_mud_bricks_bottom -> mcl_mud:panel_mud_bricks
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_mud:micro_mud_bricks_bottom -> mcl_mud:micro_mud_bricks
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_andesite_smooth_bottom -> mcl_core:panel_andesite_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_andesite_smooth_bottom -> mcl_core:micro_andesite_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_granite_smooth_bottom -> mcl_core:panel_granite_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_granite_smooth_bottom -> mcl_core:micro_granite_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_diorite_smooth_bottom -> mcl_core:panel_diorite_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_diorite_smooth_bottom -> mcl_core:micro_diorite_smooth
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stonebrickmossy_bottom -> mcl_core:panel_stonebrickmossy
+2026-09-09 17:32:16: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stonebrickmossy_bottom -> mcl_core:micro_stonebrickmossy
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:panel_deepslate_polished_bottom -> mcl_deepslate:panel_deepslate_polished
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:micro_deepslate_polished_bottom -> mcl_deepslate:micro_deepslate_polished
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:panel_deepslate_tiles_bottom -> mcl_deepslate:panel_deepslate_tiles
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:micro_deepslate_tiles_bottom -> mcl_deepslate:micro_deepslate_tiles
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:panel_deepslate_tiles_cracked_bottom -> mcl_deepslate:panel_deepslate_tiles_cracked
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:micro_deepslate_tiles_cracked_bottom -> mcl_deepslate:micro_deepslate_tiles_cracked
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:panel_blackstone_polished_bottom -> mcl_blackstone:panel_blackstone_polished
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:micro_blackstone_polished_bottom -> mcl_blackstone:micro_blackstone_polished
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:panel_blackstone_brick_polished_bottom -> mcl_blackstone:panel_blackstone_brick_polished
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:micro_blackstone_brick_polished_bottom -> mcl_blackstone:micro_blackstone_brick_polished
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:panel_resin_brick_block_bottom -> mcl_pale_oak:panel_resin_brick_block
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:micro_resin_brick_block_bottom -> mcl_pale_oak:micro_resin_brick_block
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:panel_resin_brick_block_bottom -> mcl_pale_oak:panel_resin_brick_block
+2026-09-09 17:32:17: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:micro_resin_brick_block_bottom -> mcl_pale_oak:micro_resin_brick_block
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:purple" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:light_blue" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:light_gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:light_gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_sculk:echo_shard" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:lime" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_pale_oak:eyeblossom_open" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_pale_oak:eyeblossom" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:18: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:32:21: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/crimson_roots.png: bKGD: invalid index
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_a.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_1.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_2.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_3.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_4.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_5.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_6.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_b_5.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_b_6.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/lodestone_bottom.png: bKGD: invalid index
+2026-09-09 17:32:22: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/lodestone_top.png: bKGD: invalid index
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_00.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_01.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_02.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_03.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_04.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_05.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_06.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_07.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_08.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_09.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_10.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_11.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_12.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_13.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_14.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_15.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_16.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_17.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_18.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_19.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_20.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_21.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_22.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_23.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_24.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_25.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_26.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_27.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_28.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_29.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_30.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_31.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_32.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_33.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_34.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_35.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_36.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_37.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_38.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_39.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_40.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_41.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_42.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_43.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_44.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_45.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_46.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_47.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_48.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_49.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_50.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_51.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_52.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_53.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_54.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_55.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_56.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_57.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_58.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_59.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_60.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_61.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_62.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_63.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_colorblocks_glazed_terracotta_orange.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_core_barrier.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_core_crying_obsidian.png: bKGD: invalid index
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_core_leaves_spruce.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_enchanting_table_bottom.png: bKGD: invalid index
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_honey_block_side.png: bKGD: invalid index
+2026-09-09 17:32:23: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_honey_honeycomb_block.png: bKGD: invalid index
+2026-09-09 17:32:24: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_nether_quartz_chiseled_top.png: iCCP: duplicate
+2026-09-09 17:32:24: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_spyglass_scope.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:32:26: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/redstone_redstone_block.png: iCCP: duplicate
+2026-09-09 17:32:26: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/respawn_anchor_bottom.png: bKGD: invalid index
+2026-09-09 17:32:28: ACTION[Server]: singleplayer [127.0.0.1] joins game. List of players: singleplayer
+2026-09-09 17:32:28: WARNING[ConnectionSend]: con(1848/1) Packet quota used up for peer_id=10789, was 1024 pkts
+2026-09-09 17:34:26: WARNING[ConnectionSend]: con(1848/1) Packet quota used up for peer_id=10789, was 1024 pkts
+2026-09-09 17:34:28: WARNING[ConnectionSend]: con(1848/1) Packet quota used up for peer_id=10789, was 1024 pkts
+2026-09-09 17:34:37: WARNING[ConnectionSend]: con(1848/1) Packet quota used up for peer_id=10789, was 1024 pkts
+2026-09-09 17:37:42: ACTION[Server]: singleplayer leaves game. List of players: 
+2026-09-09 17:37:42: ACTION[ServerStop]: Server: Shutting down
+2026-09-09 17:37:55: WARNING[ServerStart]: Mod underwater_node at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\underwater_node:
+2026-09-09 17:37:55: WARNING[ServerStart]: 	Mods not having a mod.conf file with the name is deprecated.
+2026-09-09 17:37:55: ACTION[ServerStart]: [schemedit] Mod SchemEdit carregado em games/bettercraft/mods/schemedit (Padrao: DESATIVADO, Priv: server).
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_spruce
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_oak
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_pale_oak
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_warped
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_cherry_blossom
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_mangrove
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_crimson
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_bamboo
+2026-09-09 17:37:55: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_acacia
+2026-09-09 17:37:55: ACTION[ServerStart]: [keep_inventory] Mod Keep Inventory carregado em games/bettercraft/mods/keep_inventory (Padrao: DESATIVADO, Priv: server).
+2026-09-09 17:37:55: ACTION[ServerStart]: [death_coords] Mod Death Coords carregado em games/bettercraft/mods/death_coords (Padrao: DESATIVADO, Priv: server).
+2026-09-09 17:37:55: ACTION[ServerStart]: [cozy] Mod Cozy carregado em games/bettercraft/mods/cozy (Padrao: DESATIVADO).
+2026-09-09 17:37:55: WARNING[Main]: Irrlicht: SDL_PollEvent took too long: 85ms
+2026-09-09 17:37:56: WARNING[ServerStart]: Undeclared global variable "mcl_walkover" accessed at ...s\bettercraft\mods\ITEMS\mcl_enchanting/enchantments.lua:242
+2026-09-09 17:37:56: WARNING[ServerStart]: [mcl_enchanting] mcl_walkover not found, Frost Walker disabled
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_spruce
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_oak
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_pale_oak
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_warped
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_cherry_blossom
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_mangrove
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_crimson
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_bamboo
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_acacia
+2026-09-09 17:37:56: WARNING[ServerStart]: Slab não encontrado: mcl_trees:slab_wood_dark_oak
+2026-09-09 17:37:56: ACTION[ServerStart]: [Mineclonia] testfor carregado
+2026-09-09 17:37:56: ACTION[ServerStart]: [Mineclonia Commands] Mod carregado com sucesso!
+2026-09-09 17:37:58: ACTION[ServerStart]: [mcl_cblocks] Colored blocks loaded with prefix mcl_cblocks
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:oak_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:birch_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:spruce_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:jungle_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:acacia_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:dark_oak_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_core:acacia_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_pale_oak:pale_oak_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_blossom:blossom_planks not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_pale_oak not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_mangrove not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_azalea not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:leaves_azalea_flowering not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_pale_oak not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_mangrove not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_crimson not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_warped not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_traps] Base node mcl_trees:wood_pale_oak not found, skipping.
+2026-09-09 17:37:58: WARNING[ServerStart]: Undeclared global variable "mcl_sculk" accessed at ...tercraft\games\bettercraft\mods\ITEMS\mcl_sculk\init.lua:4
+2026-09-09 17:37:58: ACTION[ServerStart]: [armor_stand_arms] loaded (Mineclonia)
+2026-09-09 17:37:58: WARNING[ServerStart]: Calling get_connected_players() at mod load time is deprecated (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\mcl_util/compat.lua:69)
+2026-09-09 17:37:58: WARNING[ServerStart]: Undeclared global variable "horse_armor_use" accessed at ...craft\games\bettercraft\mods\ITEMS\mcl_mobitems\init.lua:19
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: register_ore: ore type requires 'noise_params' but it is not specified, falling back to defaults (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur/mapgen.lua:43)
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: register_ore: ore type requires 'noise_params' but it is not specified, falling back to defaults (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur/mapgen.lua:55)
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills+'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains'
+2026-09-09 17:37:58: WARNING[ServerStart]: get_biome_list: failed to get biome 'MegaSpruceTaiga'
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\sulphur\init.lua:163)
+2026-09-09 17:37:58: WARNING[ServerStart]: [mcl_mobs]: `mcl_mobs.spawn' is obsolete.  Use `core.add_entity' or `mcl_mobs.spawn_abnormally' instead.
+2026-09-09 17:37:58: WARNING[ServerStart]: Calling this function during script init is disallowed. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\bee_custom\init.lua:403)
+2026-09-09 17:37:58: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:37:58: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:37:58: ACTION[ServerStart]: [Pale Garden] Creaking Heart registrado!
+2026-09-09 17:37:58: ACTION[ServerStart]: [Pale Garden] Creaking registrado com gravidade!
+2026-09-09 17:37:59: WARNING[ServerStart]: Undeclared global variable "composter_description" accessed at ...aft\games\bettercraft\mods\ITEMS\mcl_composters\init.lua:254
+2026-09-09 17:37:59: WARNING[ServerStart]: Undeclared global variable "composter_longdesc" accessed at ...aft\games\bettercraft\mods\ITEMS\mcl_composters\init.lua:256
+2026-09-09 17:37:59: WARNING[ServerStart]: Undeclared global variable "composter_usagehelp" accessed at ...aft\games\bettercraft\mods\ITEMS\mcl_composters\init.lua:257
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:camel registered without description field. This is needed for proper death messages.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:frog'.  `mobs_mc:frog' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[Main]: Irrlicht: SDL_PollEvent took too long: 91ms
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:panda registered without description field. This is needed for proper death messages.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_small'.  `mobs_mc:slime_small' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_small'.  `mobs_mc:slime_small' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_big'.  `mobs_mc:slime_big' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_big'.  `mobs_mc:slime_big' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_tiny'.  `mobs_mc:slime_tiny' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:slime_tiny'.  `mobs_mc:slime_tiny' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:magma_cube_tiny'.  `mobs_mc:magma_cube_tiny' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:magma_cube_small'.  `mobs_mc:magma_cube_small' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:magma_cube_big'.  `mobs_mc:magma_cube_big' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:sniffer registered without description field. This is needed for proper death messages.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:turtle'.  `mobs_mc:turtle' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs]: An obsolete mob spawning definition is being registered for `mobs_mc:turtle'.  `mobs_mc:turtle' will not spawn naturally till its spawning configuration is updated to conform to the modern spawning API.
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Plains_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'ExtremeHills_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'ColdTaiga_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Taiga_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Forest_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'FlowerForest_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Savanna_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Jungle_shore'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'JungleM_shore'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'MangroveSwamp_shore'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_beach'
+2026-09-09 17:37:59: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_hills'
+2026-09-09 17:37:59: WARNING[ServerStart]: [mcl_mobs] Mob mobs_mc:the_warden registered without description field. This is needed for proper death messages.
+2026-09-09 17:37:59: ACTION[ServerStart]: [copper_golem] loaded
+2026-09-09 17:38:00: WARNING[ServerStart]: Undeclared global variable "cushions" accessed at ...rcraft\games\bettercraft\mods\ITEMS\bc_cushions\init.lua:36
+2026-09-09 17:38:00: ACTION[ServerStart]: [mcl_villages]: Loaded 23 points of interest in 0 ms
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:plains'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mesa_plateau_fm_sandlevel'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:dead_forest'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'mcl_biomes:mega_taiga'
+2026-09-09 17:38:04: ERROR[ServerStart]: read_schematic_def: incorrect number of nodes provided in raw schematic data (got 4, expected 3).
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_beach'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'Desert_hills'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'coniferous_forest_under'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'deciduous_forest_under'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'sandstone_desert'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'sandstone_desert'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'sandstone_desert'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'grassland'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'coniferous_forest'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'deciduous_forest'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'rainforest'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'snowy_grassland'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'Underground'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'PaleGraden'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'Beach'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'Beach'
+2026-09-09 17:38:04: WARNING[ServerStart]: get_biome_list: failed to get biome 'Beach'
+2026-09-09 17:38:04: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:04: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:04: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:05: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:05: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:06: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:144)
+2026-09-09 17:38:07: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:07: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:07: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:07: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:07: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:07: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:08: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:08: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:08: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:10: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\CORE\_mcl_autogroup\init.lua:438)
+2026-09-09 17:38:10: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:10: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:10: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:12: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:12: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:15: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\ITEMS\REDSTONE\mcl_redstone/logic.lua:503)
+2026-09-09 17:38:16: ACTION[ServerStart]: [PlaySound] Loaded sounds: 458
+2026-09-09 17:38:17: WARNING[Main]: Irrlicht: SDL_PollEvent took too long: 87ms
+2026-09-09 17:38:18: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:18: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:19: ACTION[ServerStart]: [Mineclonia Commands] Cache gerado com 18322 nodes.
+2026-09-09 17:38:19: ACTION[ServerStart]: [spawnstruct] Escaneando .mts em C:\Users\usuario\Downloads\luanti-bettercraft\bin\..\games\bettercraft
+2026-09-09 17:38:21: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:21: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_frustum: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_base: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_middle: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:22: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak_orphan has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:22: WARNING[ServerStart]: Node mcl_trees:leaves_pale_oak has a palette, but not a suitable paramtype2.
+2026-09-09 17:38:23: WARNING[Main]: Irrlicht: SDL_PollEvent took too long: 69ms
+2026-09-09 17:38:25: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_up_tip_merge: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:25: WARNING[ServerStart]: Field "use_texture_alpha" on node sulphur_update:sulfur_spike_down_tip: Boolean values are deprecated; use the new choices instead. (at C:\Users\usuario\Downloads\luanti-bettercraft\games\bettercraft\mods\leads/internal.lua:83)
+2026-09-09 17:38:32: ACTION[ServerStart]: World at [C:\Users\usuario\Downloads\luanti-bettercraft\bin\..\worlds\beach]
+2026-09-09 17:38:32: ACTION[ServerStart]: Server for gameid="bettercraft" listening on 127.0.0.1:57280.
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stone_bottom -> mcl_core:panel_stone
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stone_bottom -> mcl_core:micro_stone
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stone_smooth_bottom -> mcl_core:panel_stone_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stone_smooth_bottom -> mcl_core:micro_stone_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_andesite_bottom -> mcl_core:panel_andesite
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_andesite_bottom -> mcl_core:micro_andesite
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_granite_bottom -> mcl_core:panel_granite
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_granite_bottom -> mcl_core:micro_granite
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_diorite_bottom -> mcl_core:panel_diorite
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_diorite_bottom -> mcl_core:micro_diorite
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_cobble_bottom -> mcl_core:panel_cobble
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_cobble_bottom -> mcl_core:micro_cobble
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_mossycobble_bottom -> mcl_core:panel_mossycobble
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_mossycobble_bottom -> mcl_core:micro_mossycobble
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_brick_block_bottom -> mcl_core:panel_brick_block
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_brick_block_bottom -> mcl_core:micro_brick_block
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_sandstone_bottom -> mcl_core:panel_sandstone
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_sandstone_bottom -> mcl_core:micro_sandstone
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_sandstonesmooth2_bottom -> mcl_core:panel_sandstonesmooth2
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_sandstonesmooth2_bottom -> mcl_core:micro_sandstonesmooth2
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_redsandstone_bottom -> mcl_core:panel_redsandstone
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_redsandstone_bottom -> mcl_core:micro_redsandstone
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_redsandstonesmooth2_bottom -> mcl_core:panel_redsandstonesmooth2
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_redsandstonesmooth2_bottom -> mcl_core:micro_redsandstonesmooth2
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stonebrick_bottom -> mcl_core:panel_stonebrick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stonebrick_bottom -> mcl_core:micro_stonebrick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:panel_quartz_smooth_bottom -> mcl_nether:panel_quartz_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:micro_quartz_smooth_bottom -> mcl_nether:micro_quartz_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:panel_nether_brick_bottom -> mcl_nether:panel_nether_brick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:micro_nether_brick_bottom -> mcl_nether:micro_nether_brick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:panel_nether_brick_bottom -> mcl_nether:panel_nether_brick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_nether:micro_nether_brick_bottom -> mcl_nether:micro_nether_brick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_end:panel_end_bricks_bottom -> mcl_end:panel_end_bricks
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_end:micro_end_bricks_bottom -> mcl_end:micro_end_bricks
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:panel_prismarine_bottom -> mcl_ocean:panel_prismarine
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:micro_prismarine_bottom -> mcl_ocean:micro_prismarine
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:panel_prismarine_brick_bottom -> mcl_ocean:panel_prismarine_brick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:micro_prismarine_brick_bottom -> mcl_ocean:micro_prismarine_brick
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:panel_prismarine_dark_bottom -> mcl_ocean:panel_prismarine_dark
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_ocean:micro_prismarine_dark_bottom -> mcl_ocean:micro_prismarine_dark
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_mud:panel_mud_bricks_bottom -> mcl_mud:panel_mud_bricks
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_mud:micro_mud_bricks_bottom -> mcl_mud:micro_mud_bricks
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_andesite_smooth_bottom -> mcl_core:panel_andesite_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_andesite_smooth_bottom -> mcl_core:micro_andesite_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_granite_smooth_bottom -> mcl_core:panel_granite_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_granite_smooth_bottom -> mcl_core:micro_granite_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_diorite_smooth_bottom -> mcl_core:panel_diorite_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_diorite_smooth_bottom -> mcl_core:micro_diorite_smooth
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:panel_stonebrickmossy_bottom -> mcl_core:panel_stonebrickmossy
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_core:micro_stonebrickmossy_bottom -> mcl_core:micro_stonebrickmossy
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:panel_deepslate_polished_bottom -> mcl_deepslate:panel_deepslate_polished
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:micro_deepslate_polished_bottom -> mcl_deepslate:micro_deepslate_polished
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:panel_deepslate_tiles_bottom -> mcl_deepslate:panel_deepslate_tiles
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:micro_deepslate_tiles_bottom -> mcl_deepslate:micro_deepslate_tiles
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:panel_deepslate_tiles_cracked_bottom -> mcl_deepslate:panel_deepslate_tiles_cracked
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_deepslate:micro_deepslate_tiles_cracked_bottom -> mcl_deepslate:micro_deepslate_tiles_cracked
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:panel_blackstone_polished_bottom -> mcl_blackstone:panel_blackstone_polished
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:micro_blackstone_polished_bottom -> mcl_blackstone:micro_blackstone_polished
+2026-09-09 17:38:33: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:panel_blackstone_brick_polished_bottom -> mcl_blackstone:panel_blackstone_brick_polished
+2026-09-09 17:38:34: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_blackstone:micro_blackstone_brick_polished_bottom -> mcl_blackstone:micro_blackstone_brick_polished
+2026-09-09 17:38:34: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:panel_resin_brick_block_bottom -> mcl_pale_oak:panel_resin_brick_block
+2026-09-09 17:38:34: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:micro_resin_brick_block_bottom -> mcl_pale_oak:micro_resin_brick_block
+2026-09-09 17:38:34: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:panel_resin_brick_block_bottom -> mcl_pale_oak:panel_resin_brick_block
+2026-09-09 17:38:34: WARNING[Server]: Not registering alias, item with same name is already defined: mcl_pale_oak:micro_resin_brick_block_bottom -> mcl_pale_oak:micro_resin_brick_block
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:light_blue" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:light_gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:lime" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:light_gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dye:purple" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_pale_oak:eyeblossom_open" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_pale_oak:eyeblossom" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_sculk:echo_shard" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:35: WARNING[Server]: [mcl_craftguide] ingredient "mcl_dyes:gray" doesn't exist
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/crimson_roots.png: bKGD: invalid index
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_a.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_1.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_2.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_3.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_4.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_5.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_a_6.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_b_5.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/extra_mobs_tropical_fish_pattern_b_6.png: iCCP: profile 'ICC profile': 'RGB ': RGB color space not permitted on grayscale PNG
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/lodestone_bottom.png: bKGD: invalid index
+2026-09-09 17:38:40: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/lodestone_top.png: bKGD: invalid index
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_00.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_01.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_02.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_03.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_04.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_05.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_06.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_07.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_08.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_09.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_10.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_11.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_12.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_13.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_14.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_15.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_16.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_17.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_18.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_19.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_20.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_21.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_22.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_23.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_24.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_25.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_26.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_27.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_28.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_29.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_30.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_31.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_32.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_33.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_34.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_35.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_36.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_37.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_38.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_39.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_40.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_41.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_42.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_43.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_44.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_45.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_46.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_47.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_48.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_49.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_50.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_51.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_52.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_53.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_54.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_55.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_56.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_57.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_58.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_59.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_60.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_61.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_62.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_clock_clock_63.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_colorblocks_glazed_terracotta_orange.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_core_barrier.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_core_crying_obsidian.png: bKGD: invalid index
+2026-09-09 17:38:41: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_core_leaves_spruce.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:42: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_enchanting_table_bottom.png: bKGD: invalid index
+2026-09-09 17:38:42: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_honey_block_side.png: bKGD: invalid index
+2026-09-09 17:38:42: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_honey_honeycomb_block.png: bKGD: invalid index
+2026-09-09 17:38:42: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_nether_quartz_chiseled_top.png: iCCP: duplicate
+2026-09-09 17:38:43: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/mcl_spyglass_scope.png: Interlace handling should be turned on when using png_read_image
+2026-09-09 17:38:44: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/redstone_redstone_block.png: iCCP: duplicate
+2026-09-09 17:38:44: WARNING[Main]: Irrlicht: PNG warning for C:/Users/usuario/Downloads/luanti-bettercraft/textures/Files/default/respawn_anchor_bottom.png: bKGD: invalid index
+2026-09-09 17:38:46: ACTION[Server]: singleplayer [127.0.0.1] joins game. List of players: singleplayer
+2026-09-09 17:38:46: WARNING[ConnectionSend]: con(1832/1) Packet quota used up for peer_id=63802, was 1024 pkts
