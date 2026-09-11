@@ -1,0 +1,25 @@
+name: Sync BetterCraft
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Split BetterCraft
+        run: |
+          git subtree split --prefix=games/bettercraft -b bettercraft-split
+
+      - name: Push to BetterCraft repository
+        run: |
+          git remote add bettercraft https://x-access-token:${{ secrets.BettercrraftToken }}@github.com/wrxxnch/bettercraft.git
+          git push bettercraft bettercraft-split:main --force
