@@ -21,5 +21,5 @@ jobs:
 
       - name: Push to BetterCraft repository
         run: |
-          git remote add bettercraft https://x-access-token:${{ secrets.BettercrraftToken }}@github.com/wrxxnch/bettercraft.git
+          git remote add bettercraft https://x-access-token:${{ secrets.BettercraftToken }}@github.com/wrxxnch/bettercraft.git
           git push bettercraft bettercraft-split:main --force
