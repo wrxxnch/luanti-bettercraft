@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# O GITHUB_TOKEN só precisa ler o repositório de origem.
+# O push no repositório bettercraft usa o PAT armazenado em BettercraftToken.
+permissions:
+  contents: read
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -14,12 +19,23 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate destination token
+        env:
+          BETTERCRAFT_TOKEN: ${{ secrets.BettercraftToken }}
+        run: |
+          if [ -z "$BETTERCRAFT_TOKEN" ]; then
+            echo "O segredo BettercraftToken não está configurado."
+            exit 1
+          fi
 
       - name: Split BetterCraft
-        run: |
-          git subtree split --prefix=games/bettercraft -b bettercraft-split
+        run: git subtree split --prefix=games/bettercraft -b bettercraft-split
 
       - name: Push to BetterCraft repository
+        env:
+          BETTERCRAFT_TOKEN: ${{ secrets.BettercraftToken }}
         run: |
-          git remote add bettercraft https://x-access-token:${{ secrets.BettercraftToken }}@github.com/wrxxnch/bettercraft.git
-          git push bettercraft bettercraft-split:main --force
+          git push "https://x-access-token:${BETTERCRAFT_TOKEN}@github.com/wrxxnch/bettercraft.git" \
+            bettercraft-split:main --force
