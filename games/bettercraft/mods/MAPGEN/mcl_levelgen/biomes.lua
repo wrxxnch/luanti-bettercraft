@@ -1664,6 +1664,10 @@ end
 ------------------------------------------------------------------------
 -- Corretor de Blocos do Nether (Remove Stone e Stone Rubble)
 ------------------------------------------------------------------------
+local nether_stone_cid
+local nether_rubble_cid
+local nether_netherrack_cid
+local nether_air_cid
 core.register_on_generated(function(minp, maxp)
     if not minp or not maxp or not minp.y or not maxp.y then
         return
@@ -1676,9 +1680,16 @@ core.register_on_generated(function(minp, maxp)
         return
     end
 
-    if maxp.y < n_min or minp.y > (n_max + 150) then
-        return
-    end
+	    if maxp.y < n_min or minp.y > (n_max + 150) then
+	        return
+	    end
+
+	    if not nether_stone_cid then
+	        nether_stone_cid = core.get_content_id("mcl_core:stone")
+	        nether_rubble_cid = core.get_content_id("natural_habitat:stone_rubble")
+	        nether_netherrack_cid = core.get_content_id("mcl_nether:netherrack")
+	        nether_air_cid = core.get_content_id("air")
+	    end
 
     local vm, emin, emax = core.get_mapgen_object("voxelmanip")
     if not vm or not emin or not emax then
@@ -1688,20 +1699,15 @@ core.register_on_generated(function(minp, maxp)
     local data = vm:get_data()
     local area = VoxelArea:new({MinEdge = emin, MaxEdge = emax})
 
-    local c_stone    = core.get_content_id("mcl_core:stone")
-    local c_rubble   = core.get_content_id("natural_habitat:stone_rubble")
-    local c_nether   = core.get_content_id("mcl_nether:netherrack")
-    local c_air      = core.get_content_id("air")
-
-    local changed = false
+	    local changed = false
 
     for i in area:iterp(minp, maxp) do
         local node_id = data[i]
-        if node_id == c_stone then
-            data[i] = c_nether
-            changed = true
-        elseif node_id == c_rubble then
-            data[i] = c_air
+	        if node_id == nether_stone_cid then
+	            data[i] = nether_netherrack_cid
+	            changed = true
+	        elseif node_id == nether_rubble_cid then
+	            data[i] = nether_air_cid
             changed = true
         end
     end

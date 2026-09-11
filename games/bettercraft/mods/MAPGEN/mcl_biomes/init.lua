@@ -5684,9 +5684,11 @@ core.register_decoration({
 
 	local register_doubletall_grass = mcl_biomes.register_doubletall_grass
 
-	register_doubletall_grass(-0.01, 0.03, {"Taiga", "Forest", "FlowerForest", "BirchForest", "BirchForestM", "RoofedForest", "PaleGarden"})
-	register_doubletall_grass(-0.002, 0.03, {"Plains", "SunflowerPlains", "CherryGrove", "Meadow", "PaleGarden"})
-	register_doubletall_grass(-0.0005, -0.03, {"Savanna", "SavannaM", "PaleGarden"})
+	register_doubletall_grass(-0.01, 0.03, {"Taiga", "Forest", "FlowerForest", "BirchForest", "BirchForestM", "RoofedForest"})
+	register_doubletall_grass(-0.002, 0.03, {"Plains", "SunflowerPlains", "CherryGrove", "Meadow"})
+	register_doubletall_grass(-0.0005, -0.03, {"Savanna", "SavannaM"})
+	-- Keep PaleGarden to one decoration pass; each registration is a full scan.
+	register_doubletall_grass(-0.002, 0.03, {"PaleGarden"})
 
 	-- Large ferns
 	function mcl_biomes.register_double_fern(offset, scale, biomes)
@@ -6755,13 +6757,17 @@ local deco_ids_trees = {
 	core.get_decoration_id("mcl_biomes:mangrove_tree_2"),
 	core.get_decoration_id("mcl_biomes:mangrove_tree_3"),
 }
+local mangrove_biome_id = core.get_biome_id("MangroveSwamp")
+local mangrove_shore_biome_id = core.get_biome_id("MangroveSwamp_shore")
 for _,f in pairs(deco_ids_trees) do
 	core.set_gen_notify({decoration=true}, { f })
 end
 
 local function mangrove_roots_gen(gennotify, pr)
 	for _, f in pairs(deco_ids_trees) do
-		for _, pos in ipairs(gennotify["decoration#" .. f] or {}) do
+		local trees = gennotify["decoration#" .. f]
+		if trees then
+		for _, pos in ipairs(trees) do
 			local nn = core.find_nodes_in_area(vector.offset(pos, -8, -1, -8), vector.offset(pos, 8, 0, 8), {"mcl_mangrove:mangrove_roots"})
 			for _, v in pairs(nn) do
 				local l = pr:next(2, 16)
@@ -6778,7 +6784,8 @@ local function mangrove_roots_gen(gennotify, pr)
 					mcl_util.bulk_swap_node(core.find_nodes_in_area(vector.offset(v, 0, 0, 0), vector.offset(v, 0, -l, 0), {"air"}), {name = "mcl_mangrove:mangrove_roots"})
 				end
 			end
-		end
+	end
+	end
 	end
 end
 
@@ -6795,7 +6802,7 @@ local function chorus_gen (gennotify, pr)
 	end
 end
 
-if deco_id_chorus_plant or deco_ids_trees then
+if deco_id_chorus_plant or #deco_ids_trees > 0 then
 	mcl_mapgen_core.register_generator("chorus_grow", nil, function(minp, maxp, blockseed)
 		local gennotify = core.get_mapgen_object("gennotify")
 		local pr = PcgRandom(blockseed + 14)
@@ -6803,10 +6810,17 @@ if deco_id_chorus_plant or deco_ids_trees then
 			local biomemap = core.get_mapgen_object("biomemap")
 			-- get_mapgen_object returns nil with lua mapgens
 			if biomemap then
-				local swamp_biome_id = core.get_biome_id("MangroveSwamp")
-				local swamp_shore_id = core.get_biome_id("MangroveSwamp_shore")
-				local is_swamp = table.indexof(biomemap, swamp_biome_id) ~= -1
-				local is_swamp_shore = table.indexof(biomemap, swamp_shore_id) ~= -1
+				local is_swamp, is_swamp_shore = false, false
+				for _, biome_id in ipairs(biomemap) do
+					if biome_id == mangrove_biome_id then
+						is_swamp = true
+					elseif biome_id == mangrove_shore_biome_id then
+						is_swamp_shore = true
+					end
+					if is_swamp and is_swamp_shore then
+						break
+					end
+				end
 
 				if is_swamp or is_swamp_shore then
 					mangrove_roots_gen(gennotify, pr)

@@ -228,7 +228,14 @@ core.register_abm({
 	end,
 })
 
-core.register_globalstep(function()
+local bubble_check_timer = 0
+local BUBBLE_CHECK_INTERVAL = 0.1
+core.register_globalstep(function(dtime)
+	bubble_check_timer = bubble_check_timer + dtime
+	if bubble_check_timer < BUBBLE_CHECK_INTERVAL then
+		return
+	end
+	bubble_check_timer = 0
 	for _,player in pairs(core.get_connected_players()) do
 		local pos = player:get_pos()
 		local feet_node = core.get_node(pos)
