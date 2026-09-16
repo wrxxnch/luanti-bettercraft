@@ -1,20 +1,20 @@
-# mcl_cblocks for Mineclonia
+# bc_cblocks for Mineclonia
 
-Este mod adiciona versões coloridas de blocos comuns ao Mineclonia.
+This mod adds colored variants of common blocks to Mineclonia.
 
-## Blocos Suportados
-- **Tijolos de Pedra** (Stone Bricks)
-- **Tábuas de Carvalho** (Oak Wood Planks)
-- **Vidro** (Glass)
-- **Pedregulho** (Cobblestone)
+## Supported Blocks
+- **Stone Bricks**
+- **Oak Wood Planks**
+- **Glass**
+- **Cobblestone**
 
-## Cores (16 totais)
-Branco, Laranja, Magenta, Azul Claro, Amarelo, Lima, Rosa, Cinza, Prata (Cinza Claro), Ciano, Roxo, Azul, Marrom, Verde, Vermelho, Preto.
+## Colors (16 total)
+White, Orange, Magenta, Light Blue, Yellow, Lime, Pink, Gray, Silver (Light Gray), Cyan, Purple, Blue, Brown, Green, Red, Black.
 
-## Como Criar (Crafting)
-Coloque 8 blocos do tipo base ao redor de 1 corante na mesa de trabalho para obter 8 blocos coloridos.
+## How to Craft
+Place 8 blocks of the base type around 1 dye in the crafting table to obtain 8 colored blocks.
 
-## Dependências
+## Dependencies
 - `mcl_core`
 - `mcl_dyes`
 - `mcl_stairs`

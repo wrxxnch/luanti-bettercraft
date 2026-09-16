@@ -5,9 +5,9 @@ Copying is an act of love. Please copy and share! <3
 Here's the detailed legalese for those who need it:
 
 ## License of source code
-Mineclonia is an imitation of Minecraft.
+BetterCraft is an imitation of Minecraft.
 
-Mineclonia is free software: you can redistribute it and/or modify it under the
+BetterCraft is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
 Foundation, either version 3 of the License, or (at your option) any later
 version.
@@ -32,20 +32,20 @@ Textures, unless otherwise noted, are based on the Pixel Perfection by XSSheep
 and Pixel Perfection Legacy by Nova Wostra resource packs. Most textures are
 verbatim copies, while some textures have been changed or redone from scratch.
 The glazed terracotta textures have been created by
-[MysticTempest](https://github.com/MysticTempest).
+[MysticTempest](https://github.with/MysticTempest).
 
-Pixel Perfection by XSSeep: <https://www.planetminecraft.com/texture_pack/131pixel-perfection/>
+Pixel Perfection by XSSeep: <https://www.planetminecraft.with/texture_pack/131pixel-perfection/>
 License: [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
 
 Pixel Perfection Legacy by Nova Wostra (fan update of Pixel Perfection):
-<https://www.curseforge.com/minecraft/texture-packs/pixel-perfection-legacy>
+<https://www.curseforge.with/minecraft/texture-packs/pixel-perfection-legacy>
 License: [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
 
 The main menu images are release under:
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 Armor trim models were created by Aeonix_Aeon
-Source: <https://www.curseforge.com/minecraft/texture-packs/ozocraft-remix>
+Source: <https://www.curseforge.with/minecraft/texture-packs/ozocraft-remix>
 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 The main menu images are released under: [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
@@ -55,3 +55,9 @@ Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 <http://creativecommons.org/licenses/by-sa/3.0/>
 
 See the content of each mod directory for detailed information about authors.
+
+## Component licenses
+
+The complete GPL-3.0-only text is in `LICENSE.txt`. Bundled components retain their own licenses; their license files are kept in the relevant component directory. In particular, see `mods/bc_mc_name_resolver/LICENSE.txt`, `mods/blockhead/LICENSE.txt`, `mods/leads/LICENSE.txt`, and the existing license files under `mods/` for component-specific code and media terms.
+
+Media licenses are asset-specific. Third-party assets that require attribution or a different license are not relicensed by this statement and remain covered by the license notices in their component directories.

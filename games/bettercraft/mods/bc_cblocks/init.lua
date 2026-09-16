@@ -1,4 +1,4 @@
--- colored_blocks / mcl_cblocks: Colored Blocks for Minetest
+-- colored_blocks / bc_cblocks: Colored Blocks for Minetest
 -- ==============================
 -- COLOR LIST
 -- ==============================
@@ -31,7 +31,7 @@ local has_moreblocks = minetest.get_modpath("moreblocks")
 local has_mcl_moreblocks = minetest.get_modpath("mcl_moreblocks")
 
 -- Define a dynamic prefix to avoid migration issues
-local mod_prefix = has_mcl_core and "mcl_cblocks" or "colored_blocks"
+local mod_prefix = has_mcl_core and "bc_cblocks" or "colored_blocks"
 local dye_prefix = has_mcl_core and "mcl_dyes" or "dyes"
 
 -- ==============================

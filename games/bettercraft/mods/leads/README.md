@@ -41,7 +41,7 @@ Licence
 Leads by Silver Sandstone is licensed under the MIT licence, with assets by
 various authors under CC BY-SA 4.0 or compatible.
 
-See `LICENCE.md` for more information.
+See `LICENSE.txt` for more information.
 
 
 [Object UUIDs]: https://content.luanti.org/packages/SilverSandstone/objectuuids/ "Object UUIDs on Luanti ContentDB"

@@ -17,8 +17,8 @@ local active_outline_entities = {}
 core.register_entity ("mcl_levelgen:structure_outline", {
 	initial_properties = {
 		visual = "cube",
-		-- Attribution: schemedit_border_checkers.png in
-		-- schemedit.
+		-- Attribution: bc_schemedit_border_checkers.png in
+		-- bc_schemedit.
 		textures = {
 			"mcl_levelgen_schematic_border_checkers.png",
 			"mcl_levelgen_schematic_border_checkers.png",

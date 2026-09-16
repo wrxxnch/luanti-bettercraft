@@ -42,7 +42,7 @@ local builtin_filter_ids = {
 	"misc",
 	"all",
 	"nici",
-	"mcl_cblocks",
+	"bc_cblocks",
 	"moreblocks",
 }
 
@@ -81,17 +81,17 @@ core.register_on_mods_loaded(function()
 			-- Is set to true if it was added in any category besides misc
 			local nonmisc = false
 
-			-- LOGICA DE SEPARAÇÃO: Se for do mod mcl_cblocks, vai pra aba dele e IGNORA as outras
-			if name:sub(1, 12) == "mcl_cblocks:" then
-				table.insert(inventory_lists["mcl_cblocks"], name)
+			-- LOGICA DE SEPARAÇÃO: Se for do mod bc_cblocks, vai pra aba dele e IGNORA as outras
+			if name:sub(1, 12) == "bc_cblocks:" then
+				table.insert(inventory_lists["bc_cblocks"], name)
 				nonmisc = true
-				-- Usamos ELSEIF aqui para que, se for mcl_cblocks, ele NÃO entre em "blocks"
+				-- Use ELSEIF here so that, when this is bc_cblocks, it does NOT enter "blocks"
 			elseif core.get_item_group(name, "building_block") ~= 0 then
 				table.insert(inventory_lists["blocks"], name)
 				nonmisc = true
 			end
 
-			-- Continuação dos outros grupos (sempre checando se já não foi adicionado)
+			-- Continuação dos outros grupos (sempre checando se já not foi added)
 			if not nonmisc then
 				if core.get_item_group(name, "deco_block") ~= 0 then
 					table.insert(inventory_lists["deco"], name)
@@ -205,8 +205,8 @@ local function set_inv_search_cblocks(filter, player)
 	filter = string.lower(string.trim(filter))
 	local lang = core.get_player_information(playername).lang_code
 
-	-- Itera APENAS sobre a lista de CBlocks
-	for _, name in pairs(inventory_lists["mcl_cblocks"]) do
+	-- Itera APENAS about a lista de CBlocks
+	for _, name in pairs(inventory_lists["bc_cblocks"]) do
 		local def = core.registered_items[name]
 		if def then
 			local desc = def.description or ""
@@ -225,7 +225,7 @@ local function set_inv_page(page, player)
 	local playername = player:get_player_name()
 	local inv = core.get_inventory({ type = "detached", name = "creative_" .. playername })
 
-	-- Limpa o filtro de busca ao trocar de aba
+	-- Limpa o filtro de busca ao change de aba
 	players[playername].filter = ""
 
 	local creative_list = {}
@@ -284,12 +284,12 @@ local function init(player)
 				return stack:get_count()
 			end
 
-			-- Para o input, permitimos tirar apenas se quisermos remover o item
+			-- For the input, allow removal only when we want to remove the item
 			if listname == "moreblocks_input" then
 				return stack:get_count()
 			end
 
-			-- Para a lista principal (creative), mantemos o comportamento de clonar (-1)
+			-- For the main list (creative), keep the clone behavior (-1)
 			if listname == "main" then
 				return -1
 			end
@@ -305,10 +305,10 @@ local function init(player)
 		on_take = function(inv, listname, index, stack, player)
 			-- Se tirou algo da saída, consuma 1 do input (ajuste a proporção conforme necessário)
 			if listname == "moreblocks_output" then
-				local input_stack = inv:get_stack("moreblocks_input", 0)
+				local input_stack = inv:get_stack("moreblocks_input", 1)
 				if not input_stack:is_empty() then
-					input_stack:take_item(0)
-					inv:set_stack("moreblocks_input", 0, input_stack)
+					input_stack:take_item(1)
+					inv:set_stack("moreblocks_input", 1, input_stack)
 					update_moreblocks_output(inv)
 				end
 			elseif listname == "moreblocks_input" then
@@ -380,7 +380,7 @@ next_noffset("combat")
 next_noffset("mobs")
 next_noffset("matr")
 next_noffset("nici")
-next_noffset("mcl_cblocks")
+next_noffset("bc_cblocks")
 next_noffset("inv", true)
 
 for k, v in pairs(noffset) do
@@ -404,7 +404,7 @@ button_bg_postfix["mobs"] = "_down"
 button_bg_postfix["matr"] = "_down"
 button_bg_postfix["inv"] = "_down"
 button_bg_postfix["nici"] = "_down"
-button_bg_postfix["mcl_cblocks"] = "_down"
+button_bg_postfix["bc_cblocks"] = "_down"
 
 filtername["blocks"] = S("Building Blocks")
 filtername["deco"] = S("Decoration Blocks")
@@ -421,7 +421,7 @@ filtername["brew"] = S("Brewing")
 filtername["matr"] = S("Materials")
 filtername["inv"] = S("Survival Inventory")
 filtername["nici"] = S("Not in Creative Inventory")
-filtername["mcl_cblocks"] = "CBlocks" -- ESSA LINHA CORRIGE O ERRO DE NIL
+filtername["bc_cblocks"] = "CBlocks" -- ESSA LINHA CORRIGE O ERRO DE NIL
 
 -- Item name representing a tab, indexed by tab name
 local tab_icon = {
@@ -439,7 +439,7 @@ local tab_icon = {
 	matr = "mcl_core:stick",
 	inv = "mcl_chests:chest",
 	nici = "mcl_core:barrier",
-	mcl_cblocks = "mcl_cblocks:cobble_light_blue",
+	bc_cblocks = "bc_cblocks:cobble_light_blue",
 	moreblocks = "moreblocks:circular_saw",
 }
 
@@ -479,7 +479,7 @@ function mcl_inventory.set_creative_formspec(player)
 		if page == "moreblocks" then
 			local inv = core.get_inventory({ type = "detached", name = "creative_" .. playername })
 			inv_size = inv:get_size("moreblocks_output")
-		elseif page == "nix" or page == "mcl_cblocks" then -- Adicionado mcl_cblocks aqui
+		elseif page == "nix" or page == "bc_cblocks" then -- bc_cblocks added here
 			local inv = core.get_inventory({ type = "detached", name = "creative_" .. playername })
 			inv_size = inv:get_size("main")
 		elseif page and page ~= "inv" then
@@ -646,12 +646,12 @@ function mcl_inventory.set_creative_formspec(player)
 		tab(name, "matr") .. "tooltip[matr;" .. F(filtername["matr"]) .. "]",
 		nici,
 		tab(name, "inv") .. "tooltip[inv;" .. F(filtername["inv"]) .. "]",
-		--mcl_cblocks and mcl_colorblocks
+		--bc_cblocks and mcl_colorblocks
 
-		tab(name, "mcl_cblocks") .. "tooltip[mcl_cblocks;" .. F(filtername["mcl_cblocks"]) .. "]"
+		tab(name, "bc_cblocks") .. "tooltip[bc_cblocks;" .. F(filtername["bc_cblocks"]) .. "]"
 	})
 
-	if name == "nix" or name == "mcl_cblocks" then
+	if name == "nix" or name == "bc_cblocks" then
 		formspec = formspec .. "field[5.325,0.15;6.1,0.6;search;;" .. core.formspec_escape(filter or "") .. "]" ..
 			"field_enter_after_edit[search;true]field_close_on_enter[search;false]set_focus[search;true]"
 	end
@@ -701,25 +701,25 @@ core.register_on_player_receive_fields(function(player, formname, fields)
 		page = "matr"
 	elseif fields.nici or fields.nici_outer then
 		page = "nici"
-	elseif fields.mcl_cblocks or fields.mcl_cblocks_outer then
-		page = "mcl_cblocks"
+	elseif fields.bc_cblocks or fields.bc_cblocks_outer then
+		page = "bc_cblocks"
 	elseif fields.inv or fields.inv_outer then
 		page = "inv"
 	elseif fields.search then
 		is_search = true
 		local current_page = players[name].page
-		if current_page == "mcl_cblocks" then
+		if current_page == "bc_cblocks" then
 			set_inv_search_cblocks(fields.search, player)
-			page = "mcl_cblocks" -- Mantém o jogador na aba CBlocks
+			page = "bc_cblocks" -- Mantém o player na aba CBlocks
 		else
 			set_inv_search(fields.search, player)
-			page = "nix" -- Comportamento padrão para outras abas
+			page = "nix" -- Comportamento default for outras abas
 		end
 	elseif fields.__switch_stack then
 		set_stack_size(player, get_stack_size(player) == 1 and 64 or 1)
 	end
 
-	-- Posição de rolagem/paginação
+	-- Position de rolagem/paginação
 	if fields.creative_prev then
 		players[name].start_i = math.max(0, (players[name].start_i or 0) - (9 * 5))
 	elseif fields.creative_next then
@@ -729,10 +729,10 @@ core.register_on_player_receive_fields(function(player, formname, fields)
 	end
 
 	-- Troca/atualiza a página.
-	-- IMPORTANTE: não chamar set_inv_page numa ação de busca (is_search == true),
-	-- pois isso sobrescreveria a lista já filtrada pela lista completa (sem filtro).
+	-- IMPORTANTE: not chamar set_inv_page numa ação de busca (is_search == true),
+	-- pois this sobrescreveria a lista já filtrada pela lista completa (without filtro).
 	-- Esse era exatamente o motivo da busca na aba CBlocks "voltar pra página 1"
-	-- mostrando todos os blocos, e não os resultados da busca.
+	-- mostrando todos os blocks, e not os resultados da busca.
 	if page then
 		if not is_search and page ~= "inv" and page ~= "nix" then
 			set_inv_page(page, player)
@@ -745,9 +745,9 @@ core.register_on_player_receive_fields(function(player, formname, fields)
 	local start_i = players[name].start_i or 0
 
 	local inv_size = 0
-	if page == "nix" or page == "mcl_cblocks" then
+	if page == "nix" or page == "bc_cblocks" then
 		-- Depois de uma busca, o tamanho real está no inventário "detached",
-		-- não em inventory_lists[page] (que é a lista completa, sem filtro).
+		-- not em inventory_lists[page] (que é a lista completa, without filtro).
 		inv_size = core.get_inventory({ type = "detached", name = "creative_" .. name }):get_size("main")
 	elseif page == "moreblocks" then
 		inv_size = core.get_inventory({ type = "detached", name = "creative_" .. name }):get_size("moreblocks_output")
@@ -761,10 +761,10 @@ core.register_on_player_receive_fields(function(player, formname, fields)
 
 	if is_search then
 		players[name].filter = fields.search
-	elseif page ~= "nix" and page ~= "mcl_cblocks" then
+	elseif page ~= "nix" and page ~= "bc_cblocks" then
 		players[name].filter = ""
 	end
-	-- se page for "nix"/"mcl_cblocks" sem ser busca (ex: creative_prev/next,
+	-- se page for "nix"/"bc_cblocks" without ser busca (ex: creative_prev/next,
 	-- __switch_stack), mantém o filtro atual em players[name].filter
 
 	mcl_inventory.set_creative_formspec(player)
