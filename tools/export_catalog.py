@@ -131,9 +131,10 @@ def field_string(body: str, field: str) -> str | None:
 def clean_texture(value: str | None) -> str | None:
     if not value:
         return None
-    # Luanti texture modifiers are useful in-game but not filenames.
-    value = value.split("^")[-1]
-    value = value.strip("()")
+    # Remove modifiers de textura (incluindo verticalframe/sheet) e preserve
+    # apenas a imagem base, que corresponde ao primeiro frame da animação.
+    value = value.strip().strip("()")
+    value = value.split("^", 1)[0].strip()
     return value if value and not value.startswith("[") else None
 
 
