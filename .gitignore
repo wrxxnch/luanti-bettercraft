@@ -2,4 +2,6 @@ worlds
 screenshots
 debug.txt*
 cache
-tools
+tools/models
+tools/textures
+tools/items.json
