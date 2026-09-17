@@ -229,10 +229,47 @@ def attach_assets(items: list[dict[str, Any]], assets: list[dict[str, Any]]) -> 
         ]
 
 
-def copy_assets(game_root: Path, assets: list[dict[str, Any]], output_dir: Path) -> None:
+def asset_mod(asset: dict[str, Any]) -> str:
+    parts = Path(asset["path"]).parts
+    for folder in ("textures", "models"):
+        if folder in parts:
+            index = parts.index(folder)
+            if index >= 2:
+                return parts[index - 1]
+    return "unknown_mod"
+
+
+def copy_assets(game_root: Path, assets: list[dict[str, Any]], output_dir: Path, separated: bool) -> None:
+    used_names: set[tuple[str, str]] = set()
     for asset in assets:
         source = game_root / asset["path"]
-        destination = output_dir / asset["path"]
+        kind = "textures" if asset["kind"] == "texture" else "models"
+        filename = asset["name"]
+        if separated:
+            mod = asset_mod(asset)
+            key = (kind, mod, filename)
+            if key in used_names:
+                stem = Path(filename).stem
+                suffix = Path(filename).suffix
+                filename = f"{stem}__{len(used_names)}{suffix}"
+                counter = 2
+                while (kind, mod, filename) in used_names:
+                    filename = f"{stem}__{len(used_names)}_{counter}{suffix}"
+                    counter += 1
+            used_names.add((kind, mod, filename))
+            destination = output_dir / kind / mod / filename
+        else:
+            key = (kind, filename)
+            if key in used_names:
+                stem = Path(filename).stem
+                suffix = Path(filename).suffix
+                filename = f"{stem}__{asset_mod(asset)}{suffix}"
+                counter = 2
+                while (kind, filename) in used_names:
+                    filename = f"{stem}__{asset_mod(asset)}_{counter}{suffix}"
+                    counter += 1
+            used_names.add((kind, filename))
+            destination = output_dir / kind / filename
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
 
@@ -246,11 +283,15 @@ def main() -> int:
         default="https://raw.githubusercontent.com/wrxxnch/luanti-bettercraft/main/games/bettercraft",
         help="prefixo para URLs públicas dos assets; use vazio para omitir URLs",
     )
-    parser.add_argument("--copy-assets", type=Path, help="opcionalmente copia textures/ e models/ para esta pasta")
     parser.add_argument(
         "--gentexture",
         action="store_true",
-        help="gera <pasta-de-saida>/textures e <pasta-de-saida>/models com todos os assets",
+        help="gera textures/ e models/ planos, sem subpastas de mods",
+    )
+    parser.add_argument(
+        "--gentexture-separated",
+        action="store_true",
+        help="gera textures/<mod>/ e models/<mod>/ separados por mod",
     )
     args = parser.parse_args()
 
@@ -273,18 +314,13 @@ def main() -> int:
     ]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(public_items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    assets_dir = args.copy_assets
-    if args.gentexture:
+    if args.gentexture and args.gentexture_separated:
+        parser.error("use apenas uma opção entre --gentexture e --gentexture-separated")
+    if args.gentexture or args.gentexture_separated:
         assets_dir = args.output.parent
         for kind in ("textures", "models"):
             (assets_dir / kind).mkdir(parents=True, exist_ok=True)
-        for asset in assets:
-            source = game_root / asset["path"]
-            destination = assets_dir / ("textures" if asset["kind"] == "texture" else "models") / asset["path"]
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(source, destination)
-    elif assets_dir:
-        copy_assets(game_root, assets, assets_dir)
+        copy_assets(game_root, assets, assets_dir, separated=args.gentexture_separated)
     print(f"wrote {args.output}")
     return 0
 

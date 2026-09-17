@@ -23,7 +23,18 @@ python3 tools/export_catalog.py \
   --gentexture
 ```
 
-Isso cria `textures/` e `models/` ao lado do JSON de saída, preservando os caminhos internos e evitando colisões de nomes. No site, abra a aba **TEXTURAS** e use **Importar textures/models** para selecionar os arquivos gerados.
+Isso cria `textures/` e `models/` ao lado do JSON de saída, colocando todos os arquivos diretamente na pasta correspondente, sem subpastas de mods. Se houver nomes repetidos, o script acrescenta o nome do mod ao arquivo para não sobrescrever nada.
+
+Para separar os arquivos por mod, use a opção alternativa:
+
+```bash
+python3 tools/export_catalog.py \
+  --game-root games/bettercraft \
+  --output ../blockframestudio/src/data/bettercraftCatalog.json \
+  --gentexture-separated
+```
+
+Essa opção cria `textures/<mod>/` e `models/<mod>/`. `--gentexture` e `--gentexture-separated` são mutuamente exclusivas. A opção antiga `--copy-assets` foi removida. No site, abra a aba **TEXTURAS** e use **Importar textures/models** para selecionar os arquivos gerados.
 
 O arquivo JSON final é um array puro. Cada posição contém exatamente:
 
@@ -52,9 +63,9 @@ O catálogo obtido pelo parser inclui:
 - `drawtype`, incluindo itens `plantlike`;
 - `mesh` e modelos relacionados;
 - imagens de inventário e de mão;
-- todas as texturas e modelos encontrados durante a varredura; eles podem ser copiados para uma pasta de distribuição com `--copy-assets`, mas não são adicionados ao array JSON para preservar o formato solicitado.
+- todas as texturas e modelos encontrados durante a varredura; eles podem ser copiados para pastas planas com `--gentexture` ou separados por mod com `--gentexture-separated`, mas não são adicionados ao array JSON para preservar o formato solicitado.
 
-Para usar outro local público dos assets, passe `--asset-base-url`. Para também copiar os assets para uma pasta de distribuição, passe `--copy-assets <pasta>`.
+Para usar outro local público dos assets relacionados durante a varredura, passe `--asset-base-url`.
 
 O site `blockframestudio` importa `src/data/bettercraftCatalog.json` durante o build e transforma os registros na paleta de itens e blocos.
 
