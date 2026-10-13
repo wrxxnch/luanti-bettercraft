@@ -33,7 +33,7 @@ local function register_orange_grass()
 	def.color         = nil
 	def.overlay_tiles = nil
 	def.paramtype2    = "none"
-	def.param2        = nil
+	def.param2        = 0
 
 	-- topo: grama (cinza) multiplicada pela cor laranja
 	local top         = top_tex .. "^[multiply:" .. ORANGE
@@ -75,7 +75,6 @@ local core_biome = {
 	humidity_point = 0.65,
 	vertical_blend = 4,
 	grass_color = "#df6827",
-	foliage_color = "#df6827",
 }
 
 if core.register_biome then
