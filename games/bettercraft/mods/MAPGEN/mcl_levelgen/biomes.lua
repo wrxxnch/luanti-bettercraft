@@ -1562,6 +1562,8 @@ local function register_underground_biome (nodes, textid, temperature, humidity,
 end
 
 local function register_biomes_underground (nodes)
+	register_underground_biome (nodes, "IceCaves", {-1.0, 0.2,}, {-1.0, 0.3,},
+				    {0.7, 1.0,}, ALL, {0.45, 1.0,}, 0.0)
 	register_underground_biome (nodes, "DripstoneCaves", ALL, ALL,
 				    {0.8, 1.0,}, ALL, ALL, 0.0)
 	register_underground_biome (nodes, "LushCaves", ALL, {0.7, 1.0,},
@@ -3037,6 +3039,24 @@ mcl_levelgen.register_biome ("DripstoneCaves", {
 	sky_color = "#78a7ff",
 })
 
+mcl_levelgen.register_biome ("IceCaves", {
+	carvers = {
+		air = {"mcl_levelgen:cave_carver", "mcl_levelgen:cave_extra_underground_carver", "mcl_levelgen:ravine_carver",},
+	},
+	downfall = 0.0,
+	features = {{}, {}, {"mcl_amethyst:amethyst_geode",}, {"mcl_dungeons:monster_room", "mcl_dungeons:monster_room_deep",}, {}, {}, {
+		"mcl_levelgen:ore_diorite_upper", "mcl_levelgen:ore_diorite_lower",
+		"mcl_levelgen:ore_andesite_upper", "mcl_levelgen:ore_andesite_lower",
+		"mcl_levelgen:ore_tuff", "mcl_levelgen:ore_coal_upper", "mcl_levelgen:ore_coal_lower",
+		"mcl_levelgen:ore_iron_upper", "mcl_levelgen:ore_iron_middle", "mcl_levelgen:ore_iron_small",
+		"mcl_levelgen:ore_gold", "mcl_levelgen:ore_gold_lower", "mcl_levelgen:ore_redstone",
+		"mcl_levelgen:ore_redstone_lower", "mcl_levelgen:ore_diamond", "mcl_levelgen:ore_diamond_medium",
+		"mcl_levelgen:ore_diamond_large", "mcl_levelgen:ore_diamond_buried", "mcl_levelgen:ore_lapis",
+		"mcl_levelgen:ore_lapis_buried", "mcl_levelgen:ore_copper", "mcl_levelgen:disk_gravel",
+	}, {"mcl_ice_caves:ice_cave_decorations",}, {"mcl_levelgen:spring_water", "mcl_levelgen:spring_lava",}, {}, {},},
+	has_precipitation = false, temperature = 0.0, grass_palette_index = 0,
+	groups = {is_overworld = true,}, fog_color = "#263b59", sky_color = "#789bd6",
+})
 mcl_levelgen.register_biome ("EndBarrens", {
 	carvers = {
 	},

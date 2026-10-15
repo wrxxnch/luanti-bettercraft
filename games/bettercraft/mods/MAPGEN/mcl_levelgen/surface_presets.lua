@@ -337,7 +337,9 @@ function mcl_levelgen.overworld_surface_rule (preset, limit_surface,
 						       sandstone))))
 	local default_surface
 		= if_true (ON_FLOOR,
-			   sequence (if_true (biome ("FrozenPeaks", "JaggedPeaks"),
+			   sequence (if_true (biome ("IceCaves"),
+					      packed_ice),
+				     if_true (biome ("FrozenPeaks", "JaggedPeaks"),
 					      stone),
 				     if_true (biome ("WarmOcean", "LukewarmOcean",
 						     "DeepLukewarmOcean"),
