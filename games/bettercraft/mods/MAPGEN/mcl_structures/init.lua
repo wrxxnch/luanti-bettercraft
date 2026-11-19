@@ -151,6 +151,7 @@ end
 
 local function scan_for_mts(path)
 	local files = core.get_dir_list(path, false)
+	local biome_folder = path:match("/schematics/biomes/([^/]+)$")
 	for _, file in ipairs(files) do
 		if file:sub(-4) == ".mts" then
 			local name = file:sub(1, -5)
@@ -158,6 +159,11 @@ local function scan_for_mts(path)
 
 			local mod = path:match("/mods/([^/]+)")
 			mts_mod[name] = mod or "unknown"
+			if biome_folder then
+				local prefixed_name = biome_folder .. "_" .. name
+				mts_index[prefixed_name] = path .. "/" .. file
+				mts_mod[prefixed_name] = mod or "unknown"
+			end
 		end
 	end
 
