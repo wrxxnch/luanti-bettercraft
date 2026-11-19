@@ -13,4 +13,8 @@ Coloque os arquivos `.mts` diretamente na subpasta com o nome do bioma. O mod de
 
 Para a estrutura **Abandoned Camp**, salve os schematics numerados em `dappled_forest/`, por exemplo `abandoned_camp1.mts`, `abandoned_camp2.mts` e `abandoned_camp3.mts`. Todos são descobertos e uma variante é escolhida aleatoriamente quando a estrutura for gerada. `abandoned_camp.mts` e outros arquivos `.mts` também continuam aceitos. Os schematics precisam ter o piso na base e ser compatíveis com rotação aleatória.
 
+Os três arquivos incluídos são exemplos v4: `abandoned_camp1.mts` (tenda laranja, fogueira e barril), `abandoned_camp2.mts` (abrigo inclinado com lona azul-ciano) e `abandoned_camp3.mts` (abrigo maior parcialmente desabado com lona amarela). Eles usam blocos existentes do jogo e podem servir de base para edição/substituição.
+
+Cada arquivo em uma pasta de biome também é registrado com o nome `<pasta>_<nome-do-arquivo-sem-extensão>`. Por exemplo, os exemplos ficam como `dappled_forest_abandoned_camp1`, `dappled_forest_abandoned_camp2` e `dappled_forest_abandoned_camp3`; use `/spawnstruct dappled_forest_abandoned_camp1` para posicionar um exemplo, ou `/spawnstruct_search dappled_forest_abandoned_camp` para encontrá-los.
+
 Novos arquivos `.mts` nas pastas existentes não exigem mudanças no Lua, mas requerem reiniciar o mundo para que a descoberta ocorra novamente.

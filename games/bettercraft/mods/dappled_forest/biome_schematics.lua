@@ -54,6 +54,7 @@ local function discover_schematics()
 				schematics[#schematics + 1] = {
 					biome_folder = folder,
 					path = directory .. "/" .. filename,
+					structure_name = folder .. "_" .. lower_filename:gsub("%.mts$", ""),
 					abandoned_camp_variant = tonumber(camp_variant),
 				}
 			end
@@ -68,6 +69,14 @@ if #schematics == 0 then
 	core.log("action", "[" .. modname .. "] no biome .mts schematics found yet")
 else
 	core.log("action", "[" .. modname .. "] loaded " .. #schematics .. " biome .mts schematic(s)")
+end
+
+if mcl_structures and mcl_structures.register_structure then
+	for _, schematic in ipairs(schematics) do
+		mcl_structures.register_structure(schematic.structure_name, {
+			filenames = { schematic.path },
+		}, true)
+	end
 end
 
 if #schematics == 0 or not core.register_on_generated

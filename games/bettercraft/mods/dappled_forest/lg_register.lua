@@ -33,7 +33,7 @@ local function register_orange_grass()
 	def.color         = nil
 	def.overlay_tiles = nil
 	def.paramtype2    = "none"
-	def.param2        = 0
+	def.param2        = nil
 
 	-- topo: grama (cinza) multiplicada pela cor laranja
 	local top         = top_tex .. "^[multiply:" .. ORANGE
@@ -75,6 +75,7 @@ local core_biome = {
 	humidity_point = 0.65,
 	vertical_blend = 4,
 	grass_color = "#df6827",
+	-- foliage_color = "#df6827",
 }
 
 if core.register_biome then
@@ -167,51 +168,75 @@ end
 -- Geração
 ---------------------------------------------------------------------------
 core.register_on_generated(function(minp, maxp, blockseed)
-	local rng = PseudoRandom((blockseed or 0) + 41317)
-	local trees = 0
+	-- chunks totalmente subterrâneos ou muito altos não têm grama de superfície
+	if maxp.y < 0 or minp.y > 160 then
+		return
+	end
 
-	-- 1) troca a grama do bioma pela grama laranja
-	if core.registered_nodes[ORANGE_GRASS] then
-		local grass = core.find_nodes_in_area_under_air(minp, maxp, { "mcl_core:dirt_with_grass" })
-		for _, p in ipairs(grass) do
-			if dappled_biome_at({ x = p.x, y = p.y + 1, z = p.z }) then
-				core.swap_node(p, { name = ORANGE_GRASS })
+	local rng = PseudoRandom((blockseed or 0) + 41317)
+	local base_grass = "mcl_core:dirt_with_grass"
+	local floor = math.floor
+
+	-- cache de bioma por blocos de 4x4 colunas (evita milhares de consultas)
+	local biome_cache = {}
+	local function dappled(x, y, z)
+		local key = floor(x / 4) * 1000003 + floor(z / 4)
+		local v = biome_cache[key]
+		if v == nil then
+			v = dappled_biome_at({ x = x, y = y, z = z }) and true or false
+			biome_cache[key] = v
+		end
+		return v
+	end
+
+	local grass = core.find_nodes_in_area_under_air(minp, maxp, { base_grass, ORANGE_GRASS })
+
+	-- 1) mapa de superfície + troca da grama
+	local surface_y_by_x = {}
+	local has_orange = core.registered_nodes[ORANGE_GRASS] ~= nil
+
+	for _, p in ipairs(grass) do
+		if p.y > minp.y and p.y < maxp.y then
+			local col = surface_y_by_x[p.x]
+			if not col then
+				col = {}
+				surface_y_by_x[p.x] = col
 			end
+			if not col[p.z] or p.y > col[p.z] then
+				col[p.z] = p.y
+			end
+		end
+
+		if has_orange and dappled(p.x, p.y + 1, p.z)
+				and core.get_node(p).name == base_grass then
+			core.swap_node(p, { name = ORANGE_GRASS })
 		end
 	end
 
 	-- 2) árvores
-	for attempt = 1, 25 do
+	local trees = 0
+	for _ = 1, 25 do
 		local x = rng:next(minp.x + 2, maxp.x - 2)
 		local z = rng:next(minp.z + 2, maxp.z - 2)
-		local surface_y
+		local col = surface_y_by_x[x]
+		local surface_y = col and col[z]
 
-		for y = maxp.y - 1, minp.y + 1, -1 do
-			if is_grass(core.get_node({ x = x, y = y, z = z }).name) then
-				surface_y = y + 1
-				break
-			end
-		end
-
-		if surface_y and dappled_biome_at({ x = x, y = surface_y, z = z }) then
-			if place_poplar_tree(x, surface_y, z, rng) then
+		if surface_y and dappled(x, surface_y + 1, z) then
+			if place_poplar_tree(x, surface_y + 1, z, rng) then
 				trees = trees + 1
 			end
 		end
 	end
 
 	-- 3) arbustos vermelhos
-	for attempt = 1, 10 + trees * 3 do
+	for _ = 1, 10 + trees * 3 do
 		local x = rng:next(minp.x, maxp.x)
 		local z = rng:next(minp.z, maxp.z)
+		local col = surface_y_by_x[x]
+		local surface_y = col and col[z]
 
-		for y = maxp.y - 1, minp.y + 1, -1 do
-			if is_grass(core.get_node({ x = x, y = y, z = z }).name) then
-				if dappled_biome_at({ x = x, y = y + 1, z = z }) then
-					try_red_shrub(x, y + 1, z)
-				end
-				break
-			end
+		if surface_y and dappled(x, surface_y + 1, z) then
+			try_red_shrub(x, surface_y + 1, z)
 		end
 	end
 end)
