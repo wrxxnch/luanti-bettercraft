@@ -1,0 +1,7 @@
+worlds
+screenshots
+debug.txt*
+cache/*
+tools/models
+tools/textures
+tools/items.json

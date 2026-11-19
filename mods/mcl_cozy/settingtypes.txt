@@ -1,0 +1,7 @@
+# If enabled, messages like "* player stands up" (in style of /me) will be sent
+# each time a player sits, lays or stands up
+mcl_cozy_print_actions (Print actions) bool false
+
+# If enabled, players will be able to sit on stairs and slabs by right-clicking
+# them, if enabled in their player settings
+mcl_cozy_sit_on_stairs (Allow sitting on stairs & slabs) bool true
